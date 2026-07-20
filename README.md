@@ -58,17 +58,30 @@ I build intelligent applications, web solutions, and data-driven software — so
 
 ## 🚀 Featured Projects
 
-- 🔍 **AI Fraud App Detection System**
-  - Sentiment Analysis using Machine Learning
-  - Java Spring Boot + Flask + MySQL
+### 🔍 AI Fraud App Detection System
+**Spring Boot • Flask • Python • MySQL • Machine Learning**
+- AI-powered system for detecting fraudulent Android applications using Sentiment Analysis.
+- Integrated Spring Boot backend with a Flask ML API for real-time predictions.
 
-- 🛒 **Amazon Clone**
-  - Responsive E-commerce Website
-  - HTML, CSS, JavaScript, PHP
+### 🔐 Digital Consent & Permission Management System
+**Java • JDBC • MySQL • UML**
+- Developed a role-based consent management platform with request approval workflows.
+- Implemented secure database operations, audit logs, and admin management features.
 
-- 📊 **Cricket Analytics Dashboard**
-  - Python, Pandas, NumPy, Matplotlib
+### 🛒 Amazon Clone
+**HTML • CSS • JavaScript • MySQL**
+- Built a responsive e-commerce website with user authentication, product catalog, shopping cart, and checkout functionality.
+- Focused on responsive UI design and seamless database integration.
 
+### 📊 Cricket Analytics Dashboard
+**Python • Pandas • NumPy • Matplotlib**
+- Analyzed cricket match and player statistics through interactive visualizations.
+- Generated insights on batting, bowling, and team performance using data analytics.
+
+### 📈 Customer Complaint Analysis Dashboard
+**R Shiny • Plotly • Tidyverse**
+- Developed an interactive analytics dashboard to visualize complaint trends and KPIs.
+- Enabled data-driven decision-making using dynamic filters and charts.
 ---
 
 # 📊 GitHub Stats
