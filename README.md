@@ -104,7 +104,7 @@ I build intelligent applications, web solutions, and data-driven software — so
 - 🎵 Music
 - ♟️ Strategy & Puzzle Games
 - ✈️ Traveling
-
+---
 # 📊 GitHub Stats
 
 ![](https://github-readme-stats.vercel.app/api?username=atul-dubey-2005&show_icons=true&theme=tokyonight)
