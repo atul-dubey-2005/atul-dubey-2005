@@ -1,44 +1,35 @@
-<h1 align="center">Hi, I'm Atul Dubey 👋</h1>
+# Hi, I'm Atul Dubey 👋
 
-<h3 align="center">Final-Year B.Sc. Information Technology Student | Software Developer | AI & Full-Stack Enthusiast</h3>
+### Final-Year B.Sc. Information Technology Student | Software Developer | AI & Full-Stack Enthusiast
 
-<p align="center">
-I build intelligent applications, web solutions, and data-driven software — solving real-world problems through Artificial Intelligence, Full-Stack Development, and Machine Learning.
-</p>
-
-<p align="center">
-  <a href="https://www.linkedin.com/in/atul-dubey-059197320">
-    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
-  </a>
-  <a href="https://instagram.com/atul_dubey_2005">
-    <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=Instagram&logoColor=white" />
-  </a>
-  <a href="mailto:atuldubey0214@gmail.com">
-    <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
-  </a>
-</p>
+Passionate about building intelligent applications, web solutions, and data-driven software. I enjoy solving real-world problems through Artificial Intelligence, Full-Stack Development, and Machine Learning while continuously learning new technologies.
 
 ---
 
-## 🛠️ Tech Stack
+## 🌐 Connect with Me
 
-**Languages**
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/atul-dubey-059197320)
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=Instagram&logoColor=white)](https://instagram.com/atul_dubey_2005)
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:atuldubey0214@gmail.com)
 
+---
+
+# 💻 Tech Stack
+
+### Programming Languages
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![C](https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=black)
 ![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 
-**Frontend**
-
+### Frontend
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
 
-**Backend & Database**
-
+### Backend & Database
 ![Node.js](https://img.shields.io/badge/Node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
 ![Firebase](https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=firebase)
@@ -46,15 +37,13 @@ I build intelligent applications, web solutions, and data-driven software — so
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
 
-**AI / Data Science**
-
+### AI / Data Science
 ![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
 ![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
 ![Matplotlib](https://img.shields.io/badge/Matplotlib-white?style=for-the-badge&logo=matplotlib&logoColor=black)
 ![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
 
-**Tools & Platforms**
-
+### Tools
 ![Git](https://img.shields.io/badge/Git-F05033?style=for-the-badge&logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-121011?style=for-the-badge&logo=github&logoColor=white)
 ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
@@ -67,39 +56,35 @@ I build intelligent applications, web solutions, and data-driven software — so
 
 ## 🚀 Featured Projects
 
-### 🔍 [AI Fraud App Detection System](#)
-Sentiment analysis system for detecting fraudulent applications using machine learning.
-`Java Spring Boot` `Flask` `MySQL`
+- 🔍 **AI Fraud App Detection System**
+  - Sentiment Analysis using Machine Learning
+  - Java Spring Boot + Flask + MySQL
 
-### 🛒 [Amazon Clone](#)
-A responsive e-commerce website replicating core Amazon functionality.
-`HTML` `CSS` `JavaScript` `PHP`
+- 🛒 **Amazon Clone**
+  - Responsive E-commerce Website
+  - HTML, CSS, JavaScript, PHP
 
-### 📊 [Cricket Analytics Dashboard](#)
-Data analysis and visualization dashboard for cricket statistics.
-`Python` `Pandas` `NumPy` `Matplotlib`
-
-> 💡 Tip: Replace the `#` links above with your actual repository URLs so visitors can click through to each project.
+- 📊 **Cricket Analytics Dashboard**
+  - Python, Pandas, NumPy, Matplotlib
 
 ---
 
-## 📊 GitHub Stats
+# 📊 GitHub Stats
 
-<p align="center">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=atul-dubey-2005&show_icons=true&theme=tokyonight" />
-  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=atul-dubey-2005&layout=compact&theme=tokyonight" />
-</p>
+![](https://github-readme-stats.vercel.app/api?username=atul-dubey-2005&show_icons=true&theme=tokyonight)
 
-<p align="center">
-  <img src="https://streak-stats.demolab.com/?user=atul-dubey-2005&theme=tokyonight" />
-</p>
+![](https://streak-stats.demolab.com/?user=atul-dubey-2005&theme=tokyonight)
+
+![](https://github-readme-stats.vercel.app/api/top-langs/?username=atul-dubey-2005&layout=compact&theme=tokyonight)
 
 ---
 
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username=atul-dubey-2005&style=for-the-badge" alt="Profile views" />
-</p>
+## 📈 Profile Views
 
-<p align="center">
-  <em>"First, solve the problem. Then, write the code." — John Johnson</em>
-</p>
+![](https://komarev.com/ghpvc/?username=atul-dubey-2005&style=for-the-badge)
+
+---
+
+### 💡 Quote
+
+> *"First, solve the problem. Then, write the code."* – John Johnson
