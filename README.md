@@ -7,13 +7,13 @@ I build intelligent applications, web solutions, and data-driven software — so
 </p>
 
 ---
-<p align="center">
+
 ## 🌐 Connect with Me
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/atul-dubey-059197320)
 [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=Instagram&logoColor=white)](https://instagram.com/atul_dubey_2005)
 [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:atuldubey0214@gmail.com)
-</p>
+
 ---
 
 # 💻 Tech Stack
