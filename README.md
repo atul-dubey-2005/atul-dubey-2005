@@ -1,17 +1,19 @@
-# Hi, I'm Atul Dubey 👋
+<h1 align="center">Hi, I'm Atul Dubey 👋</h1>
 
-### Final-Year B.Sc. Information Technology Student | Software Developer | AI & Full-Stack Enthusiast
+<h3 align="center">Final-Year B.Sc. Information Technology Student | Software Developer | AI & Full-Stack Enthusiast</h3>
 
-Passionate about building intelligent applications, web solutions, and data-driven software. I enjoy solving real-world problems through Artificial Intelligence, Full-Stack Development, and Machine Learning while continuously learning new technologies.
+<p align="center">
+I build intelligent applications, web solutions, and data-driven software — solving real-world problems through Artificial Intelligence, Full-Stack Development, and Machine Learning.
+</p>
 
 ---
-
+<p align="center">
 ## 🌐 Connect with Me
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/atul-dubey-059197320)
 [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=Instagram&logoColor=white)](https://instagram.com/atul_dubey_2005)
 [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:atuldubey0214@gmail.com)
-
+</p>
 ---
 
 # 💻 Tech Stack
