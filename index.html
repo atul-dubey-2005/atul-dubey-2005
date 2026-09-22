@@ -1,596 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>John Doe | Developer Portfolio</title>
-  
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    /* CSS Variables for Easy Customization */
-    :root {
-      --bg-color: #0f172a;
-      --card-bg: #1e293b;
-      --text-color: #f8fafc;
-      --text-secondary: #94a3b8;
-      --primary-color: #38bdf8;
-      --primary-hover: #0284c7;
-      --nav-bg: rgba(15, 23, 42, 0.85);
-      --border-color: #334155;
-      --transition: all 0.3s ease;
-    }
-
-    /* Reset & Base Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    ul {
-      list-style: none;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .section {
-      padding: 100px 0 50px;
-    }
-
-    .section-title {
-      font-size: 2.2rem;
-      text-align: center;
-      margin-bottom: 50px;
-      position: relative;
-    }
-
-    .section-title::after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 4px;
-      background: var(--primary-color);
-      margin: 10px auto 0;
-      border-radius: 2px;
-    }
-
-    /* Navigation Bar */
-    .navbar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: var(--nav-bg);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 70px;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--primary-color);
-    }
-
-    .nav-menu {
-      display: flex;
-      gap: 30px;
-    }
-
-    .nav-link {
-      font-size: 1rem;
-      color: var(--text-secondary);
-      transition: var(--transition);
-    }
-
-    .nav-link:hover {
-      color: var(--primary-color);
-    }
-
-    .hamburger {
-      display: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: var(--text-color);
-    }
-
-    /* Hero Section */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding-top: 70px;
-    }
-
-    .hero-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 50px;
-      width: 100%;
-    }
-
-    .hero-text {
-      flex: 1;
-    }
-
-    .hero-text h3 {
-      color: var(--primary-color);
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-    }
-
-    .hero-text h1 {
-      font-size: 3.5rem;
-      line-height: 1.2;
-      margin-bottom: 15px;
-    }
-
-    .hero-text p {
-      color: var(--text-secondary);
-      font-size: 1.1rem;
-      margin-bottom: 30px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 28px;
-      background: var(--primary-color);
-      color: #000;
-      font-weight: 600;
-      border-radius: 5px;
-      transition: var(--transition);
-      border: 2px solid var(--primary-color);
-      cursor: pointer;
-    }
-
-    .btn:hover {
-      background: transparent;
-      color: var(--primary-color);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--primary-color);
-      margin-left: 15px;
-    }
-
-    .btn-outline:hover {
-      background: var(--primary-color);
-      color: #000;
-    }
-
-    .hero-img {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-    }
-
-    .hero-img img {
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid var(--primary-color);
-      box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
-    }
-
-    /* About Section */
-    .about-content {
-      display: flex;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .about-text {
-      flex: 1;
-      color: var(--text-secondary);
-    }
-
-    .about-text p {
-      margin-bottom: 15px;
-    }
-
-    .skills-container {
-      flex: 1;
-    }
-
-    .skills-title {
-      font-size: 1.2rem;
-      margin-bottom: 15px;
-      color: var(--text-color);
-    }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .skill-tag {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      color: var(--primary-color);
-    }
-
-    /* Projects Section */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-
-    .project-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      overflow: hidden;
-      transition: var(--transition);
-    }
-
-    .project-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--primary-color);
-    }
-
-    .project-img {
-      width: 100%;
-      height: 200px;
-      background-color: #334155;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-secondary);
-      font-size: 3rem;
-    }
-
-    .project-info {
-      padding: 20px;
-    }
-
-    .project-title {
-      font-size: 1.3rem;
-      margin-bottom: 10px;
-    }
-
-    .project-desc {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-      margin-bottom: 15px;
-    }
-
-    .project-links {
-      display: flex;
-      gap: 15px;
-    }
-
-    .project-links a {
-      color: var(--primary-color);
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .project-links a:hover {
-      text-decoration: underline;
-    }
-
-    /* Contact Section */
-    .contact-form {
-      max-width: 600px;
-      margin: 0 auto;
-      background: var(--card-bg);
-      padding: 30px;
-      border-radius: 10px;
-      border: 1px solid var(--border-color);
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--text-color);
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 12px;
-      background: var(--bg-color);
-      border: 1px solid var(--border-color);
-      border-radius: 5px;
-      color: var(--text-color);
-      outline: none;
-      transition: var(--transition);
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      border-color: var(--primary-color);
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 30px 0;
-      border-top: 1px solid var(--border-color);
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-    }
-
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-bottom: 15px;
-    }
-
-    .social-links a {
-      font-size: 1.3rem;
-      color: var(--text-secondary);
-      transition: var(--transition);
-    }
-
-    .social-links a:hover {
-      color: var(--primary-color);
-    }
-
-    /* Mobile Responsive Styles */
-    @media (max-width: 768px) {
-      .hamburger {
-        display: block;
-      }
-
-      .nav-menu {
-        position: fixed;
-        top: 70px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 70px);
-        background: var(--bg-color);
-        flex-direction: column;
-        align-items: center;
-        padding-top: 50px;
-        transition: var(--transition);
-      }
-
-      .nav-menu.active {
-        left: 0;
-      }
-
-      .hero-content {
-        flex-direction: column-reverse;
-        text-align: center;
-      }
-
-      .hero-text h1 {
-        font-size: 2.5rem;
-      }
-
-      .about-content {
-        flex-direction: column;
-      }
-
-      .btn-outline {
-        margin-left: 0;
-        margin-top: 10px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atul Dubey | Frontend & Web Developer</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <div class="container nav-container">
-      <a href="#" class="logo">DevPortfolio.</a>
-      <ul class="nav-menu" id="nav-menu">
-        <li><a href="#hero" class="nav-link">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-      <div class="hamburger" id="hamburger">
-        <i class="fas fa-bars"></i>
-      </div>
-    </div>
-  </nav>
+    <!-- Background Glow Blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
 
-  <!-- Hero Section -->
-  <section class="hero" id="hero">
-    <div class="container hero-content">
-      <div class="hero-text">
-        <h3>Hi, I'm</h3>
-        <h1>John Doe</h1>
-        <p>A passionate Full-Stack Web Developer crafting clean, user-friendly, and responsive digital experiences.</p>
-        <a href="#projects" class="btn">View My Work</a>
-        <a href="#contact" class="btn btn-outline">Contact Me</a>
-      </div>
-      <div class="hero-img">
-        <!-- Placeholder Avatar -->
-        <img src="https://via.placeholder.com/300" alt="Profile Picture" />
-      </div>
-    </div>
-  </section>
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <a href="#hero" class="nav-logo">&lt;Atul<span>Dubey</span>/&gt;</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
 
-  <!-- About Section -->
-  <section class="section container" id="about">
-    <h2 class="section-title">About Me</h2>
-    <div class="about-content">
-      <div class="about-text">
-        <p>I have over 3 years of experience in web development. I love turning complex problems into simple, beautiful, and intuitive designs.</p>
-        <p>When I'm not coding, you can find me exploring new technologies, writing technical blogs, or enjoying a good cup of coffee.</p>
-      </div>
-      <div class="skills-container">
-        <h3 class="skills-title">Technologies I work with:</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">HTML5</span>
-          <span class="skill-tag">CSS3</span>
-          <span class="skill-tag">JavaScript (ES6+)</span>
-          <span class="skill-tag">React.js</span>
-          <span class="skill-tag">Node.js</span>
-          <span class="skill-tag">Express.js</span>
-          <span class="skill-tag">MongoDB</span>
-          <span class="skill-tag">Git & GitHub</span>
-        </div>
-      </div>
-    </div>
-  </section>
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <div class="badge">👋 Welcome to my portfolio</div>
+                <h1 class="hero-title">Hi, I'm <span class="highlight">Atul Dubey</span></h1>
+                <p class="hero-subtitle">Frontend Developer & Web Application Engineer</p>
+                <p class="hero-description">
+                    I build modern, responsive, and high-performance web applications with focus on clean JavaScript, intuitive UI/UX, and robust user authentication systems.
+                </p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-code"></i> View Projects</a>
+                    <a href="#contact" class="btn btn-secondary"><i class="fa-solid fa-paper-plane"></i> Contact Me</a>
+                </div>
+                <div class="hero-socials">
+                    <a href="https://github.com/atul-dubey-2005" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/atul-dubey-059197320" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="mailto:atuldubey0214@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+        </section>
 
-  <!-- Projects Section -->
-  <section class="section container" id="projects">
-    <h2 class="section-title">Featured Projects</h2>
-    <div class="projects-grid">
-      
-      <!-- Project 1 -->
-      <div class="project-card">
-        <div class="project-img"><i class="fas fa-shopping-cart"></i></div>
-        <div class="project-info">
-          <h3 class="project-title">E-Commerce Platform</h3>
-          <p class="project-desc">A full-featured online store built with modern web technologies, complete with cart features and payment integration.</p>
-          <div class="project-links">
-            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-            <a href="#" target="_blank"><i class="fab fa-github"></i> Code</a>
-          </div>
-        </div>
-      </div>
+        <!-- About Section -->
+        <section id="about" class="section">
+            <h2 class="section-title">About Me</h2>
+            <div class="glass-card about-card">
+                <div class="about-text">
+                    <p>
+                        I am a passionate **Frontend & Web Developer** dedicated to crafting user-centric, interactive, and visually stunning web applications. I turn complex logic into clean, efficient code and elegant glassmorphism user interfaces.
+                    </p>
+                    <p>
+                        My work focuses on leveraging standard **HTML5**, **CSS3**, and **Vanilla JavaScript** to build fast, lightweight, and responsive applications with complete client-side data management, dynamic arithmetic engines, and interactive storage handling.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-      <!-- Project 2 -->
-      <div class="project-card">
-        <div class="project-img"><i class="fas fa-tasks"></i></div>
-        <div class="project-info">
-          <h3 class="project-title">Task Management App</h3>
-          <p class="project-desc">A drag-and-drop productivity dashboard designed to keep track of daily projects, deadlines, and progress.</p>
-          <div class="project-links">
-            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-            <a href="#" target="_blank"><i class="fab fa-github"></i> Code</a>
-          </div>
-        </div>
-      </div>
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="skills-grid">
+                <div class="glass-card skill-card">
+                    <i class="fa-brands fa-html5 skill-icon html-color"></i>
+                    <h3>HTML5</h3>
+                    <p>Semantic markup & Accessibility</p>
+                </div>
+                <div class="glass-card skill-card">
+                    <i class="fa-brands fa-css3-alt skill-icon css-color"></i>
+                    <h3>CSS3 & Glassmorphism</h3>
+                    <p>Grid, Flexbox, Animations & Themes</p>
+                </div>
+                <div class="glass-card skill-card">
+                    <i class="fa-brands fa-js skill-icon js-color"></i>
+                    <h3>JavaScript (ES6+)</h3>
+                    <p>DOM Manipulation, Regex & Logic Engines</p>
+                </div>
+                <div class="glass-card skill-card">
+                    <i class="fa-brands fa-git-alt skill-icon git-color"></i>
+                    <h3>Git & GitHub</h3>
+                    <p>Version Control & Collaboration</p>
+                </div>
+                <div class="glass-card skill-card">
+                    <i class="fa-solid fa-rocket skill-icon vercel-color"></i>
+                    <h3>Vercel Deployment</h3>
+                    <p>Continuous Deployment & Hosting</p>
+                </div>
+                <div class="glass-card skill-card">
+                    <i class="fa-solid fa-database skill-icon storage-color"></i>
+                    <h3>Web Storage APIs</h3>
+                    <p>localStorage & sessionStorage State</p>
+                </div>
+            </div>
+        </section>
 
-      <!-- Project 3 -->
-      <div class="project-card">
-        <div class="project-img"><i class="fas fa-cloud-sun"></i></div>
-        <div class="project-info">
-          <h3 class="project-title">Weather Dashboard</h3>
-          <p class="project-desc">A responsive weather application fetching real-time weather forecasts and conditions using OpenWeather API.</p>
-          <div class="project-links">
-            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-            <a href="#" target="_blank"><i class="fab fa-github"></i> Code</a>
-          </div>
-        </div>
-      </div>
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
 
-    </div>
-  </section>
+                <!-- Featured Project: Ultimate Pro Scientific Calculator -->
+                <div class="glass-card project-card featured-project">
+                    <div class="project-header">
+                        <span class="project-badge">Featured</span>
+                        <h3>Ultimate Pro Scientific Calculator</h3>
+                    </div>
+                    <p class="project-desc">
+                        A modern, desktop-grade scientific calculator application built with Vanilla JS. Features dual-method User Authentication, DEG/RAD angle modes, 2nd function toggles, active memory registers, and an interactive slide-out history drawer.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tag">HTML5</span>
+                        <span class="tag">CSS Grid</span>
+                        <span class="tag">JavaScript ES6+</span>
+                        <span class="tag">Glassmorphism</span>
+                        <span class="tag">Web Storage</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://professional-calculator-rosy.vercel.app/" target="_blank" class="btn btn-sm btn-primary">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                        </a>
+                        <a href="https://github.com/atul-dubey-2005/Professional-Calculator" target="_blank" class="btn btn-sm btn-secondary">
+                            <i class="fa-brands fa-github"></i> Repository
+                        </a>
+                    </div>
+                </div>
 
-  <!-- Contact Section -->
-  <section class="section container" id="contact">
-    <h2 class="section-title">Get In Touch</h2>
-    <form class="contact-form" id="contact-form">
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" id="name" required placeholder="Your Name" />
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" required placeholder="Your Email" />
-      </div>
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" rows="5" required placeholder="Your Message"></textarea>
-      </div>
-      <button type="submit" class="btn" style="width: 100%;">Send Message</button>
-    </form>
-  </section>
+                <!-- Secondary Project Placeholder -->
+                <div class="glass-card project-card">
+                    <div class="project-header">
+                        <h3>Personal Developer Portfolio</h3>
+                    </div>
+                    <p class="project-desc">
+                        A clean, dark-mode personal portfolio showcasing projects, technical skills, and background with smooth navigation, glassmorphism cards, and interactive UI components.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tag">HTML5</span>
+                        <span class="tag">CSS3</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Responsive UI</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn btn-sm btn-primary"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+                        <a href="https://github.com/atul-dubey-2005" target="_blank" class="btn btn-sm btn-secondary"><i class="fa-brands fa-github"></i> Repository</a>
+                    </div>
+                </div>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="social-links">
-        <a href="#"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-      </div>
-      <p>&copy; 2026 John Doe. All rights reserved.</p>
-    </div>
-  </footer>
+            </div>
+        </section>
 
-  <!-- JavaScript Logic -->
-  <script>
-    // 1. Mobile Navigation Menu Toggle
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-wrapper">
+                <div class="glass-card contact-info">
+                    <h3>Let's connect and build together</h3>
+                    <p>Feel free to reach out for project inquiries, collaborations, or developer roles!</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <div>
+                                <span>Email</span>
+                                <a href="mailto:atuldubey0214@gmail.com">atuldubey0214@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-brands fa-linkedin"></i>
+                            <div>
+                                <span>LinkedIn</span>
+                                <a href="https://www.linkedin.com/in/atul-dubey-059197320" target="_blank">atul-dubey-059197320</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-brands fa-github"></i>
+                            <div>
+                                <span>GitHub</span>
+                                <a href="https://github.com/atul-dubey-2005" target="_blank">@atul-dubey-2005</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    hamburger.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-      hamburger.querySelector('i').classList.toggle('fa-bars');
-      hamburger.querySelector('i').classList.toggle('fa-times');
-    });
+                <form id="contactForm" class="glass-card contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" rows="5" placeholder="Hi Atul, I'd like to talk about..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <i class="fa-solid fa-paper-plane"></i> Send Message
+                    </button>
+                    <p id="formStatus" class="form-status"></p>
+                </form>
+            </div>
+        </section>
+    </main>
 
-    // Close mobile menu when a nav link is clicked
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        hamburger.querySelector('i').classList.add('fa-bars');
-        hamburger.querySelector('i').classList.remove('fa-times');
-      });
-    });
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Atul Dubey. Crafted with HTML, CSS, and Vanilla JavaScript.</p>
+    </footer>
 
-    // 2. Contact Form Submission Handler
-    const contactForm = document.getElementById('contact-form');
-    
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault(); // Prevent page refresh
-      
-      const name = document.getElementById('name').value;
-      
-      // Simulating form submission response
-      alert(`Thank you, ${name}! Your message has been sent successfully.`);
-      
-      // Reset the form
-      contactForm.reset();
-    });
-  </script>
-
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
 </body>
 </html>
