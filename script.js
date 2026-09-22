@@ -1,7 +1,6 @@
-// Wait for DOM Content to Load
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. Mobile Menu Navigation Toggle
+    // 1. Mobile Menu Toggle
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -11,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
         navMenu.classList.toggle('active');
     });
 
-    // Close Mobile Menu on Nav Item Click
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             hamburger.classList.remove('active');
@@ -19,28 +17,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 2. Active Link Highlighting on Scroll
-    const sections = document.querySelectorAll('section');
+    // 2. Active Scroll Navigation Link Highlighting
+    const sections = document.querySelectorAll('section[id]');
 
     window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
-                current = section.getAttribute('id');
-            }
-        });
+        const scrollY = window.pageYOffset;
 
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
+        sections.forEach(current => {
+            const sectionHeight = current.offsetHeight;
+            const sectionTop = current.offsetTop - 100;
+            const sectionId = current.getAttribute('id');
+
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                document.querySelector(`.nav-menu a[href*=${sectionId}]`)?.classList.add('active');
+            } else {
+                document.querySelector(`.nav-menu a[href*=${sectionId}]`)?.classList.remove('active');
             }
         });
     });
 
-    // 3. Contact Form Submission Handler
+    // 3. Form Submission Simulation
     const contactForm = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
 
@@ -53,20 +49,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const message = document.getElementById('message').value.trim();
 
             if (name && email && message) {
-                // UI feedback
                 formStatus.style.color = '#34d399';
-                formStatus.textContent = `Thank you, ${name}! Your message has been sent successfully.`;
-                
-                // Clear form inputs
+                formStatus.textContent = `Thank you, ${name}! Your message has been submitted.`;
                 contactForm.reset();
 
-                // Clear message after 5 seconds
                 setTimeout(() => {
                     formStatus.textContent = '';
                 }, 5000);
             } else {
                 formStatus.style.color = '#f87171';
-                formStatus.textContent = 'Please fill out all fields.';
+                formStatus.textContent = 'Please complete all required fields.';
             }
         });
     }
