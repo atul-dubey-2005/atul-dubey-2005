@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atul Dubey | Full-Stack & Software Developer</title>
+    <meta name="description" content="Atul Dubey - Software Developer, Full-Stack Web Builder & Data Analyst based in Mumbai.">
+    <title>Atul Dubey | Software Developer & Full-Stack Engineer</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,27 +34,27 @@
 
     <!-- Navigation Bar -->
     <header class="header">
-        <nav class="navbar">
-            <a href="#hero" class="nav-logo">
+        <nav class="navbar" role="navigation" aria-label="Main Navigation">
+            <a href="#hero" class="nav-logo" aria-label="Atul Dubey Portfolio Home">
                 <span class="logo-bracket">&lt;</span>Atul<span class="logo-accent">.Dev</span><span class="logo-bracket">/&gt;</span>
             </a>
             <ul class="nav-menu">
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#timeline" class="nav-link">Experience & Edu</a></li>
+                <li><a href="#timeline" class="nav-link">Experience</a></li>
                 <li><a href="#achievements" class="nav-link">Honors</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             <div class="nav-actions">
-                <!-- Resume Download Link -->
-                <a href="Atul_Dubey_Resume.pdf" download="Atul_Dubey_Resume.pdf" target="_blank" class="btn btn-secondary btn-sm">
+                <!-- Standardized Resume Download Link -->
+                <a href="Atul_Dubey_Resume.pdf" download="Atul_Dubey_Resume.pdf" target="_blank" class="btn btn-secondary btn-sm" aria-label="Download Resume">
                     <i class="fa-solid fa-file-arrow-down"></i> Resume
                 </a>
                 <a href="#contact" class="btn btn-primary btn-sm glowing-btn">
                     <i class="fa-solid fa-paper-plane"></i> Let's Talk
                 </a>
-                <button class="hamburger" aria-label="Toggle Navigation">
+                <button class="hamburger" aria-label="Toggle Navigation Menu">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -66,19 +67,21 @@
         <!-- Hero Section -->
         <section id="hero" class="hero-section">
             <div class="hero-container">
+                
+                <!-- Hero Left / Content Area -->
                 <div class="hero-content">
                     <div class="status-badge">
                         <span class="pulse-dot"></span>
-                        <span>B.Sc. IT Student • Open to Software Roles & Internships</span>
+                        <span>Open to Software Roles & Tech Internships</span>
                     </div>
 
                     <h1 class="hero-title">
-                        Engineered for <br>
-                        <span class="gradient-text">Precision & Scale.</span>
+                        Building Scalable <br>
+                        <span class="gradient-text">Software & Web Apps.</span>
                     </h1>
 
                     <p class="hero-subtitle">
-                        Atul Dubey — Software Developer, Web Application Builder & Data Enthusiast based in Mumbai.
+                        Hi, I'm <strong>Atul Dubey</strong> — a Software Developer & B.Sc. IT Scholar in Mumbai crafting performant full-stack web applications, Java enterprise systems, and data analytics solutions.
                     </p>
 
                     <!-- Interactive Terminal Box -->
@@ -89,57 +92,74 @@
                                 <span class="dot yellow"></span>
                                 <span class="dot green"></span>
                             </div>
-                            <span class="terminal-title">bash - atuldubey@developer:~</span>
+                            <span class="terminal-title">bash — atuldubey@developer:~</span>
                         </div>
                         <div class="terminal-body">
                             <p class="terminal-line"><span class="prompt">$</span> <span class="command">cat profile.json</span></p>
-                            <p class="terminal-output" id="typingOutput"></p>
+                            <div class="terminal-output" id="typingOutput">
+                                <!-- Dynamic JSON Typing Effect Handled via JavaScript -->
+                            </div>
                         </div>
                     </div>
 
+                    <!-- Call to Action Buttons -->
                     <div class="hero-cta">
-                        <a href="#projects" class="btn btn-primary glowing-btn"><i class="fa-solid fa-code"></i> View Projects</a>
-                        <!-- Direct Resume Download Button -->
-                        <a href="Atul_Dubey_Dubey.pdf" download="Atul_Dubey_Dubey.pdf" target="_blank" class="btn btn-secondary">
+                        <a href="#projects" class="btn btn-primary glowing-btn">
+                            <i class="fa-solid fa-code"></i> Explore Projects
+                        </a>
+                        <a href="Atul_Dubey_Resume.pdf" download="Atul_Dubey_Resume.pdf" target="_blank" class="btn btn-secondary">
                             <i class="fa-solid fa-file-pdf"></i> Download Resume
                         </a>
                     </div>
 
+                    <!-- Quick Highlights Strip -->
+                    <div class="hero-quick-info">
+                        <span class="info-chip"><i class="fa-solid fa-location-dot"></i> Mumbai, India</span>
+                        <span class="info-chip"><i class="fa-solid fa-graduation-cap"></i> B.Sc. IT (2024–27)</span>
+                        <span class="info-chip"><i class="fa-solid fa-bolt"></i> Java • Python • Web</span>
+                    </div>
+
+                    <!-- Social Media Links -->
                     <div class="hero-socials">
-                        <a href="https://github.com/atul-dubey-2005" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/atul-dubey-059197320" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="mailto:atuldubey0214@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-                        <a href="tel:+919137274564" aria-label="Phone"><i class="fa-solid fa-phone"></i></a>
+                        <a href="https://github.com/atul-dubey-2005" target="_blank" aria-label="GitHub Profile" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/atul-dubey-059197320" target="_blank" aria-label="LinkedIn Profile" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="mailto:atuldubey0214@gmail.com" aria-label="Send Email" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="tel:+919137274564" aria-label="Phone Contact" title="Call"><i class="fa-solid fa-phone"></i></a>
                     </div>
                 </div>
 
-                <!-- Profile Photo Frame -->
+                <!-- Hero Right / Profile Developer Card -->
                 <div class="hero-image-wrapper">
                     <div class="profile-card tilt-card">
                         <div class="image-frame">
-                            <img src="IMG_20251225_232150.jpg" alt="Atul Dubey" class="profile-img unmirror-img">
+                            <img src="IMG_20251225_232150.jpg" alt="Atul Dubey - Software Developer" class="profile-img unmirror-img" loading="eager">
                             <div class="image-overlay"></div>
                         </div>
 
-                        <!-- Floating Badges -->
-                        <div class="floating-badge badge-top">
+                        <!-- Floating Tech Badges -->
+                        <div class="floating-badge badge-top glass-panel">
                             <i class="fa-brands fa-java java-icon"></i>
                             <div>
                                 <span>Core Tech</span>
                                 <strong>Java / Python / JS</strong>
                             </div>
                         </div>
-                        <div class="floating-badge badge-bottom">
+                        
+                        <div class="floating-badge badge-bottom glass-panel">
                             <i class="fa-solid fa-graduation-cap edu-icon"></i>
                             <div>
                                 <span>Education</span>
-                                <strong>B.Sc. IT (2024-27)</strong>
+                                <strong>B.Sc. IT (Thakur College)</strong>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </section>
+
+        <!-- Stats Counter Section Starts Below -->
+
 
         <!-- Stats Counter Section -->
         <section class="stats-section">
