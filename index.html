@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atul Dubey | Frontend & Web Developer</title>
+    <title>Atul Dubey | Software & Web Developer</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <!-- CSS Stylesheet -->
@@ -15,24 +15,28 @@
 </head>
 <body>
 
-    <!-- Background Glow Blobs -->
+    <!-- Background Lighting Blobs -->
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
 
     <!-- Header Navigation -->
     <header class="header">
         <nav class="navbar">
-            <a href="#hero" class="nav-logo">&lt;Atul<span>Dubey</span>/&gt;</a>
+            <a href="#hero" class="nav-logo">&lt;Atul<span>.Dev</span>/&gt;</a>
             <ul class="nav-menu">
                 <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
                 <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
                 <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <div class="nav-actions">
+                <a href="#contact" class="btn btn-primary btn-sm"><i class="fa-solid fa-paper-plane"></i> Let's Talk</a>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </div>
         </nav>
     </header>
@@ -40,73 +44,179 @@
     <main>
         <!-- Hero Section -->
         <section id="hero" class="hero-section">
-            <div class="hero-content">
-                <div class="badge">👋 Welcome to my portfolio</div>
-                <h1 class="hero-title">Hi, I'm <span class="highlight">Atul Dubey</span></h1>
-                <p class="hero-subtitle">Frontend Developer & Web Application Engineer</p>
-                <p class="hero-description">
-                    I build modern, responsive, and high-performance web applications with focus on clean JavaScript, intuitive UI/UX, and robust user authentication systems.
-                </p>
-                <div class="hero-cta">
-                    <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-code"></i> View Projects</a>
-                    <a href="#contact" class="btn btn-secondary"><i class="fa-solid fa-paper-plane"></i> Contact Me</a>
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="badge"><span class="pulse"></span> Available for Developer Roles</div>
+                    <h1 class="hero-title">Hi, I'm <span class="highlight">Atul Dubey</span></h1>
+                    <p class="hero-subtitle">Frontend Engineer & Web Application Developer</p>
+                    <p class="hero-description">
+                        Specializing in building high-performance web applications, complex algorithms, state-driven interfaces, and custom user authentication engines using Vanilla JavaScript, HTML5, and CSS3.
+                    </p>
+
+                    <div class="hero-cta">
+                        <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-briefcase"></i> View Featured Work</a>
+                        <a href="#contact" class="btn btn-secondary"><i class="fa-solid fa-envelope"></i> Contact Me</a>
+                    </div>
+
+                    <div class="hero-socials">
+                        <a href="https://github.com/atul-dubey-2005" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/atul-dubey-059197320" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="mailto:atuldubey0214@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
                 </div>
-                <div class="hero-socials">
-                    <a href="https://github.com/atul-dubey-2005" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/atul-dubey-059197320" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="mailto:atuldubey0214@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+
+                <!-- Profile Photo Container -->
+                <div class="hero-image-wrapper">
+                    <div class="profile-card">
+                        <div class="image-frame">
+                            <!-- Replace profile.jpg with your photo path -->
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600" alt="Atul Dubey" class="profile-img">
+                        </div>
+                        <!-- Floating Tech Badges -->
+                        <div class="floating-badge badge-top">
+                            <i class="fa-brands fa-js js-color"></i>
+                            <span>ES6+ Engine</span>
+                        </div>
+                        <div class="floating-badge badge-bottom">
+                            <i class="fa-solid fa-shield-halved security-color"></i>
+                            <span>Auth Architecture</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Counter Bar -->
+        <section class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3 class="stat-number">100%</h3>
+                    <p class="stat-label">Client-Side Autonomy</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="stat-number">0ms</h3>
+                    <p class="stat-label">Server Latency (Pure JS)</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="stat-number">10+</h3>
+                    <p class="stat-label">Core Web Capabilities</p>
                 </div>
             </div>
         </section>
 
         <!-- About Section -->
         <section id="about" class="section">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title">Professional Overview</h2>
             <div class="glass-card about-card">
-                <div class="about-text">
-                    <p>
-                        I am a passionate **Frontend & Web Developer** dedicated to crafting user-centric, interactive, and visually stunning web applications. I turn complex logic into clean, efficient code and elegant glassmorphism user interfaces.
-                    </p>
-                    <p>
-                        My work focuses on leveraging standard **HTML5**, **CSS3**, and **Vanilla JavaScript** to build fast, lightweight, and responsive applications with complete client-side data management, dynamic arithmetic engines, and interactive storage handling.
-                    </p>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <h3>Passionate about clean architecture & seamless user experiences</h3>
+                        <p>
+                            I am a **Web & Frontend Developer** focused on turning complex technical requirements into fast, modular, and visually compelling web applications. I bridge the gap between back-end business logic and front-end interface design.
+                        </p>
+                        <p>
+                            My recent engineering focus involves building desktop-grade web applications featuring custom tokenization, mathematical parsing, isolated user session memory, and responsive CSS Glassmorphism layouts.
+                        </p>
+                    </div>
+                    <div class="about-highlights">
+                        <div class="highlight-box">
+                            <i class="fa-solid fa-code-commit"></i>
+                            <div>
+                                <h4>Clean & Modular Code</h4>
+                                <p>Strict adherence to modern ES6+ standards, DRY principles, and semantic HTML structure.</p>
+                            </div>
+                        </div>
+                        <div class="highlight-box">
+                            <i class="fa-solid fa-laptop-code"></i>
+                            <div>
+                                <h4>Responsive & Accessible</h4>
+                                <p>Fluid CSS Grid and Flexbox layouts optimized for mobile, tablet, and desktop viewports.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Skills Section -->
+        <!-- Expanded Skills Section -->
         <section id="skills" class="section">
-            <h2 class="section-title">Skills & Technologies</h2>
-            <div class="skills-grid">
-                <div class="glass-card skill-card">
-                    <i class="fa-brands fa-html5 skill-icon html-color"></i>
-                    <h3>HTML5</h3>
-                    <p>Semantic markup & Accessibility</p>
+            <h2 class="section-title">Technical Expertise</h2>
+            
+            <div class="skills-wrapper">
+                <!-- Category 1: Frontend Development -->
+                <div class="skill-category">
+                    <h3 class="category-heading"><i class="fa-solid fa-desktop"></i> Frontend Engineering</h3>
+                    <div class="skills-grid">
+                        <div class="glass-card skill-card">
+                            <i class="fa-brands fa-html5 skill-icon html-color"></i>
+                            <h4>HTML5</h4>
+                            <p>Semantic Elements & Accessibility</p>
+                        </div>
+                        <div class="glass-card skill-card">
+                            <i class="fa-brands fa-css3-alt skill-icon css-color"></i>
+                            <h4>CSS3 & Glassmorphism</h4>
+                            <p>Grid, Flexbox, Animations & Variables</p>
+                        </div>
+                        <div class="glass-card skill-card">
+                            <i class="fa-brands fa-js skill-icon js-color"></i>
+                            <h4>JavaScript (ES6+)</h4>
+                            <p>DOM Manipulation, Closures & Async</p>
+                        </div>
+                        <div class="glass-card skill-card">
+                            <i class="fa-solid fa-mobile-screen skill-icon responsive-color"></i>
+                            <h4>Responsive Web Design</h4>
+                            <p>Mobile-First & Cross-Browser Layouts</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="glass-card skill-card">
-                    <i class="fa-brands fa-css3-alt skill-icon css-color"></i>
-                    <h3>CSS3 & Glassmorphism</h3>
-                    <p>Grid, Flexbox, Animations & Themes</p>
+
+                <!-- Category 2: Core Computer Science & Logic -->
+                <div class="skill-category">
+                    <h3 class="category-heading"><i class="fa-solid fa-gears"></i> Core CS & Logic Engine</h3>
+                    <div class="skills-grid">
+                        <div class="glass-card skill-card">
+                            <i class="fa-solid fa-diagram-project skill-icon dsa-color"></i>
+                            <h4>Data Structures & Logic</h4>
+                            <p>Arrays, Objects, Stack Execution & Regex</p>
+                        </div>
+                        <div class="glass-card skill-card">
+                            <i class="fa-solid fa-cloud-arrow-down skill-icon api-color"></i>
+                            <h4>REST APIs & JSON</h4>
+                            <p>Asynchronous Data Fetching & Parsing</p>
+                        </div>
+                        <div class="glass-card skill-card">
+                            <i class="fa-solid fa-database skill-icon storage-color"></i>
+                            <h4>Web Storage APIs</h4>
+                            <p>localStorage & sessionStorage State</p>
+                        </div>
+                        <div class="glass-card skill-card">
+                            <i class="fa-solid fa-shield-halved skill-icon auth-color"></i>
+                            <h4>User Authentication</h4>
+                            <p>Session Persistence & Data Isolation</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="glass-card skill-card">
-                    <i class="fa-brands fa-js skill-icon js-color"></i>
-                    <h3>JavaScript (ES6+)</h3>
-                    <p>DOM Manipulation, Regex & Logic Engines</p>
-                </div>
-                <div class="glass-card skill-card">
-                    <i class="fa-brands fa-git-alt skill-icon git-color"></i>
-                    <h3>Git & GitHub</h3>
-                    <p>Version Control & Collaboration</p>
-                </div>
-                <div class="glass-card skill-card">
-                    <i class="fa-solid fa-rocket skill-icon vercel-color"></i>
-                    <h3>Vercel Deployment</h3>
-                    <p>Continuous Deployment & Hosting</p>
-                </div>
-                <div class="glass-card skill-card">
-                    <i class="fa-solid fa-database skill-icon storage-color"></i>
-                    <h3>Web Storage APIs</h3>
-                    <p>localStorage & sessionStorage State</p>
+
+                <!-- Category 3: Developer Tools & Workflow -->
+                <div class="skill-category">
+                    <h3 class="category-heading"><i class="fa-solid fa-wrench"></i> Tools & Deployment</h3>
+                    <div class="skills-grid">
+                        <div class="glass-card skill-card">
+                            <i class="fa-brands fa-git-alt skill-icon git-color"></i>
+                            <h4>Git & GitHub</h4>
+                            <p>Version Control & Code Repositories</p>
+                        </div>
+                        <div class="glass-card skill-card">
+                            <i class="fa-solid fa-rocket skill-icon vercel-color"></i>
+                            <h4>Vercel Deployment</h4>
+                            <p>Continuous Hosting & Live Builds</p>
+                        </div>
+                        <div class="glass-card skill-card">
+                            <i class="fa-solid fa-bug skill-icon debug-color"></i>
+                            <h4>Chrome DevTools</h4>
+                            <p>Performance Profiling & Debugging</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -116,49 +226,62 @@
             <h2 class="section-title">Featured Projects</h2>
             <div class="projects-grid">
 
-                <!-- Featured Project: Ultimate Pro Scientific Calculator -->
+                <!-- Featured Flagship Project -->
                 <div class="glass-card project-card featured-project">
                     <div class="project-header">
-                        <span class="project-badge">Featured</span>
+                        <span class="project-badge"><i class="fa-solid fa-star"></i> Flagship Project</span>
                         <h3>Ultimate Pro Scientific Calculator</h3>
                     </div>
                     <p class="project-desc">
-                        A modern, desktop-grade scientific calculator application built with Vanilla JS. Features dual-method User Authentication, DEG/RAD angle modes, 2nd function toggles, active memory registers, and an interactive slide-out history drawer.
+                        A full-featured, multi-tenant scientific calculator and math workspace engineered with pure Vanilla JavaScript. Built with dedicated account isolation, expression evaluation parsing, trigonometric DEG/RAD conversion, and an interactive slide-out history drawer.
                     </p>
+
+                    <div class="project-features">
+                        <h4>Key Innovations:</h4>
+                        <ul>
+                            <li><i class="fa-solid fa-check"></i> Dual Login Identifier system (Username or Email)</li>
+                            <li><i class="fa-solid fa-check"></i> Secondary Shift key revealing inverse hyperbolic & log functions</li>
+                            <li><i class="fa-solid fa-check"></i> 5-Register active memory storage system with UI status indicators</li>
+                        </ul>
+                    </div>
+
                     <div class="tech-tags">
                         <span class="tag">HTML5</span>
                         <span class="tag">CSS Grid</span>
                         <span class="tag">JavaScript ES6+</span>
                         <span class="tag">Glassmorphism</span>
-                        <span class="tag">Web Storage</span>
+                        <span class="tag">Regex Engine</span>
+                        <span class="tag">SessionStorage API</span>
                     </div>
+
                     <div class="project-links">
                         <a href="https://professional-calculator-rosy.vercel.app/" target="_blank" class="btn btn-sm btn-primary">
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Application
                         </a>
                         <a href="https://github.com/atul-dubey-2005/Professional-Calculator" target="_blank" class="btn btn-sm btn-secondary">
-                            <i class="fa-brands fa-github"></i> Repository
+                            <i class="fa-brands fa-github"></i> View Source
                         </a>
                     </div>
                 </div>
 
-                <!-- Secondary Project Placeholder -->
+                <!-- Secondary Project -->
                 <div class="glass-card project-card">
                     <div class="project-header">
-                        <h3>Personal Developer Portfolio</h3>
+                        <span class="project-badge alt">Portfolio</span>
+                        <h3>Developer Portfolio Website</h3>
                     </div>
                     <p class="project-desc">
-                        A clean, dark-mode personal portfolio showcasing projects, technical skills, and background with smooth navigation, glassmorphism cards, and interactive UI components.
+                        An executive-level personal portfolio website designed with dark-mode glassmorphism styling, responsive web layouts, CSS keyframe animations, contact form validation, and interactive scroll navigation.
                     </p>
                     <div class="tech-tags">
                         <span class="tag">HTML5</span>
-                        <span class="tag">CSS3</span>
+                        <span class="tag">CSS3 Variables</span>
                         <span class="tag">JavaScript</span>
                         <span class="tag">Responsive UI</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="btn btn-sm btn-primary"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
-                        <a href="https://github.com/atul-dubey-2005" target="_blank" class="btn btn-sm btn-secondary"><i class="fa-brands fa-github"></i> Repository</a>
+                        <a href="#hero" class="btn btn-sm btn-primary"><i class="fa-solid fa-eye"></i> Currently Viewing</a>
+                        <a href="https://github.com/atul-dubey-2005" target="_blank" class="btn btn-sm btn-secondary"><i class="fa-brands fa-github"></i> Profile</a>
                     </div>
                 </div>
 
@@ -170,27 +293,28 @@
             <h2 class="section-title">Get In Touch</h2>
             <div class="contact-wrapper">
                 <div class="glass-card contact-info">
-                    <h3>Let's connect and build together</h3>
-                    <p>Feel free to reach out for project inquiries, collaborations, or developer roles!</p>
+                    <h3>Interested in working together?</h3>
+                    <p>I am currently open to developer opportunities, freelance projects, and technical collaborations. Reach out directly using any channel below!</p>
+                    
                     <div class="contact-details">
                         <div class="contact-item">
-                            <i class="fa-solid fa-envelope"></i>
+                            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
                             <div>
-                                <span>Email</span>
+                                <span>Email Address</span>
                                 <a href="mailto:atuldubey0214@gmail.com">atuldubey0214@gmail.com</a>
                             </div>
                         </div>
                         <div class="contact-item">
-                            <i class="fa-brands fa-linkedin"></i>
+                            <div class="contact-icon"><i class="fa-brands fa-linkedin"></i></div>
                             <div>
-                                <span>LinkedIn</span>
+                                <span>LinkedIn Profile</span>
                                 <a href="https://www.linkedin.com/in/atul-dubey-059197320" target="_blank">atul-dubey-059197320</a>
                             </div>
                         </div>
                         <div class="contact-item">
-                            <i class="fa-brands fa-github"></i>
+                            <div class="contact-icon"><i class="fa-brands fa-github"></i></div>
                             <div>
-                                <span>GitHub</span>
+                                <span>GitHub Repository</span>
                                 <a href="https://github.com/atul-dubey-2005" target="_blank">@atul-dubey-2005</a>
                             </div>
                         </div>
@@ -199,16 +323,16 @@
 
                 <form id="contactForm" class="glass-card contact-form">
                     <div class="form-group">
-                        <label for="name">Your Name</label>
+                        <label for="name">Your Name *</label>
                         <input type="text" id="name" placeholder="John Doe" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Your Email</label>
+                        <label for="email">Your Email *</label>
                         <input type="email" id="email" placeholder="john@example.com" required>
                     </div>
                     <div class="form-group">
-                        <label for="message">Your Message</label>
-                        <textarea id="message" rows="5" placeholder="Hi Atul, I'd like to talk about..." required></textarea>
+                        <label for="message">Your Message *</label>
+                        <textarea id="message" rows="5" placeholder="Hi Atul, I'd like to discuss a project..." required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">
                         <i class="fa-solid fa-paper-plane"></i> Send Message
@@ -221,10 +345,16 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2026 Atul Dubey. Crafted with HTML, CSS, and Vanilla JavaScript.</p>
+        <div class="footer-content">
+            <p>&copy; 2026 Atul Dubey. Built with HTML5, CSS3, & Vanilla JavaScript.</p>
+            <div class="footer-links">
+                <a href="https://github.com/atul-dubey-2005" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/atul-dubey-059197320" target="_blank">LinkedIn</a>
+            </div>
+        </div>
     </footer>
 
-    <!-- JavaScript File -->
+    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
