@@ -1,11 +1,11 @@
 /* ==========================================================================
-   Design Tokens & Modern Reset
+   1. Design Tokens & Global Root Setup
    ========================================================================== */
 :root {
-    --bg-dark: #05070e;
-    --panel-bg: rgba(15, 20, 32, 0.65);
+    --bg-dark: #030508;
+    --panel-bg: rgba(13, 17, 28, 0.7);
     --panel-border: rgba(255, 255, 255, 0.08);
-    --panel-border-hover: rgba(99, 102, 241, 0.4);
+    --panel-border-hover: rgba(99, 102, 241, 0.5);
     
     --text-main: #f8fafc;
     --text-muted: #94a3b8;
@@ -17,9 +17,11 @@
     
     --font-primary: 'Plus Jakarta Sans', -apple-system, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
+    
     --radius-lg: 24px;
     --radius-md: 14px;
-    --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-fast: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -40,16 +42,68 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     position: relative;
+    cursor: default;
 }
 
-/* Background Grids & Mesh Ambient Spheres */
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-dark); }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.15); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-indigo); }
+
+/* Scroll Progress Bar */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--accent-cyan), var(--accent-indigo), var(--accent-violet));
+    z-index: 10000;
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* ==========================================================================
+   2. Custom Physics Cursor
+   ========================================================================== */
+.cursor-dot, .cursor-outline {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 9999;
+    transition: opacity 0.3s ease;
+}
+
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-cyan);
+}
+
+.cursor-outline {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(56, 189, 248, 0.5);
+}
+
+/* Hide custom cursor on mobile touch devices */
+@media (max-width: 992px) {
+    .cursor-dot, .cursor-outline { display: none; }
+}
+
+/* ==========================================================================
+   3. Background Mesh Spheres & Grid
+   ========================================================================== */
 .bg-grid {
     position: fixed;
     inset: 0;
     background-image: 
         linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-    background-size: 50px 50px;
+    background-size: 60px 60px;
     pointer-events: none;
     z-index: -2;
 }
@@ -57,25 +111,27 @@ body {
 .glow-sphere {
     position: fixed;
     border-radius: 50%;
-    filter: blur(150px);
+    filter: blur(160px);
     pointer-events: none;
     z-index: -1;
-    opacity: 0.35;
+    opacity: 0.3;
 }
 
-.sphere-1 { top: -10%; left: -10%; width: 500px; height: 500px; background: var(--accent-indigo); }
-.sphere-2 { top: 40%; right: -10%; width: 550px; height: 550px; background: var(--accent-violet); }
-.sphere-3 { bottom: -10%; left: 20%; width: 450px; height: 450px; background: var(--accent-cyan); }
+.sphere-1 { top: -10%; left: -10%; width: 550px; height: 550px; background: var(--accent-indigo); }
+.sphere-2 { top: 40%; right: -10%; width: 600px; height: 600px; background: var(--accent-violet); }
+.sphere-3 { bottom: -10%; left: 20%; width: 500px; height: 500px; background: var(--accent-cyan); }
 
-/* Glass Panel Styling */
+/* ==========================================================================
+   4. Glassmorphism Panels & Cards
+   ========================================================================== */
 .glass-panel {
     background: var(--panel-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     border: 1px solid var(--panel-border);
     border-radius: var(--radius-lg);
     padding: 2.2rem;
-    transition: var(--transition);
+    transition: var(--transition-smooth);
     position: relative;
     overflow: hidden;
 }
@@ -86,20 +142,20 @@ body {
 }
 
 /* ==========================================================================
-   Header & Navigation
+   5. Header & Navigation Bar
    ========================================================================== */
 .header {
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(5, 7, 14, 0.8);
-    backdrop-filter: blur(16px);
+    background: rgba(3, 5, 8, 0.85);
+    backdrop-filter: blur(18px);
     border-bottom: 1px solid var(--panel-border);
 }
 
 .navbar {
-    max-width: 1240px;
+    max-width: 1280px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -109,7 +165,7 @@ body {
 
 .nav-logo {
     font-family: var(--font-mono);
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     font-weight: 700;
     color: var(--text-main);
     text-decoration: none;
@@ -129,28 +185,28 @@ body {
     text-decoration: none;
     font-weight: 500;
     font-size: 0.95rem;
-    transition: var(--transition);
+    transition: var(--transition-fast);
 }
 
 .nav-link:hover, .nav-link.active {
     color: var(--text-main);
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
 }
 
 .nav-actions { display: flex; align-items: center; gap: 1rem; }
-.hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
-.bar { width: 22px; height: 2px; background-color: var(--text-main); border-radius: 2px; }
+.hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; background: none; border: none; }
+.bar { width: 22px; height: 2px; background-color: var(--text-main); border-radius: 2px; transition: var(--transition-fast); }
 
 /* ==========================================================================
-   Hero Section & Profile Framing
+   6. Hero Section & Interactive Terminal
    ========================================================================== */
 .hero-section {
-    min-height: 92vh;
+    min-height: 95vh;
     display: flex;
     align-items: center;
-    max-width: 1240px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 8rem 2rem 4rem;
+    padding: 8.5rem 2rem 4rem;
 }
 
 .hero-container {
@@ -194,7 +250,7 @@ body {
     font-size: 3.8rem;
     font-weight: 800;
     line-height: 1.1;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     letter-spacing: -1.5px;
 }
 
@@ -205,22 +261,53 @@ body {
 }
 
 .hero-subtitle {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     color: var(--accent-indigo);
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
-.hero-description {
-    font-size: 1.05rem;
-    color: var(--text-muted);
+/* Terminal Component */
+.hero-terminal {
+    padding: 1.2rem !important;
     margin-bottom: 2rem;
-    max-width: 580px;
+    background: rgba(5, 7, 14, 0.85) !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
 }
 
-.hero-cta { display: flex; gap: 1rem; margin-bottom: 2.2rem; }
+.terminal-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+    border-bottom: 1px solid var(--panel-border);
+    padding-bottom: 0.6rem;
+}
 
-.hero-socials { display: flex; gap: 1.2rem; }
+.terminal-dots { display: flex; gap: 6px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.red { background-color: #ef4444; }
+.yellow { background-color: #f59e0b; }
+.green { background-color: #10b981; }
+
+.terminal-title {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.terminal-body {
+    font-family: var(--font-mono);
+    font-size: 0.88rem;
+}
+
+.prompt { color: var(--accent-cyan); }
+.command { color: var(--accent-violet); }
+.terminal-output { color: #34d399; margin-top: 0.3rem; min-height: 24px; }
+
+.hero-cta { display: flex; gap: 1rem; margin-bottom: 2rem; }
+
+.hero-socials { display: flex; gap: 1rem; }
 .hero-socials a {
     width: 42px;
     height: 42px;
@@ -233,7 +320,7 @@ body {
     color: var(--text-muted);
     font-size: 1.2rem;
     text-decoration: none;
-    transition: var(--transition);
+    transition: var(--transition-fast);
 }
 
 .hero-socials a:hover {
@@ -258,7 +345,7 @@ body {
     border-radius: 28px;
     overflow: hidden;
     border: 1px solid var(--panel-border);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
     position: relative;
 }
 
@@ -267,24 +354,22 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: var(--transition);
+    transition: var(--transition-smooth);
 }
 
-/* Correct Selfie Flipping */
-.unmirror-img {
-    transform: scaleX(-1);
-}
+/* Camera Selfie Unmirror Correction */
+.unmirror-img { transform: scaleX(-1); }
 
 .image-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(5, 7, 14, 0.6), transparent 50%);
+    background: linear-gradient(to top, rgba(3, 5, 8, 0.6), transparent 50%);
     pointer-events: none;
 }
 
 .floating-badge {
     position: absolute;
-    background: rgba(15, 20, 32, 0.9);
+    background: rgba(13, 17, 28, 0.95);
     backdrop-filter: blur(12px);
     border: 1px solid var(--panel-border);
     padding: 0.75rem 1.1rem;
@@ -296,7 +381,7 @@ body {
 }
 
 .floating-badge i { font-size: 1.5rem; }
-.floating-badge span { display: block; font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; }
+.floating-badge span { display: block; font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; }
 .floating-badge strong { font-size: 0.88rem; color: var(--text-main); }
 
 .badge-top { top: -20px; left: -30px; }
@@ -306,7 +391,7 @@ body {
 .security-icon { color: #10b981; }
 
 /* ==========================================================================
-   Buttons
+   7. Buttons & Controls
    ========================================================================== */
 .btn {
     display: inline-flex;
@@ -318,7 +403,7 @@ body {
     font-size: 0.95rem;
     text-decoration: none;
     cursor: pointer;
-    transition: var(--transition);
+    transition: var(--transition-fast);
     border: none;
 }
 
@@ -347,9 +432,9 @@ body {
 .btn-block { width: 100%; justify-content: center; }
 
 /* ==========================================================================
-   Stats Section
+   8. Stats Bar
    ========================================================================== */
-.stats-section { max-width: 1240px; margin: 0 auto 3rem; padding: 0 2rem; }
+.stats-section { max-width: 1280px; margin: 0 auto 3rem; padding: 0 2rem; }
 
 .stats-grid {
     display: flex;
@@ -359,17 +444,17 @@ body {
     text-align: center;
 }
 
-.stat-number { font-size: 2.2rem; font-weight: 800; color: var(--accent-cyan); }
+.stat-number { font-size: 2.2rem; font-weight: 800; color: var(--accent-cyan); font-family: var(--font-mono); }
 .stat-label { font-size: 0.88rem; color: var(--text-muted); }
 .stat-divider { width: 1px; height: 40px; background: var(--panel-border); }
 
 /* ==========================================================================
-   Bento Grids & Layouts
+   9. Bento Grids & Layout Architecture
    ========================================================================== */
-.section { max-width: 1240px; margin: 0 auto; padding: 5rem 2rem; }
+.section { max-width: 1280px; margin: 0 auto; padding: 5rem 2rem; }
 
 .section-title {
-    font-size: 2rem;
+    font-size: 2.1rem;
     font-weight: 800;
     margin-bottom: 2.5rem;
     display: flex;
@@ -441,7 +526,33 @@ body {
 .debug-c { color: #f43f5e; }
 .glass-c { color: #38bdf8; }
 
-/* Projects Layout */
+/* ==========================================================================
+   10. Filterable Project Matrix
+   ========================================================================== */
+.project-filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.filter-btn {
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    color: var(--text-muted);
+    padding: 0.5rem 1.2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: var(--transition-fast);
+}
+
+.filter-btn:hover, .filter-btn.active {
+    color: var(--text-main);
+    border-color: var(--accent-indigo);
+    background: rgba(99, 102, 241, 0.15);
+}
+
 .projects-wrapper { display: flex; flex-direction: column; gap: 1.8rem; }
 
 .project-tag {
@@ -479,7 +590,47 @@ body {
 
 .project-actions { display: flex; gap: 1rem; }
 
-/* Contact Section */
+/* ==========================================================================
+   11. Experience & Education Timeline
+   ========================================================================== */
+.timeline-wrapper {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 2px solid var(--panel-border);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.timeline-item { position: relative; }
+
+.timeline-dot {
+    position: absolute;
+    left: -2.55rem;
+    top: 1.5rem;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--accent-indigo);
+    border: 3px solid var(--bg-dark);
+    box-shadow: 0 0 10px var(--accent-indigo);
+}
+
+.timeline-date {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--accent-cyan);
+    margin-bottom: 0.4rem;
+    display: block;
+}
+
+.timeline-content h3 { font-size: 1.2rem; margin-bottom: 0.2rem; }
+.timeline-role { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.8rem; font-weight: 600; }
+.timeline-content p { color: var(--text-muted); font-size: 0.92rem; }
+
+/* ==========================================================================
+   12. Contact Form & Toast Notifications
+   ========================================================================== */
 .contact-desc { color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem; }
 .contact-methods { display: flex; flex-direction: column; gap: 1.2rem; }
 .contact-item { display: flex; align-items: center; gap: 1rem; }
@@ -496,25 +647,24 @@ body {
     font-size: 1.1rem;
 }
 
-.contact-item span { display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; }
+.contact-item span { display: block; font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; }
 .contact-item a { color: var(--text-main); text-decoration: none; font-weight: 600; font-size: 0.95rem; }
 .contact-item a:hover { color: var(--accent-cyan); }
 
-/* Contact Form */
 .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
 .form-group label { font-size: 0.85rem; color: var(--text-muted); }
 
 .form-group input, .form-group textarea {
-    background: rgba(5, 7, 14, 0.6);
+    background: rgba(3, 5, 8, 0.7);
     border: 1px solid var(--panel-border);
     border-radius: 10px;
     padding: 0.85rem 1rem;
     color: var(--text-main);
     font-family: var(--font-primary);
     outline: none;
-    transition: var(--transition);
+    transition: var(--transition-fast);
 }
 
 .form-group input:focus, .form-group textarea:focus {
@@ -522,10 +672,46 @@ body {
     box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
 }
 
-.form-status { font-size: 0.88rem; text-align: center; margin-top: 0.5rem; }
+/* Toast Notification Box */
+.toast-notification {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: rgba(13, 17, 28, 0.95);
+    border: 1px solid #10b981;
+    color: #34d399;
+    padding: 1rem 1.5rem;
+    border-radius: 14px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    transform: translateY(100px);
+    opacity: 0;
+    transition: var(--transition-smooth);
+    z-index: 10000;
+}
+
+.toast-notification.show {
+    transform: translateY(0);
+    opacity: 1;
+}
 
 /* ==========================================================================
-   Footer
+   13. Scroll Reveal Animations
+   ========================================================================== */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   14. Footer
    ========================================================================== */
 .footer {
     border-top: 1px solid var(--panel-border);
@@ -534,7 +720,7 @@ body {
 }
 
 .footer-container {
-    max-width: 1240px;
+    max-width: 1280px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -548,11 +734,11 @@ body {
 .footer-socials a:hover { color: var(--text-main); }
 
 /* ==========================================================================
-   Responsive Breakpoints
+   15. Responsive Breakpoints
    ========================================================================== */
 @media (max-width: 992px) {
     .hero-container { grid-template-columns: 1fr; text-align: center; }
-    .hero-description { margin: 0 auto 2rem; }
+    .hero-terminal { max-width: 500px; margin: 0 auto 2rem; text-align: left; }
     .hero-cta, .hero-socials { justify-content: center; }
     .badge-top { left: 0; }
     .badge-bottom { right: 0; }
@@ -570,19 +756,17 @@ body {
         left: -100%;
         top: 65px;
         flex-direction: column;
-        background: rgba(5, 7, 14, 0.95);
-        backdrop-filter: blur(16px);
+        background: rgba(3, 5, 8, 0.98);
+        backdrop-filter: blur(20px);
         width: 100%;
         text-align: center;
         padding: 2.5rem 0;
-        transition: var(--transition);
+        transition: var(--transition-smooth);
         border-bottom: 1px solid var(--panel-border);
     }
 
     .nav-menu.active { left: 0; }
-
     .hero-title { font-size: 2.8rem; }
     .form-row { grid-template-columns: 1fr; }
-
     .footer-container { flex-direction: column; gap: 1rem; text-align: center; }
 }
