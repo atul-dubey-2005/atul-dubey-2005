@@ -375,7 +375,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 .terminal-output-wrapper {
   margin-top: 15px;
-  display: flex;
+  display: block; /* Changed from flex so the cursor flows with text */
 }
 
 #typingOutput {
@@ -384,6 +384,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   white-space: pre-wrap;
   word-break: break-word;
   font-family: var(--font-mono);
+  display: inline; /* Forces the text to sit inline right next to the cursor */
 }
 
 /* Terminal Syntax Highlighting Colors */
