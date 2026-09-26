@@ -86,22 +86,25 @@
                 </p>
 
                 <!-- Interactive Terminal Box -->
-                <div class="hero-terminal glass-panel">
-                    <div class="terminal-header">
-                        <div class="terminal-dots">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                        </div>
-                        <span class="terminal-title">bash — atuldubey@developer:~</span>
-                    </div>
-                    <div class="terminal-body">
-                        <p class="terminal-line"><span class="prompt">$</span> <span class="command">cat profile.json</span></p>
-                        <div class="terminal-output" id="typingOutput">
-                            <!-- Dynamic JSON Typing Effect Handled via JavaScript -->
-                        </div>
-                    </div>
-                </div>
+<div class="hero-terminal glass-panel">
+    <div class="terminal-header">
+        <div class="terminal-buttons">
+            <span class="dot close-btn"></span>
+            <span class="dot min-btn"></span>
+            <span class="dot max-btn"></span>
+        </div>
+        <span class="terminal-title">bash — atuldubey@mumbai:~</span>
+    </div>
+    <div class="terminal-body">
+        <div class="terminal-line">
+            <span class="prompt">atul@mumbai:~$</span> 
+            <span class="command">cat profile.json</span>
+        </div>
+        <div class="terminal-output-wrapper">
+            <pre id="typingOutput"></pre><span class="cursor"></span>
+        </div>
+    </div>
+</div>
 
                 <!-- Call to Action Buttons -->
                 <div class="hero-cta">
