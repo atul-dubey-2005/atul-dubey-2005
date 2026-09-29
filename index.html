@@ -6,20 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="Atul Dubey - Software Developer, Full-Stack Web Builder & Data Analyst based in Mumbai.">
     <meta name="theme-color" content="#030508">
-    <title>Atul Dubey | Software Developer & Full-Stack Engineer</title>
+    <title>Atul Dubey | Premium Software Engineer</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
-
-<!-- FontAwesome Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-<!-- Main Stylesheet -->
 <link rel="stylesheet" href="style.css">
-
 </head>
 <body class="vengeance-app">
+
+<!-- 1. Vengeance UI Preloader -->
+<div id="vengeance-preloader" class="vengeance-preloader">
+    <div class="loader-content">
+        <span class="logo-bracket">&lt;</span>Atul<span class="logo-accent">.Dev</span><span class="logo-bracket">/&gt;</span>
+        <div class="loader-bar-container"><div class="loader-bar"></div></div>
+        <div class="loader-text" id="loaderText">INITIALIZING SYSTEM...</div>
+    </div>
+</div>
+
 <!-- Custom Glowing Cursor -->
 <div class="cursor-dot" data-cursor-dot></div>
 <div class="cursor-outline" data-cursor-outline></div>
@@ -33,8 +38,8 @@
 <div class="glow-sphere sphere-2"></div>
 <div class="glow-sphere sphere-3"></div>
 
-<!-- Navigation Bar -->
-<header class="header vengeance-header">
+<!-- Smart Navigation Bar -->
+<header class="header vengeance-header" id="smartHeader">
     <nav class="navbar" role="navigation" aria-label="Main Navigation">
         <a href="#hero" class="nav-logo anim-fade-in" aria-label="Atul Dubey Portfolio Home">
             <span class="logo-bracket">&lt;</span>Atul<span class="logo-accent">.Dev</span><span class="logo-bracket">/&gt;</span>
@@ -55,10 +60,8 @@
             <a href="#contact" class="btn btn-primary btn-sm glowing-btn nav-cta">
                 <i class="fa-solid fa-paper-plane"></i> Let's Talk
             </a>
-            <button class="hamburger" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="navMenu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <button class="hamburger" aria-label="Toggle Navigation Menu">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
             </button>
         </div>
     </nav>
@@ -69,7 +72,6 @@
     <section id="hero" class="hero-section">
         <div class="hero-container">
 
-            <!-- Hero Left / Content Area -->
             <div class="hero-content skiper-reveal">
                 <div class="status-badge anim-pulse-subtle">
                     <span class="pulse-dot"></span>
@@ -78,7 +80,7 @@
 
                 <h1 class="hero-title">
                     Building Scalable <br>
-                    <span class="gradient-text anim-gradient-shift">Software & Web Apps.</span>
+                    <span class="gradient-text anim-gradient-shift decode-text" data-value="Software & Web Apps.">Software & Web Apps.</span>
                 </h1>
 
                 <p class="hero-subtitle">
@@ -86,74 +88,63 @@
                 </p>
 
                 <!-- Interactive Terminal Box -->
-<div class="hero-terminal glass-panel vengeance-glow-box">
-    <div class="terminal-header">
-        <div class="terminal-buttons">
-            <span class="dot close-btn"></span>
-            <span class="dot min-btn"></span>
-            <span class="dot max-btn"></span>
-        </div>
-        <span class="terminal-title">bash — atuldubey@mumbai:~</span>
-    </div>
-    <div class="terminal-body">
-        <div class="terminal-line">
-            <span class="prompt">atuldubey@mumbai:~$</span> 
-            <span class="command">cat profile.json</span>
-        </div>
-        <div class="terminal-output-wrapper">
-            <pre id="typingOutput"></pre><span class="cursor"></span>
-        </div>
-    </div>
-</div>
-
-                <!-- Call to Action Buttons -->
-                <div class="hero-cta">
-                    <a href="#projects" class="btn btn-primary glowing-btn anim-scale-hover">
-                        <i class="fa-solid fa-code"></i> Explore Projects
-                    </a>
-                    <a href="Atul_Dubey_Resume.pdf" download="Atul_Dubey_Resume.pdf" target="_blank" class="btn btn-secondary anim-scale-hover">
-                        <i class="fa-solid fa-file-pdf"></i> Download Resume
-                    </a>
+                <div class="hero-terminal glass-panel vengeance-glow-box">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span class="dot close-btn"></span><span class="dot min-btn"></span><span class="dot max-btn"></span>
+                        </div>
+                        <span class="terminal-title">bash — atuldubey@mumbai:~</span>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="terminal-line">
+                            <span class="prompt">atuldubey@mumbai:~$</span> <span class="command">cat profile.json</span>
+                        </div>
+                        <div class="terminal-output-wrapper">
+                            <pre id="typingOutput"></pre><span class="cursor"></span>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Quick Highlights Strip -->
+                <!-- Call to Action Buttons (Magnetic) -->
+                <div class="hero-cta">
+                    <div class="skiper-magnetic-wrap">
+                        <a href="#projects" class="btn btn-primary glowing-btn skiper-magnetic">
+                            <i class="fa-solid fa-code"></i> Explore Projects
+                        </a>
+                    </div>
+                    <div class="skiper-magnetic-wrap">
+                        <a href="Atul_Dubey_Resume.pdf" download="Atul_Dubey_Resume.pdf" target="_blank" class="btn btn-secondary skiper-magnetic">
+                            <i class="fa-solid fa-file-pdf"></i> Download Resume
+                        </a>
+                    </div>
+                </div>
+
                 <div class="hero-quick-info">
                     <span class="info-chip"><i class="fa-solid fa-location-dot"></i> Mumbai, India</span>
                     <span class="info-chip"><i class="fa-solid fa-graduation-cap"></i> B.Sc. IT (2024–27)</span>
                     <span class="info-chip"><i class="fa-solid fa-bolt"></i> Java • Python • Web</span>
                 </div>
 
-                <!-- Social Media Links -->
                 <div class="hero-socials">
-                    <a href="https://github.com/atul-dubey-2005" target="_blank" rel="noopener" aria-label="GitHub Profile" title="GitHub"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/atul-dubey-059197320" target="_blank" rel="noopener" aria-label="LinkedIn Profile" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="mailto:atuldubey0214@gmail.com" aria-label="Send Email" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                    <div class="skiper-magnetic-wrap"><a href="https://github.com/atul-dubey-2005" target="_blank" class="skiper-magnetic"><i class="fa-brands fa-github"></i></a></div>
+                    <div class="skiper-magnetic-wrap"><a href="https://www.linkedin.com/in/atul-dubey-059197320" target="_blank" class="skiper-magnetic"><i class="fa-brands fa-linkedin"></i></a></div>
+                    <div class="skiper-magnetic-wrap"><a href="mailto:atuldubey0214@gmail.com" class="skiper-magnetic"><i class="fa-solid fa-envelope"></i></a></div>
                 </div>
             </div>
 
-            <!-- Hero Right / Profile Developer Card -->
             <div class="hero-image-wrapper">
                 <div class="profile-card tilt-card vengeance-card-3d">
                     <div class="image-frame">
                         <img src="IMG_20251225_232151.jpg" alt="Atul Dubey - Software Developer" class="profile-img unmirror-img" loading="eager">
                         <div class="image-overlay"></div>
                     </div>
-
-                    <!-- Floating Tech Badges -->
                     <div class="floating-badge badge-top glass-panel anim-float">
                         <i class="fa-brands fa-java java-icon"></i>
-                        <div>
-                            <span>Core Tech</span>
-                            <strong>Java / Python / JS</strong>
-                        </div>
+                        <div><span>Core Tech</span><strong>Java / Python / JS</strong></div>
                     </div>
-
                     <div class="floating-badge badge-bottom glass-panel anim-float-delayed">
                         <i class="fa-solid fa-graduation-cap edu-icon"></i>
-                        <div>
-                            <span>Education</span>
-                            <strong>B.Sc. IT (Thakur College)</strong>
-                        </div>
+                        <div><span>Education</span><strong>B.Sc. IT (Thakur College)</strong></div>
                     </div>
                 </div>
             </div>
@@ -161,58 +152,31 @@
         </div>
     </section>
 
-    <!-- Stats Counter Section -->
+    <!-- Stats Section -->
     <section class="stats-section">
         <div class="stats-grid glass-panel reveal-on-scroll vengeance-panel-glow">
-            <div class="stat-item">
-                <h3 class="stat-number" data-target="5">0+</h3>
-                <p class="stat-label">Production Projects</p>
-            </div>
+            <div class="stat-item"><h3 class="stat-number" data-target="5">0+</h3><p class="stat-label">Production Projects</p></div>
             <div class="stat-divider"></div>
-            <div class="stat-item">
-                <h3 class="stat-number" data-target="2">0</h3>
-                <p class="stat-label">IIT Bombay Workshops</p>
-            </div>
+            <div class="stat-item"><h3 class="stat-number" data-target="2">0</h3><p class="stat-label">IIT Bombay Workshops</p></div>
             <div class="stat-divider"></div>
-            <div class="stat-item">
-                <h3 class="stat-number" data-target="87">0%</h3>
-                <p class="stat-label">Academic Distinction</p>
-            </div>
+            <div class="stat-item"><h3 class="stat-number" data-target="87">0%</h3><p class="stat-label">Academic Distinction</p></div>
         </div>
     </section>
 
-    <!-- About Section (Bento Grid) -->
+    <!-- About Section -->
     <section id="about" class="section">
         <h2 class="section-title reveal-on-scroll"><span class="title-number">01.</span> Professional Overview</h2>
-
         <div class="bento-grid about-bento">
             <div class="bento-card glass-panel col-span-7 tilt-card reveal-on-scroll skiper-card">
                 <div class="card-icon-header"><i class="fa-solid fa-user-gear"></i></div>
                 <h3>B.Sc. IT Scholar & Software Engineering Aspirant</h3>
-                <p>
-                    I am a motivated B.Sc. Information Technology student at Thakur College of Science and Commerce, Mumbai. I combine strong programming logic in Java, Python, and C++ with full-stack web technologies and data visualization tools.
-                </p>
-                <p>
-                    My portfolio spans enterprise digital permission managers, interactive data dashboards, dynamic e-commerce web applications, and specialized cybersecurity & machine learning practicals completed at IIT Bombay Techfest.
-                </p>
+                <p>I am a motivated B.Sc. Information Technology student at Thakur College of Science and Commerce, Mumbai. I combine strong programming logic in Java, Python, and C++ with full-stack web technologies and data visualization tools.</p>
+                <p>My portfolio spans enterprise digital permission managers, interactive data dashboards, dynamic e-commerce web applications, and specialized cybersecurity & machine learning practicals completed at IIT Bombay Techfest.</p>
                 <a href="#services" class="inline-link">See how I can help <i class="fa-solid fa-arrow-right"></i></a>
             </div>
-
             <div class="bento-card glass-panel col-span-5 highlight-bento tilt-card reveal-on-scroll skiper-card">
-                <div class="bento-item">
-                    <i class="fa-solid fa-laptop-code"></i>
-                    <div>
-                        <h4>Full-Stack Capabilities</h4>
-                        <p>Building responsive web apps using Java/JDBC/MySQL backend architectures alongside modern frontend design.</p>
-                    </div>
-                </div>
-                <div class="bento-item">
-                    <i class="fa-solid fa-chart-line"></i>
-                    <div>
-                        <h4>Data & Analytics</h4>
-                        <p>Data visualization experience using Python (Pandas/Matplotlib) and R Shiny dashboards.</p>
-                    </div>
-                </div>
+                <div class="bento-item"><i class="fa-solid fa-laptop-code"></i><div><h4>Full-Stack Capabilities</h4><p>Building responsive web apps using Java/JDBC/MySQL backend architectures alongside modern frontend design.</p></div></div>
+                <div class="bento-item"><i class="fa-solid fa-chart-line"></i><div><h4>Data & Analytics</h4><p>Data visualization experience using Python (Pandas/Matplotlib) and R Shiny dashboards.</p></div></div>
             </div>
         </div>
     </section>
@@ -220,15 +184,10 @@
     <!-- Skills Matrix Section -->
     <section id="skills" class="section">
         <h2 class="section-title reveal-on-scroll"><span class="title-number">02.</span> Technical Stack Matrix</h2>
-
-        <div class="bento-grid skills-bento">
-
-            <!-- Category 1: Languages & Logic -->
-            <div class="bento-card glass-panel col-span-4 tilt-card reveal-on-scroll skiper-card">
-                <div class="category-header">
-                    <i class="fa-solid fa-code"></i>
-                    <h3>Core Programming</h3>
-                </div>
+        <div class="bento-grid skills-bento animaster-stagger-parent">
+            <!-- Cards added animaster-stagger class -->
+            <div class="bento-card glass-panel col-span-4 tilt-card animaster-stagger skiper-card">
+                <div class="category-header"><i class="fa-solid fa-code"></i><h3>Core Programming</h3></div>
                 <ul class="skill-tags-list">
                     <li><i class="fa-brands fa-java java-c"></i> Java / Enterprise OOP</li>
                     <li><i class="fa-brands fa-python python-c"></i> Python Data Stack</li>
@@ -236,27 +195,17 @@
                     <li><i class="fa-solid fa-chart-pie"></i> R Programming Language</li>
                 </ul>
             </div>
-
-            <!-- Category 2: Web & Frontend -->
-            <div class="bento-card glass-panel col-span-4 tilt-card reveal-on-scroll skiper-card">
-                <div class="category-header">
-                    <i class="fa-solid fa-globe"></i>
-                    <h3>Web & Frontend</h3>
-                </div>
+            <div class="bento-card glass-panel col-span-4 tilt-card animaster-stagger skiper-card">
+                <div class="category-header"><i class="fa-solid fa-globe"></i><h3>Web & Frontend</h3></div>
                 <ul class="skill-tags-list">
-                    <li><i class="fa-brands fa-html5 html-c"></i> HTML5 / CSS3 / JavaScript (ES6+)</li>
+                    <li><i class="fa-brands fa-html5 html-c"></i> HTML5/CSS3/JS (ES6+)</li>
                     <li><i class="fa-brands fa-react react-c"></i> React.js / Modern UI</li>
                     <li><i class="fa-solid fa-mobile-screen"></i> Responsive Web Engineering</li>
                     <li><i class="fa-solid fa-plug"></i> REST APIs & JSON Parsing</li>
                 </ul>
             </div>
-
-            <!-- Category 3: Backend & Databases -->
-            <div class="bento-card glass-panel col-span-4 tilt-card reveal-on-scroll skiper-card">
-                <div class="category-header">
-                    <i class="fa-solid fa-server"></i>
-                    <h3>Backend & Databases</h3>
-                </div>
+            <div class="bento-card glass-panel col-span-4 tilt-card animaster-stagger skiper-card">
+                <div class="category-header"><i class="fa-solid fa-server"></i><h3>Backend & Databases</h3></div>
                 <ul class="skill-tags-list">
                     <li><i class="fa-brands fa-node-js node-c"></i> Node.js Runtime</li>
                     <li><i class="fa-solid fa-database storage-c"></i> MySQL / Relational DBs</li>
@@ -264,13 +213,8 @@
                     <li><i class="fa-solid fa-lock"></i> Secure Auth & Session Logic</li>
                 </ul>
             </div>
-
-            <!-- Category 4: IDEs & Dev Environments -->
-            <div class="bento-card glass-panel col-span-4 tilt-card reveal-on-scroll skiper-card">
-                <div class="category-header">
-                    <i class="fa-solid fa-laptop-code"></i>
-                    <h3>IDEs & Workspaces</h3>
-                </div>
+            <div class="bento-card glass-panel col-span-4 tilt-card animaster-stagger skiper-card">
+                <div class="category-header"><i class="fa-solid fa-laptop-code"></i><h3>IDEs & Workspaces</h3></div>
                 <ul class="skill-tags-list">
                     <li><i class="fa-solid fa-code"></i> VS Code & IntelliJ IDEA</li>
                     <li><i class="fa-solid fa-cube"></i> Apache NetBeans</li>
@@ -278,13 +222,8 @@
                     <li><i class="fa-brands fa-microsoft ms-c"></i> Visual Studio Community</li>
                 </ul>
             </div>
-
-            <!-- Category 5: Cloud, Hosting & DevOps -->
-            <div class="bento-card glass-panel col-span-4 tilt-card reveal-on-scroll skiper-card">
-                <div class="category-header">
-                    <i class="fa-solid fa-cloud-arrow-up"></i>
-                    <h3>Cloud & Deployment</h3>
-                </div>
+            <div class="bento-card glass-panel col-span-4 tilt-card animaster-stagger skiper-card">
+                <div class="category-header"><i class="fa-solid fa-cloud-arrow-up"></i><h3>Cloud & Deployment</h3></div>
                 <ul class="skill-tags-list">
                     <li><i class="fa-solid fa-train track-c"></i> Railway Cloud Hosting</li>
                     <li><i class="fa-solid fa-rocket"></i> Vercel & GitHub Pages</li>
@@ -292,13 +231,8 @@
                     <li><i class="fa-solid fa-paper-plane"></i> Postman API Testing</li>
                 </ul>
             </div>
-
-            <!-- Category 6: Management, Analytics & Tools -->
-            <div class="bento-card glass-panel col-span-4 tilt-card reveal-on-scroll skiper-card">
-                <div class="category-header">
-                    <i class="fa-solid fa-toolbox"></i>
-                    <h3>Management & Analytics</h3>
-                </div>
+            <div class="bento-card glass-panel col-span-4 tilt-card animaster-stagger skiper-card">
+                <div class="category-header"><i class="fa-solid fa-toolbox"></i><h3>Management & Analytics</h3></div>
                 <ul class="skill-tags-list">
                     <li><i class="fa-brands fa-jira jira-c"></i> Jira Software Management</li>
                     <li><i class="fa-solid fa-chart-line"></i> Pandas / Matplotlib Analytics</li>
@@ -306,35 +240,29 @@
                     <li><i class="fa-solid fa-palette"></i> Canva & Prototyping</li>
                 </ul>
             </div>
-
         </div>
     </section>
 
-    <!-- Services Section (NEW) -->
+    <!-- Services Section -->
     <section id="services" class="section">
         <h2 class="section-title reveal-on-scroll"><span class="title-number">03.</span> What I Can Help With</h2>
         <p class="section-lead reveal-on-scroll">Freelance work, college projects, or a full-time role — here's where I add the most value.</p>
-
-        <div class="bento-grid services-bento">
-            <div class="bento-card glass-panel col-span-3 service-card tilt-card reveal-on-scroll skiper-card">
+        <div class="bento-grid services-bento animaster-stagger-parent">
+            <div class="bento-card glass-panel col-span-3 service-card tilt-card animaster-stagger skiper-card">
                 <div class="card-icon-header"><i class="fa-solid fa-layer-group"></i></div>
-                <h3>Full-Stack Web Apps</h3>
-                <p>End-to-end builds from a Java/MySQL backend to a responsive, accessible frontend.</p>
+                <h3>Full-Stack Web Apps</h3><p>End-to-end builds from a Java/MySQL backend to a responsive, accessible frontend.</p>
             </div>
-            <div class="bento-card glass-panel col-span-3 service-card tilt-card reveal-on-scroll skiper-card">
+            <div class="bento-card glass-panel col-span-3 service-card tilt-card animaster-stagger skiper-card">
                 <div class="card-icon-header"><i class="fa-solid fa-chart-simple"></i></div>
-                <h3>Data Dashboards</h3>
-                <p>Interactive dashboards in R Shiny or Python that turn raw data into decisions.</p>
+                <h3>Data Dashboards</h3><p>Interactive dashboards in R Shiny or Python that turn raw data into decisions.</p>
             </div>
-            <div class="bento-card glass-panel col-span-3 service-card tilt-card reveal-on-scroll skiper-card">
+            <div class="bento-card glass-panel col-span-3 service-card tilt-card animaster-stagger skiper-card">
                 <div class="card-icon-header"><i class="fa-solid fa-plug-circle-bolt"></i></div>
-                <h3>APIs & Backend Systems</h3>
-                <p>REST APIs, DAO-pattern database layers, and secure authentication flows.</p>
+                <h3>APIs & Backend Systems</h3><p>REST APIs, DAO-pattern database layers, and secure authentication flows.</p>
             </div>
-            <div class="bento-card glass-panel col-span-3 service-card tilt-card reveal-on-scroll skiper-card">
+            <div class="bento-card glass-panel col-span-3 service-card tilt-card animaster-stagger skiper-card">
                 <div class="card-icon-header"><i class="fa-solid fa-swatchbook"></i></div>
-                <h3>UI Prototyping</h3>
-                <p>Clean, mobile-first interface prototypes built in Canva and shipped in code.</p>
+                <h3>UI Prototyping</h3><p>Clean, mobile-first interface prototypes built in Canva and shipped in code.</p>
             </div>
         </div>
     </section>
@@ -343,17 +271,13 @@
     <section id="projects" class="section">
         <h2 class="section-title reveal-on-scroll"><span class="title-number">04.</span> Featured Engineering</h2>
 
-        <!-- Combined Project Filter Controls (Improved) -->
         <div class="project-filters-container reveal-on-scroll">
-            <!-- Tech Filter Row -->
             <div class="filter-row glass-panel vengeance-pill-group">
                 <span class="filter-label"><i class="fa-solid fa-code"></i> Tech:</span>
                 <button class="filter-btn active" data-filter="all">All Tech</button>
                 <button class="filter-btn" data-filter="web">Web & Systems</button>
                 <button class="filter-btn" data-filter="analytics">Data & Analytics</button>
             </div>
-
-            <!-- Status Filter Row -->
             <div class="filter-row glass-panel vengeance-pill-group">
                 <span class="filter-label"><i class="fa-solid fa-server"></i> Status:</span>
                 <button class="filter-btn-status active" data-status="all">All Projects</button>
@@ -362,192 +286,112 @@
             </div>
         </div>
 
-        <div class="projects-wrapper">
+        <div class="projects-wrapper animaster-stagger-parent">
 
             <!-- 1. AI Fraud App Detection (LIVE) -->
-            <div class="bento-card glass-panel featured-project-card tilt-card reveal-on-scroll skiper-project-card" data-category="analytics" data-status="live">
+            <div class="bento-card glass-panel featured-project-card tilt-card animaster-stagger skiper-project-card" data-category="analytics" data-status="live">
                 <div class="project-content">
                     <div class="project-tag"><i class="fa-solid fa-shield-halved"></i> AI / Machine Learning</div>
                     <h3 class="project-title">AI Fraud App Detection</h3>
-                    <p class="project-description">
-                        An intelligent system designed to detect and flag potentially fraudulent or malicious applications using machine learning algorithms and anomaly detection. 
-                    </p>
-                    <div class="tech-pills">
-                        <span>Python</span>
-                        <span>Machine Learning</span>
-                        <span>Data Processing</span>
-                        <span>Railway Deployment</span>
-                    </div>
+                    <p class="project-description">An intelligent system designed to detect and flag potentially fraudulent or malicious applications using machine learning algorithms and anomaly detection.</p>
+                    <div class="tech-pills"><span>Python</span><span>Machine Learning</span><span>Data Processing</span><span>Railway Deployment</span></div>
                     <div class="project-actions">
-                        <a href="https://ai-fraud-app-detection-production.up.railway.app" target="_blank" rel="noopener" class="btn btn-primary btn-sm glowing-btn">
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live App
-                        </a>
-                        <a href="https://github.com/atul-dubey-2005/Ai-fraud-app-detection" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">
-                            <i class="fa-brands fa-github"></i> Source
-                        </a>
+                        <a href="https://ai-fraud-app-detection-production.up.railway.app" target="_blank" rel="noopener" class="btn btn-primary btn-sm glowing-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live App</a>
+                        <a href="https://github.com/atul-dubey-2005/Ai-fraud-app-detection" target="_blank" rel="noopener" class="btn btn-secondary btn-sm"><i class="fa-brands fa-github"></i> Source</a>
                     </div>
                 </div>
             </div>
 
             <!-- 2. AuraFitness Web Application (LIVE) -->
-            <div class="bento-card glass-panel secondary-project-card tilt-card reveal-on-scroll skiper-project-card" data-category="web" data-status="live">
+            <div class="bento-card glass-panel secondary-project-card tilt-card animaster-stagger skiper-project-card" data-category="web" data-status="live">
                 <div class="project-content">
                     <div class="project-tag"><i class="fa-solid fa-heart-pulse"></i> Fitness & Health Platform</div>
                     <h3 class="project-title">AuraFitness Web Application</h3>
-                    <p class="project-description">
-                        A full front-end rebuild of the Aura Fitness tracker, converted from an ASP.NET Web Forms + SQL Server design into a fast static site running entirely in the browser using localStorage.
-                    </p>
-                    <div class="tech-pills">
-                        <span>HTML5 / CSS3</span>
-                        <span>Vanilla JS</span>
-                        <span>localStorage</span>
-                        <span>Static Deployment</span>
-                    </div>
+                    <p class="project-description">A full front-end rebuild of the Aura Fitness tracker, converted from an ASP.NET Web Forms + SQL Server design into a fast static site running entirely in the browser using localStorage.</p>
+                    <div class="tech-pills"><span>HTML5 / CSS3</span><span>Vanilla JS</span><span>localStorage</span><span>Static Deployment</span></div>
                     <div class="project-actions">
-                        <a href="https://aura-fitness-mauve.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary btn-sm glowing-btn">
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live App
-                        </a>
-                        <a href="https://github.com/atul-dubey-2005/AuraFitness" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">
-                            <i class="fa-brands fa-github"></i> Source
-                        </a>
+                        <a href="https://aura-fitness-mauve.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary btn-sm glowing-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live App</a>
+                        <a href="https://github.com/atul-dubey-2005/AuraFitness" target="_blank" rel="noopener" class="btn btn-secondary btn-sm"><i class="fa-brands fa-github"></i> Source</a>
                     </div>
                 </div>
             </div>
 
             <!-- 3. Ultimate Pro Scientific Calculator (LIVE) -->
-            <div class="bento-card glass-panel secondary-project-card tilt-card reveal-on-scroll skiper-project-card" data-category="web" data-status="live">
+            <div class="bento-card glass-panel secondary-project-card tilt-card animaster-stagger skiper-project-card" data-category="web" data-status="live">
                 <div class="project-content">
                     <div class="project-tag"><i class="fa-solid fa-calculator"></i> Flagship Web App</div>
                     <h3 class="project-title">Ultimate Pro Scientific Calculator</h3>
-                    <p class="project-description">
-                        A desktop-grade scientific calculation engine featuring full multi-tenant session isolation, custom regex parsing, memory registers, and an interactive history drawer.
-                    </p>
-                    <div class="tech-pills">
-                        <span>HTML5</span>
-                        <span>Glassmorphism CSS</span>
-                        <span>ES6+ JavaScript</span>
-                        <span>Session Storage</span>
-                    </div>
+                    <p class="project-description">A desktop-grade scientific calculation engine featuring full multi-tenant session isolation, custom regex parsing, memory registers, and an interactive history drawer.</p>
+                    <div class="tech-pills"><span>HTML5</span><span>Glassmorphism CSS</span><span>ES6+ JavaScript</span><span>Session Storage</span></div>
                     <div class="project-actions">
-                        <a href="https://professional-calculator-rosy.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary btn-sm glowing-btn">
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live App
-                        </a>
-                        <a href="https://github.com/atul-dubey-2005/Professional-Calculator" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">
-                            <i class="fa-brands fa-github"></i> Source
-                        </a>
+                        <a href="https://professional-calculator-rosy.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary btn-sm glowing-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live App</a>
+                        <a href="https://github.com/atul-dubey-2005/Professional-Calculator" target="_blank" rel="noopener" class="btn btn-secondary btn-sm"><i class="fa-brands fa-github"></i> Source</a>
                     </div>
                 </div>
             </div>
 
             <!-- 4. Amazon E-Commerce Platform Clone (LIVE) -->
-            <div class="bento-card glass-panel secondary-project-card tilt-card reveal-on-scroll skiper-project-card" data-category="web" data-status="live">
+            <div class="bento-card glass-panel secondary-project-card tilt-card animaster-stagger skiper-project-card" data-category="web" data-status="live">
                 <div class="project-content">
                     <div class="project-tag"><i class="fa-solid fa-cart-shopping"></i> Full-Stack E-Commerce</div>
                     <h3 class="project-title">Amazon E-Commerce Platform Clone</h3>
-                    <p class="project-description">
-                        A complete Amazon-like platform featuring secure JWT authentication, product catalog filters, shopping cart, order management, and a robust admin dashboard.
-                    </p>
-                    <div class="tech-pills">
-                        <span>React 18</span>
-                        <span>Node.js / Express</span>
-                        <span>PostgreSQL (Supabase)</span>
-                        <span>JWT Auth</span>
-                    </div>
+                    <p class="project-description">A complete Amazon-like platform featuring secure JWT authentication, product catalog filters, shopping cart, order management, and a robust admin dashboard.</p>
+                    <div class="tech-pills"><span>React 18</span><span>Node.js / Express</span><span>PostgreSQL (Supabase)</span><span>JWT Auth</span></div>
                     <div class="project-actions">
-                        <a href="https://amazon-clone-frontend-ty-100e.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary btn-sm glowing-btn">
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live App
-                        </a>
-                        <a href="https://github.com/atul-dubey-2005/amazon_clone" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">
-                            <i class="fa-brands fa-github"></i> Source
-                        </a>
+                        <a href="https://amazon-clone-frontend-ty-100e.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary btn-sm glowing-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live App</a>
+                        <a href="https://github.com/atul-dubey-2005/amazon_clone" target="_blank" rel="noopener" class="btn btn-secondary btn-sm"><i class="fa-brands fa-github"></i> Source</a>
                     </div>
                 </div>
             </div>
 
             <!-- 5. CivicPulse (SOURCE) -->
-            <div class="bento-card glass-panel secondary-project-card tilt-card reveal-on-scroll skiper-project-card" data-category="web" data-status="source">
+            <div class="bento-card glass-panel secondary-project-card tilt-card animaster-stagger skiper-project-card" data-category="web" data-status="source">
                 <div class="project-content">
                     <div class="project-tag"><i class="fa-solid fa-city"></i> Civic Tech Platform</div>
                     <h3 class="project-title">CivicPulse</h3>
-                    <p class="project-description">
-                        An intelligent civic issue resolution and verification platform engineered for complex operational workflows including reporting, routing, and assigning.
-                    </p>
-                    <div class="tech-pills">
-                        <span>React + Vite</span>
-                        <span>Spring Boot</span>
-                        <span>PostgreSQL</span>
-                        <span>FastAPI (AI)</span>
-                    </div>
+                    <p class="project-description">An intelligent civic issue resolution and verification platform engineered for complex operational workflows including reporting, routing, and assigning.</p>
+                    <div class="tech-pills"><span>React + Vite</span><span>Spring Boot</span><span>PostgreSQL</span><span>FastAPI (AI)</span></div>
                     <div class="project-actions">
-                        <a href="https://github.com/atul-dubey-2005/CivicPulse" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">
-                            <i class="fa-brands fa-github"></i> Source
-                        </a>
+                        <a href="https://github.com/atul-dubey-2005/CivicPulse" target="_blank" rel="noopener" class="btn btn-secondary btn-sm"><i class="fa-brands fa-github"></i> Source</a>
                     </div>
                 </div>
             </div>
 
             <!-- 6. DepositShield (SOURCE) -->
-            <div class="bento-card glass-panel secondary-project-card tilt-card reveal-on-scroll skiper-project-card" data-category="web" data-status="source">
+            <div class="bento-card glass-panel secondary-project-card tilt-card animaster-stagger skiper-project-card" data-category="web" data-status="source">
                 <div class="project-content">
                     <div class="project-tag"><i class="fa-solid fa-shield-halved"></i> Financial Security</div>
                     <h3 class="project-title">DepositShield</h3>
-                    <p class="project-description">
-                        A mobile-first rental inspection system generating tamper-evident, SHA-256 finalized records of property conditions via a dual-party signature workflow.
-                    </p>
-                    <div class="tech-pills">
-                        <span>Next.js</span>
-                        <span>Express API</span>
-                        <span>PostgreSQL</span>
-                        <span>Docker</span>
-                    </div>
+                    <p class="project-description">A mobile-first rental inspection system generating tamper-evident, SHA-256 finalized records of property conditions via a dual-party signature workflow.</p>
+                    <div class="tech-pills"><span>Next.js</span><span>Express API</span><span>PostgreSQL</span><span>Docker</span></div>
                     <div class="project-actions">
-                        <a href="https://github.com/atul-dubey-2005/DepositShield" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">
-                            <i class="fa-brands fa-github"></i> Source
-                        </a>
+                        <a href="https://github.com/atul-dubey-2005/DepositShield" target="_blank" rel="noopener" class="btn btn-secondary btn-sm"><i class="fa-brands fa-github"></i> Source</a>
                     </div>
                 </div>
             </div>
 
             <!-- 7. E-Sports Tournament Portal (SOURCE) -->
-            <div class="bento-card glass-panel secondary-project-card tilt-card reveal-on-scroll skiper-project-card" data-category="web" data-status="source">
+            <div class="bento-card glass-panel secondary-project-card tilt-card animaster-stagger skiper-project-card" data-category="web" data-status="source">
                 <div class="project-content">
                     <div class="project-tag"><i class="fa-solid fa-gamepad"></i> Gaming Platform</div>
                     <h3 class="project-title">E-Sports Tournament Portal</h3>
-                    <p class="project-description">
-                        A competitive gaming platform for organizing, managing, and tracking E-Sports tournaments. Features include team registration, match scheduling, dynamic tournament brackets, and leaderboard updates.
-                    </p>
-                    <div class="tech-pills">
-                        <span>React</span>
-                        <span>Node.js</span>
-                        <span>Express</span>
-                        <span>Database</span>
-                    </div>
+                    <p class="project-description">A competitive gaming platform for organizing, managing, and tracking E-Sports tournaments. Features include team registration, match scheduling, dynamic tournament brackets, and leaderboard updates.</p>
+                    <div class="tech-pills"><span>React</span><span>Node.js</span><span>Express</span><span>Database</span></div>
                     <div class="project-actions">
-                        <a href="https://github.com/atul-dubey-2005/e-sports-tournament-portal" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">
-                            <i class="fa-brands fa-github"></i> Source
-                        </a>
+                        <a href="https://github.com/atul-dubey-2005/e-sports-tournament-portal" target="_blank" rel="noopener" class="btn btn-secondary btn-sm"><i class="fa-brands fa-github"></i> Source</a>
                     </div>
                 </div>
             </div>
 
             <!-- 8. SmartBook Campus (SOURCE) -->
-            <div class="bento-card glass-panel secondary-project-card tilt-card reveal-on-scroll skiper-project-card" data-category="web" data-status="source">
+            <div class="bento-card glass-panel secondary-project-card tilt-card animaster-stagger skiper-project-card" data-category="web" data-status="source">
                 <div class="project-content">
                     <div class="project-tag"><i class="fa-solid fa-book-open"></i> EdTech Solution</div>
                     <h3 class="project-title">SmartBook Campus</h3>
-                    <p class="project-description">
-                        A campus-wide digital library and resource-sharing platform built to help students easily access, borrow, and exchange academic books and study materials.
-                    </p>
-                    <div class="tech-pills">
-                        <span>Frontend UI</span>
-                        <span>Node.js</span>
-                        <span>Express</span>
-                        <span>MongoDB</span>
-                    </div>
+                    <p class="project-description">A campus-wide digital library and resource-sharing platform built to help students easily access, borrow, and exchange academic books and study materials.</p>
+                    <div class="tech-pills"><span>Frontend UI</span><span>Node.js</span><span>Express</span><span>MongoDB</span></div>
                     <div class="project-actions">
-                        <a href="https://github.com/atul-dubey-2005/SmartBook_Campus" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">
-                            <i class="fa-brands fa-github"></i> Source
-                        </a>
+                        <a href="https://github.com/atul-dubey-2005/SmartBook_Campus" target="_blank" rel="noopener" class="btn btn-secondary btn-sm"><i class="fa-brands fa-github"></i> Source</a>
                     </div>
                 </div>
             </div>
@@ -558,16 +402,13 @@
     <!-- Timeline / Experience & Education Section -->
     <section id="timeline" class="section">
         <h2 class="section-title reveal-on-scroll"><span class="title-number">05.</span> Experience & Education</h2>
-
-        <div class="timeline-wrapper">
-
+        <div class="timeline-wrapper animaster-stagger-parent">
             <!-- Work Experience -->
-            <div class="timeline-item reveal-on-scroll">
+            <div class="timeline-item animaster-stagger">
                 <div class="timeline-dot"></div>
-                <div class="timeline-content glass-panel tilt-card">
+                <div class="timeline-content glass-panel tilt-card skiper-card">
                     <span class="timeline-date">Sept 2025 - Oct 2025</span>
-                    <h3>Exam Proctor Intern</h3>
-                    <p class="timeline-role">EnFuse Solutions | Mumbai</p>
+                    <h3>Exam Proctor Intern</h3><p class="timeline-role">EnFuse Solutions | Mumbai</p>
                     <ul class="timeline-bullets">
                         <li>Ensured smooth, secure, and fair conduct of online examinations while monitoring candidates to prevent malpractice.</li>
                         <li>Verified candidate identities, managed examination logistics, and resolved technical issues during online assessments.</li>
@@ -575,298 +416,154 @@
                     </ul>
                 </div>
             </div>
-
-            <!-- Techfest IIT Bombay Workshops -->
-            <div class="timeline-item reveal-on-scroll">
+            <!-- Techfest -->
+            <div class="timeline-item animaster-stagger">
                 <div class="timeline-dot"></div>
-                <div class="timeline-content glass-panel tilt-card">
+                <div class="timeline-content glass-panel tilt-card skiper-card">
                     <span class="timeline-date">Dec 2025</span>
-                    <h3>Ethical Hacking & Machine Learning Workshops</h3>
-                    <p class="timeline-role">Techfest, IIT Bombay</p>
+                    <h3>Ethical Hacking & Machine Learning Workshops</h3><p class="timeline-role">Techfest, IIT Bombay</p>
                     <ul class="timeline-bullets">
                         <li><strong>Ethical Hacking:</strong> Gained practical exposure to network security, vulnerability assessment, penetration testing concepts, and defensive strategies.</li>
                         <li><strong>Machine Learning:</strong> Built predictive models using supervised/unsupervised learning (Linear Regression, Decision Trees, Neural Networks) and hands-on feature engineering.</li>
                     </ul>
                 </div>
             </div>
-
             <!-- Degree Education -->
-            <div class="timeline-item reveal-on-scroll">
+            <div class="timeline-item animaster-stagger">
                 <div class="timeline-dot"></div>
-                <div class="timeline-content glass-panel tilt-card">
+                <div class="timeline-content glass-panel tilt-card skiper-card">
                     <span class="timeline-date">2024 - 2027 (Pursuing)</span>
-                    <h3>B.Sc. Information Technology</h3>
-                    <p class="timeline-role">Thakur College of Science and Commerce | Mumbai</p>
+                    <h3>B.Sc. Information Technology</h3><p class="timeline-role">Thakur College of Science and Commerce | Mumbai</p>
                     <p>Focusing on Software Development, Data Structures & Algorithms, Database Systems, Web Architectures, and Object-Oriented Design.</p>
                 </div>
             </div>
-
             <!-- HSC -->
-            <div class="timeline-item reveal-on-scroll">
+            <div class="timeline-item animaster-stagger">
                 <div class="timeline-dot"></div>
-                <div class="timeline-content glass-panel tilt-card">
+                <div class="timeline-content glass-panel tilt-card skiper-card">
                     <span class="timeline-date">2024</span>
-                    <h3>Higher Secondary Certificate (HSC) — 85%</h3>
-                    <p class="timeline-role">Shripati International Public School</p>
-                    <p>Specialized in Science stream with strong fundamentals in Mathematics and Physics.</p>
+                    <h3>Higher Secondary Certificate (HSC) — 85%</h3><p class="timeline-role">Shripati International Public School</p>
                 </div>
             </div>
-
             <!-- SSC -->
-            <div class="timeline-item reveal-on-scroll">
+            <div class="timeline-item animaster-stagger">
                 <div class="timeline-dot"></div>
-                <div class="timeline-content glass-panel tilt-card">
+                <div class="timeline-content glass-panel tilt-card skiper-card">
                     <span class="timeline-date">2022</span>
-                    <h3>Secondary School Certificate (SSC) — 87.6%</h3>
-                    <p class="timeline-role">St. Xavier's Inter College</p>
+                    <h3>Secondary School Certificate (SSC) — 87.6%</h3><p class="timeline-role">St. Xavier's Inter College</p>
                 </div>
             </div>
-
         </div>
     </section>
 
     <!-- Achievements & Honors Section -->
     <section id="achievements" class="section">
         <h2 class="section-title reveal-on-scroll"><span class="title-number">06.</span> Achievements & Honors</h2>
-
-        <div class="bento-grid achievements-bento">
-            <div class="bento-card glass-panel col-span-4 tilt-card reveal-on-scroll">
+        <div class="bento-grid achievements-bento animaster-stagger-parent">
+            <div class="bento-card glass-panel col-span-4 tilt-card animaster-stagger skiper-card">
                 <div class="card-icon-header"><i class="fa-solid fa-trophy text-gold"></i></div>
-                <h3>1st Prize — Chemistry Competition</h3>
-                <p>Awarded First Position in Class 12 Science Competition for analytical problem solving.</p>
+                <h3>1st Prize — Chemistry</h3><p>Awarded First Position in Class 12 Science Competition for analytical problem solving.</p>
             </div>
-
-            <div class="bento-card glass-panel col-span-4 tilt-card reveal-on-scroll">
+            <div class="bento-card glass-panel col-span-4 tilt-card animaster-stagger skiper-card">
                 <div class="card-icon-header"><i class="fa-solid fa-award text-blue"></i></div>
-                <h3>Academic Merit Certificate</h3>
-                <p>Secured 2nd Position overall in Class 11 for academic excellence.</p>
+                <h3>Academic Merit Certificate</h3><p>Secured 2nd Position overall in Class 11 for academic excellence.</p>
             </div>
-
-            <div class="bento-card glass-panel col-span-4 tilt-card reveal-on-scroll">
+            <div class="bento-card glass-panel col-span-4 tilt-card animaster-stagger skiper-card">
                 <div class="card-icon-header"><i class="fa-solid fa-medal text-green"></i></div>
-                <h3>Inter-School Cricket Champion</h3>
-                <p>Key team member of the winning school team in the Inter-School Cricket Tournament (Class 12).</p>
+                <h3>Inter-School Champion</h3><p>Key team member of the winning school team in the Inter-School Cricket Tournament (Class 12).</p>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials & Feedback Section (NEW) -->
+    <!-- Testimonials & Feedback Section -->
     <section id="feedback" class="section">
         <h2 class="section-title reveal-on-scroll"><span class="title-number">07.</span> Feedback Wall</h2>
         <p class="section-lead reveal-on-scroll">Visited my portfolio? Leave a note — it helps me improve, and future visitors get to see it.</p>
-
         <div class="bento-grid feedback-bento">
-            <div class="bento-card glass-panel col-span-5 tilt-card reveal-on-scroll">
+            <div class="bento-card glass-panel col-span-5 tilt-card reveal-on-scroll skiper-card">
                 <h3>Share Your Feedback</h3>
                 <form id="feedbackForm" class="contact-form">
-                    <div class="form-group">
-                        <label for="fbName">Your Name</label>
-                        <input type="text" id="fbName" placeholder="Jane Recruiter" required maxlength="60">
-                    </div>
-                    <div class="form-group">
-                        <label for="fbRole">Role / Relation <span class="label-optional">(optional)</span></label>
-                        <input type="text" id="fbRole" placeholder="Hiring Manager, Mentor, Peer..." maxlength="60">
-                    </div>
-                    <div class="form-group">
-                        <label for="fbRating">Rating</label>
-                        <div class="star-rating" id="starRating" role="radiogroup" aria-label="Rating out of 5">
-                            <button type="button" class="star" data-value="1" aria-label="1 star"><i class="fa-solid fa-star"></i></button>
-                            <button type="button" class="star" data-value="2" aria-label="2 stars"><i class="fa-solid fa-star"></i></button>
-                            <button type="button" class="star" data-value="3" aria-label="3 stars"><i class="fa-solid fa-star"></i></button>
-                            <button type="button" class="star" data-value="4" aria-label="4 stars"><i class="fa-solid fa-star"></i></button>
-                            <button type="button" class="star" data-value="5" aria-label="5 stars"><i class="fa-solid fa-star"></i></button>
+                    <div class="form-group"><label>Your Name</label><input type="text" id="fbName" required maxlength="60"></div>
+                    <div class="form-group"><label>Role / Relation <span class="label-optional">(optional)</span></label><input type="text" id="fbRole" maxlength="60"></div>
+                    <div class="form-group"><label>Rating</label>
+                        <div class="star-rating" id="starRating">
+                            <button type="button" class="star" data-value="1"><i class="fa-solid fa-star"></i></button>
+                            <button type="button" class="star" data-value="2"><i class="fa-solid fa-star"></i></button>
+                            <button type="button" class="star" data-value="3"><i class="fa-solid fa-star"></i></button>
+                            <button type="button" class="star" data-value="4"><i class="fa-solid fa-star"></i></button>
+                            <button type="button" class="star" data-value="5"><i class="fa-solid fa-star"></i></button>
                         </div>
                         <input type="hidden" id="fbRatingValue" value="5">
                     </div>
-                    <div class="form-group">
-                        <label for="fbMessage">Message</label>
-                        <textarea id="fbMessage" rows="4" placeholder="Your thoughts on my work or this portfolio..." required maxlength="400"></textarea>
+                    <div class="form-group"><label>Message</label><textarea id="fbMessage" rows="4" required maxlength="400"></textarea></div>
+                    <div class="skiper-magnetic-wrap">
+                        <button type="submit" class="btn btn-primary btn-block glowing-btn skiper-magnetic"><i class="fa-solid fa-paper-plane"></i> Post Feedback</button>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block glowing-btn">
-                        <i class="fa-solid fa-paper-plane"></i> Post Feedback
-                    </button>
-                    <p class="form-hint">Feedback is stored securely via Supabase. <a href="mailto:atuldubey0214@gmail.com">Email me directly</a> if you'd like a guaranteed reply.</p>
                 </form>
             </div>
-
-            <div class="bento-card glass-panel col-span-7 tilt-card reveal-on-scroll">
+            <div class="bento-card glass-panel col-span-7 tilt-card reveal-on-scroll skiper-card">
                 <h3>What People Are Saying</h3>
-                <div class="feedback-list" id="feedbackList">
-                    <!-- Populated by script.js -->
-                </div>
+                <div class="feedback-list" id="feedbackList"></div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section (NEW) -->
+    <!-- FAQ Section -->
     <section id="faq" class="section">
         <h2 class="section-title reveal-on-scroll"><span class="title-number">08.</span> Frequently Asked</h2>
-
         <div class="faq-list reveal-on-scroll">
-            <details class="faq-item">
-                <summary>Are you available for internships or freelance work right now?</summary>
-                <p>Yes — I'm currently open to software development internships, part-time freelance projects, and full-stack web work. Reach out through the contact form below.</p>
-            </details>
-            <details class="faq-item">
-                <summary>What's your usual response time?</summary>
-                <p>I aim to reply to emails and messages within 24-48 hours on weekdays.</p>
-            </details>
-            <details class="faq-item">
-                <summary>Which stack do you build with most often?</summary>
-                <p>Java with JDBC/MySQL for backend-heavy systems, and HTML/CSS/JavaScript with Node.js or React for the frontend and lighter web apps. Python and R come in for data analysis and dashboards.</p>
-            </details>
-            <details class="faq-item">
-                <summary>Can I see the source code for your projects?</summary>
-                <p>Most projects link directly to their GitHub repository in the Projects section above — feel free to explore, fork, or raise an issue.</p>
-            </details>
+            <details class="faq-item"><summary>Are you available for internships or freelance work right now?</summary><p>Yes — I'm currently open to software development internships, part-time freelance projects, and full-stack web work. Reach out through the contact form below.</p></details>
+            <details class="faq-item"><summary>What's your usual response time?</summary><p>I aim to reply to emails and messages within 24-48 hours on weekdays.</p></details>
+            <details class="faq-item"><summary>Which stack do you build with most often?</summary><p>Java with JDBC/MySQL for backend-heavy systems, and HTML/CSS/JavaScript with Node.js or React for the frontend and lighter web apps. Python and R come in for data analysis and dashboards.</p></details>
+            <details class="faq-item"><summary>Can I see the source code for your projects?</summary><p>Most projects link directly to their GitHub repository in the Projects section above — feel free to explore, fork, or raise an issue.</p></details>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="section">
         <h2 class="section-title reveal-on-scroll"><span class="title-number">09.</span> Direct Contact</h2>
-
         <div class="bento-grid contact-bento">
-            <div class="bento-card glass-panel col-span-5 tilt-card reveal-on-scroll">
+            <div class="bento-card glass-panel col-span-5 tilt-card reveal-on-scroll skiper-card">
                 <h3>Initiate Collaboration</h3>
-                <p class="contact-desc">
-                    I am currently open to software developer positions, tech internships, and technical projects. Feel free to reach out via email!
-                </p>
-
+                <p class="contact-desc">I am currently open to software developer positions, tech internships, and technical projects. Feel free to reach out via email!</p>
                 <div class="contact-methods">
-                    <div class="contact-item">
-                        <div class="c-icon"><i class="fa-solid fa-envelope"></i></div>
-                        <div>
-                            <span>Direct Email</span>
-                            <a href="mailto:atuldubey0214@gmail.com">atuldubey0214@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="c-icon"><i class="fa-solid fa-location-dot"></i></div>
-                        <div>
-                            <span>Location</span>
-                            <span>Kandivali(E), Mumbai, Maharashtra</span>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="c-icon"><i class="fa-brands fa-linkedin"></i></div>
-                        <div>
-                            <span>LinkedIn Profile</span>
-                            <a href="https://www.linkedin.com/in/atul-dubey-059197320" target="_blank" rel="noopener">atul-dubey-059197320</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="c-icon"><i class="fa-brands fa-github"></i></div>
-                        <div>
-                            <span>GitHub Repository</span>
-                            <a href="https://github.com/atul-dubey-2005" target="_blank" rel="noopener">@atul-dubey-2005</a>
-                        </div>
-                    </div>
+                    <div class="contact-item"><div class="c-icon"><i class="fa-solid fa-envelope"></i></div><div><span>Direct Email</span><a href="mailto:atuldubey0214@gmail.com">atuldubey0214@gmail.com</a></div></div>
+                    <div class="contact-item"><div class="c-icon"><i class="fa-solid fa-location-dot"></i></div><div><span>Location</span><span>Kandivali(E), Mumbai, Maharashtra</span></div></div>
+                    <div class="contact-item"><div class="c-icon"><i class="fa-brands fa-linkedin"></i></div><div><span>LinkedIn Profile</span><a href="https://www.linkedin.com/in/atul-dubey-059197320" target="_blank" rel="noopener">atul-dubey-059197320</a></div></div>
+                    <div class="contact-item"><div class="c-icon"><i class="fa-brands fa-github"></i></div><div><span>GitHub Repository</span><a href="https://github.com/atul-dubey-2005" target="_blank" rel="noopener">@atul-dubey-2005</a></div></div>
                 </div>
             </div>
-
-            <div class="bento-card glass-panel col-span-7 tilt-card reveal-on-scroll">
+            <div class="bento-card glass-panel col-span-7 tilt-card reveal-on-scroll skiper-card">
                 <form id="contactForm" class="contact-form">
                     <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" placeholder="John Doe" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" placeholder="john@example.com" required>
-                        </div>
+                        <div class="form-group"><label>Your Name</label><input type="text" id="name" required></div>
+                        <div class="form-group"><label>Your Email</label><input type="email" id="email" required></div>
                     </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" rows="5" placeholder="Hi Atul, I would like to connect about..." required></textarea>
+                    <div class="form-group"><label>Message</label><textarea id="message" rows="5" required></textarea></div>
+                    <div class="skiper-magnetic-wrap">
+                        <button type="submit" class="btn btn-primary glowing-btn skiper-magnetic"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
                     </div>
-                    <button type="submit" class="btn btn-primary glowing-btn">
-                        <i class="fa-solid fa-paper-plane"></i> Send Message
-                    </button>
                 </form>
             </div>
         </div>
     </section>
 </main>
 
-<!-- Toast Notification -->
 <div id="toastNotification" class="toast-notification"></div>
+<button id="backToTop" class="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
 
-<!-- Back to Top -->
-<button id="backToTop" class="back-to-top" aria-label="Back to top">
-    <i class="fa-solid fa-arrow-up"></i>
-</button>
-
-<!-- Footer (Single Horizontal Line Layout) -->
 <footer class="footer glass-panel">
     <div class="footer-content">
-        <a href="#hero" class="nav-logo" aria-label="Atul Dubey Portfolio Home">
-            <span class="logo-bracket">&lt;</span>Atul<span class="logo-accent">.Dev</span><span class="logo-bracket">/&gt;</span>
-        </a>
-
+        <a href="#hero" class="nav-logo" aria-label="Atul Dubey Portfolio Home"><span class="logo-bracket">&lt;</span>Atul<span class="logo-accent">.Dev</span><span class="logo-bracket">/&gt;</span></a>
         <p class="footer-copy">&copy; 2026 Atul Dubey. Built with <i class="fa-solid fa-heart footer-heart"></i> in Mumbai.</p>
-
         <div class="footer-socials">
-            <a href="https://github.com/atul-dubey-2005" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/atul-dubey-059197320" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/atul-dubey-2005" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/atul-dubey-059197320" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
         </div>
     </div>
 </footer>
 
-<!-- External Scripts -->
 <script src="script.js"></script>
-
-<!-- Inline script to handle the dual filtering (Tech + Status) -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const techBtns = document.querySelectorAll('.filter-btn');
-    const statusBtns = document.querySelectorAll('.filter-btn-status');
-    const projectCards = document.querySelectorAll('.projects-wrapper > div');
-
-    let currentTechFilter = 'all';
-    let currentStatusFilter = 'all';
-
-    function applyFilters() {
-        projectCards.forEach(card => {
-            const techCat = card.getAttribute('data-category');
-            const statusCat = card.getAttribute('data-status');
-
-            const techMatch = (currentTechFilter === 'all' || currentTechFilter === techCat);
-            const statusMatch = (currentStatusFilter === 'all' || currentStatusFilter === statusCat);
-
-            if (techMatch && statusMatch) {
-                card.style.display = 'block';
-                setTimeout(() => { card.style.opacity = '1'; }, 50);
-            } else {
-                card.style.opacity = '0';
-                setTimeout(() => { card.style.display = 'none'; }, 300);
-            }
-        });
-    }
-
-    techBtns.forEach(btn => {
-        const newBtn = btn.cloneNode(true);
-        btn.parentNode.replaceChild(newBtn, btn);
-
-        newBtn.addEventListener('click', () => {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            newBtn.classList.add('active');
-            currentTechFilter = newBtn.getAttribute('data-filter');
-            applyFilters();
-        });
-    });
-
-    statusBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            statusBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            currentStatusFilter = btn.getAttribute('data-status');
-            applyFilters();
-        });
-    });
-});
-</script>
 
 </body>
 </html>
