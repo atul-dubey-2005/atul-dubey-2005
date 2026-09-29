@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
 /* ==========================================================================
-   1. Custom Glowing Cursor Physics
+   1. Custom Glowing Cursor Physics (Animaster & Vengeance UI)
    ========================================================================== */
 const cursorDot = document.querySelector('[data-cursor-dot]');
 const cursorOutline = document.querySelector('[data-cursor-outline]');
@@ -104,7 +104,7 @@ function animateCounter(counterElement, instant) {
 }
 
 /* ==========================================================================
-   5. Interactive 3D Card Tilt Effect (disabled on touch devices)
+   5. Interactive 3D Card Tilt Effect (Vengeance UI Micro-interaction)
    ========================================================================== */
 const tiltCards = document.querySelectorAll('.tilt-card');
 const isTouchDevice = window.matchMedia('(hover: none), (pointer: coarse)').matches;
@@ -170,14 +170,14 @@ function showToast(msg) {
 }
 
 /* ==========================================================================
-   8. Contact Form Handler (Connecting to Vercel API via Nodemailer)
+   8. Contact Form Handler (Vercel API / Nodemailer Bridge)
    ========================================================================== */
 const contactForm = document.getElementById('contactForm');
 
 if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
+
         const name = document.getElementById('name').value.trim();
         const email = document.getElementById('email').value.trim();
         const message = document.getElementById('message').value.trim();
@@ -218,9 +218,8 @@ if (contactForm) {
 }
 
 /* ==========================================================================
-   9. Feedback Wall (Supabase Integration + Random Selection)
+   9. Feedback Wall (Supabase Integration)
    ========================================================================== */
-// IMPORTANT: Yahan apna Supabase URL aur public key update karein!
 const SUPABASE_URL = 'AAPKA_SUPABASE_PROJECT_URL_YAHAN_DALEIN'; 
 const SUPABASE_KEY = 'AAPKI_SUPABASE_ANON_PUBLIC_KEY_YAHAN_DALEIN';
 
@@ -229,14 +228,12 @@ const feedbackList = document.getElementById('feedbackList');
 const starRating = document.getElementById('starRating');
 const ratingInput = document.getElementById('fbRatingValue');
 
-// Utility to escape HTML and prevent XSS
 function escapeHTML(str) {
     const div = document.createElement('div');
     div.textContent = str;
     return div.innerHTML;
 }
 
-// Supabase se fetch karke 3 random feedbacks dikhana
 async function loadFeedbacks() {
     if (!feedbackList) return;
     try {
@@ -247,9 +244,9 @@ async function loadFeedbacks() {
                 'Authorization': `Bearer ${SUPABASE_KEY}`
             }
         });
-        
+
         if (!response.ok) throw new Error('Failed to fetch from Supabase');
-        
+
         const entries = await response.json();
 
         if (entries.length === 0) {
@@ -257,7 +254,6 @@ async function loadFeedbacks() {
             return;
         }
 
-        // Randomly mix array and select top 3
         const randomFeedbacks = entries.sort(() => 0.5 - Math.random()).slice(0, 3);
 
         feedbackList.innerHTML = randomFeedbacks.map(entry => `
@@ -279,7 +275,6 @@ async function loadFeedbacks() {
     }
 }
 
-// Star UI interactions
 if (starRating) {
     const stars = starRating.querySelectorAll('.star');
     stars.forEach(star => {
@@ -291,11 +286,9 @@ if (starRating) {
             });
         });
     });
-    // Default 5 stars filled
     stars.forEach(s => s.classList.add('active'));
 }
 
-// Naya Feedback Supabase me bhejna
 if (feedbackForm) {
     feedbackForm.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -340,8 +333,7 @@ if (feedbackForm) {
             feedbackForm.reset();
             document.querySelectorAll('#starRating .star').forEach(s => s.classList.add('active'));
             ratingInput.value = 5;
-            
-            // Reload the UI to show fresh random feedback
+
             loadFeedbacks();
             showToast(`Thanks for the feedback, ${name}!`);
         } catch (error) {
@@ -354,7 +346,6 @@ if (feedbackForm) {
     });
 }
 
-// Page Load par function call karein
 loadFeedbacks();
 
 /* ==========================================================================
