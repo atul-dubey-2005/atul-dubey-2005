@@ -104,33 +104,7 @@ function animateCounter(counterElement, instant) {
 }
 
 /* ==========================================================================
-   5. Project Filter Controller
-   ========================================================================== */
-const filterButtons = document.querySelectorAll('.filter-btn');
-const projectCards = document.querySelectorAll('.projects-wrapper > div');
-
-filterButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-        filterButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const filterValue = btn.getAttribute('data-filter');
-
-        projectCards.forEach(card => {
-            const category = card.getAttribute('data-category');
-            if (filterValue === 'all' || filterValue === category) {
-                card.style.display = 'block';
-                setTimeout(() => { card.style.opacity = '1'; }, 50);
-            } else {
-                card.style.opacity = '0';
-                setTimeout(() => { card.style.display = 'none'; }, 300);
-            }
-        });
-    });
-});
-
-/* ==========================================================================
-   6. Interactive 3D Card Tilt Effect (disabled on touch devices)
+   5. Interactive 3D Card Tilt Effect (disabled on touch devices)
    ========================================================================== */
 const tiltCards = document.querySelectorAll('.tilt-card');
 const isTouchDevice = window.matchMedia('(hover: none), (pointer: coarse)').matches;
@@ -158,7 +132,7 @@ if (!isTouchDevice) {
 }
 
 /* ==========================================================================
-   7. Navigation & Hamburger Menu
+   6. Navigation & Hamburger Menu
    ========================================================================== */
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
@@ -181,33 +155,9 @@ if (hamburger && navMenu) {
 }
 
 /* ==========================================================================
-   8. Toast Notification & Contact Form Handler
+   7. Toast Notification Handler
    ========================================================================== */
-const contactForm = document.getElementById('contactForm');
 const toast = document.getElementById('toastNotification');
-
-// NOTE: This form currently just shows a local confirmation toast — nothing
-// is actually emailed anywhere. To receive real messages from visitors:
-//   1) Create a free form endpoint at https://formspree.io (or use EmailJS).
-//   2) Add action="https://formspree.io/f/yourFormId" method="POST" to the
-//      <form id="contactForm"> tag in index.html.
-//   3) Remove (or adapt) the e.preventDefault() below so the form actually submits.
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const message = document.getElementById('message').value.trim();
-
-        if (name && email && message) {
-            showToast(`Message sent successfully, ${name}!`);
-            contactForm.reset();
-        } else {
-            showToast(`Please complete all required form fields.`);
-        }
-    });
-}
 
 function showToast(msg) {
     if (toast) {
@@ -220,61 +170,116 @@ function showToast(msg) {
 }
 
 /* ==========================================================================
-   9. Feedback Wall (star rating + localStorage guestbook)
+   8. Contact Form Handler (Connecting to Vercel API via Nodemailer)
    ========================================================================== */
-const FEEDBACK_KEY = 'atuldev_portfolio_feedback';
+const contactForm = document.getElementById('contactForm');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+        if (!name || !email || !message) {
+            showToast('Please fill out all fields.');
+            return;
+        }
+
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+        submitBtn.disabled = true;
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name, email, message })
+            });
+
+            if (response.ok) {
+                showToast(`Thanks ${name}, message sent successfully!`);
+                contactForm.reset();
+            } else {
+                showToast('Failed to send message. Please try again.');
+            }
+        } catch (error) {
+            console.error("Error sending email:", error);
+            showToast('Network error. Check your connection.');
+        } finally {
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.disabled = false;
+        }
+    });
+}
+
+/* ==========================================================================
+   9. Feedback Wall (Supabase Integration + Random Selection)
+   ========================================================================== */
+// IMPORTANT: Yahan apna Supabase URL aur public key update karein!
+const SUPABASE_URL = 'AAPKA_SUPABASE_PROJECT_URL_YAHAN_DALEIN'; 
+const SUPABASE_KEY = 'AAPKI_SUPABASE_ANON_PUBLIC_KEY_YAHAN_DALEIN';
+
 const feedbackForm = document.getElementById('feedbackForm');
 const feedbackList = document.getElementById('feedbackList');
 const starRating = document.getElementById('starRating');
 const ratingInput = document.getElementById('fbRatingValue');
 
-function getStoredFeedback() {
-    try {
-        const raw = localStorage.getItem(FEEDBACK_KEY);
-        return raw ? JSON.parse(raw) : [];
-    } catch (err) {
-        return [];
-    }
-}
-
-function saveFeedback(entries) {
-    try {
-        localStorage.setItem(FEEDBACK_KEY, JSON.stringify(entries));
-    } catch (err) {
-        console.error('Could not save feedback locally:', err);
-    }
-}
-
+// Utility to escape HTML and prevent XSS
 function escapeHTML(str) {
     const div = document.createElement('div');
     div.textContent = str;
     return div.innerHTML;
 }
 
-function renderFeedback() {
+// Supabase se fetch karke 3 random feedbacks dikhana
+async function loadFeedbacks() {
     if (!feedbackList) return;
-    const entries = getStoredFeedback();
+    try {
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/feedbacks?select=*`, {
+            method: 'GET',
+            headers: {
+                'apikey': SUPABASE_KEY,
+                'Authorization': `Bearer ${SUPABASE_KEY}`
+            }
+        });
+        
+        if (!response.ok) throw new Error('Failed to fetch from Supabase');
+        
+        const entries = await response.json();
 
-    if (entries.length === 0) {
-        feedbackList.innerHTML = `<p class="feedback-empty">No feedback yet — be the first to share your thoughts!</p>`;
-        return;
-    }
+        if (entries.length === 0) {
+            feedbackList.innerHTML = `<p class="feedback-empty">No feedback yet — be the first to share your thoughts!</p>`;
+            return;
+        }
 
-    feedbackList.innerHTML = entries.map(entry => `
-        <div class="feedback-card">
-            <div class="feedback-card-header">
-                <div>
-                    <span class="feedback-name">${escapeHTML(entry.name)}</span>
-                    ${entry.role ? `<span class="feedback-role">${escapeHTML(entry.role)}</span>` : ''}
+        // Randomly mix array and select top 3
+        const randomFeedbacks = entries.sort(() => 0.5 - Math.random()).slice(0, 3);
+
+        feedbackList.innerHTML = randomFeedbacks.map(entry => `
+            <div class="feedback-card">
+                <div class="feedback-card-header">
+                    <div>
+                        <span class="feedback-name">${escapeHTML(entry.name)}</span>
+                        ${entry.role ? `<span class="feedback-role">${escapeHTML(entry.role)}</span>` : ''}
+                    </div>
+                    <span class="feedback-stars">${'★'.repeat(entry.rating)}${'☆'.repeat(5 - entry.rating)}</span>
                 </div>
-                <span class="feedback-stars">${'★'.repeat(entry.rating)}${'☆'.repeat(5 - entry.rating)}</span>
+                <p class="feedback-message">${escapeHTML(entry.message)}</p>
+                <span class="feedback-date">${entry.date}</span>
             </div>
-            <p class="feedback-message">${escapeHTML(entry.message)}</p>
-            <span class="feedback-date">${entry.date}</span>
-        </div>
-    `).join('');
+        `).join('');
+    } catch (error) {
+        console.error("Error fetching feedbacks:", error);
+        feedbackList.innerHTML = `<p class="feedback-empty">Could not load feedback at this time.</p>`;
+    }
 }
 
+// Star UI interactions
 if (starRating) {
     const stars = starRating.querySelectorAll('.star');
     stars.forEach(star => {
@@ -286,12 +291,13 @@ if (starRating) {
             });
         });
     });
-    // Default to 5 stars filled
+    // Default 5 stars filled
     stars.forEach(s => s.classList.add('active'));
 }
 
+// Naya Feedback Supabase me bhejna
 if (feedbackForm) {
-    feedbackForm.addEventListener('submit', (e) => {
+    feedbackForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         const name = document.getElementById('fbName').value.trim();
@@ -304,26 +310,52 @@ if (feedbackForm) {
             return;
         }
 
-        const entries = getStoredFeedback();
-        entries.unshift({
-            name,
-            role,
-            message,
+        const newEntry = {
+            name, 
+            role, 
+            message, 
             rating,
             date: new Date().toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })
-        });
+        };
 
-        // Keep the list from growing unbounded in one browser
-        saveFeedback(entries.slice(0, 50));
-        renderFeedback();
-        feedbackForm.reset();
-        document.querySelectorAll('#starRating .star').forEach(s => s.classList.add('active'));
-        ratingInput.value = 5;
-        showToast(`Thanks for the feedback, ${name}!`);
+        const submitBtn = feedbackForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Posting...';
+        submitBtn.disabled = true;
+
+        try {
+            const res = await fetch(`${SUPABASE_URL}/rest/v1/feedbacks`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'apikey': SUPABASE_KEY,
+                    'Authorization': `Bearer ${SUPABASE_KEY}`,
+                    'Prefer': 'return=minimal' 
+                },
+                body: JSON.stringify(newEntry)
+            });
+
+            if(!res.ok) throw new Error('Network response was not ok');
+
+            feedbackForm.reset();
+            document.querySelectorAll('#starRating .star').forEach(s => s.classList.add('active'));
+            ratingInput.value = 5;
+            
+            // Reload the UI to show fresh random feedback
+            loadFeedbacks();
+            showToast(`Thanks for the feedback, ${name}!`);
+        } catch (error) {
+            console.error("Error saving feedback:", error);
+            showToast('Failed to save feedback. Please try again.');
+        } finally {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }
     });
 }
 
-renderFeedback();
+// Page Load par function call karein
+loadFeedbacks();
 
 /* ==========================================================================
    10. Back to Top Button
