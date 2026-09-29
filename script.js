@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const floatImg = floatPreview?.querySelector('img');
     if (!isTouchDevice && floatPreview) {
         document.querySelectorAll('.hover-reveal').forEach(card => {
-            card.addEventListener('mouseenter', (e) => {
+            card.addEventListener('mouseenter', () => {
                 const imgUrl = card.getAttribute('data-image');
                 if(imgUrl) { floatImg.src = imgUrl; floatPreview.classList.add('show'); }
             });
@@ -258,9 +258,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // 14. Hamburger Menu
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
-        document.querySelectorAll('.nav-link').forEach(link => link.addEventListener('click', () => navMenu.classList.remove('active')));
+        navLinks.forEach(link => link.addEventListener('click', () => navMenu.classList.remove('active')));
     }
 
     // 15. Form Submissions & Toasts
@@ -347,7 +348,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     loadFeedbacks();
 
-    // 17. Back to Top Navbar Reset
+    // 17. Back to Top Button
     const backToTop = document.getElementById('backToTop');
     if (backToTop) {
         window.addEventListener('scroll', () => backToTop.classList.toggle('show', window.pageYOffset > 600));
