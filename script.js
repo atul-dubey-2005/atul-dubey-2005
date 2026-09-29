@@ -128,23 +128,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    techBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            techBtns.forEach(b => b.classList.remove('active')); 
-            btn.classList.add('active'); 
-            currentTech = btn.dataset.filter; 
-            applyFilters();
+    if (techBtns.length > 0) {
+        techBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                techBtns.forEach(b => b.classList.remove('active')); 
+                btn.classList.add('active'); 
+                currentTech = btn.dataset.filter; 
+                applyFilters();
+            });
         });
-    });
+    }
     
-    statusBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            statusBtns.forEach(b => b.classList.remove('active')); 
-            btn.classList.add('active'); 
-            currentStatus = btn.dataset.status; 
-            applyFilters();
+    if (statusBtns.length > 0) {
+        statusBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                statusBtns.forEach(b => b.classList.remove('active')); 
+                btn.classList.add('active'); 
+                currentStatus = btn.dataset.status; 
+                applyFilters();
+            });
         });
-    });
+    }
 
     // 9. Fetch Dev.to Blog API
     async function fetchBlogs() {
@@ -343,7 +347,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     loadFeedbacks();
 
-    // 17. Back to Top
+    // 17. Back to Top Navbar Reset
     const backToTop = document.getElementById('backToTop');
     if (backToTop) {
         window.addEventListener('scroll', () => backToTop.classList.toggle('show', window.pageYOffset > 600));
