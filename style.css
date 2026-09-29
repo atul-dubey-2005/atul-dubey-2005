@@ -1,11 +1,11 @@
 /* ==========================================================================
-   1. Design Tokens & Global Root Setup
+   1. Design Tokens & Global Root Setup (Animaster + Skiper + Vengeance UI)
    ========================================================================== */
 :root {
   --bg-dark: #030508;
-  --panel-bg: rgba(13, 17, 28, 0.7);
+  --panel-bg: rgba(13, 17, 28, 0.75);
   --panel-border: rgba(255, 255, 255, 0.08);
-  --panel-border-hover: rgba(99, 102, 241, 0.5);
+  --panel-border-hover: rgba(99, 102, 241, 0.6);
 
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
@@ -14,7 +14,7 @@
   --accent-cyan: #38bdf8;
   --accent-violet: #a855f7;
   --accent-gold: #fbbf24;
-  --accent-glow: rgba(99, 102, 241, 0.35);
+  --accent-glow: rgba(99, 102, 241, 0.45);
 
   --font-primary: 'Plus Jakarta Sans', -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -53,6 +53,54 @@ body {
 }
 
 img { max-width: 100%; display: block; }
+
+/* Animaster & Skiper UI Keyframes */
+@keyframes animFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes animFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.anim-fade-in { animation: animFadeIn 0.8s ease forwards; }
+.anim-float { animation: animFloat 4s ease-in-out infinite; }
+.anim-float-delayed { animation: animFloat 4s ease-in-out 2s infinite; }
+.anim-gradient-shift {
+  background-size: 200% auto;
+  animation: gradientShift 6s linear infinite;
+}
+
+/* Vengeance UI Card & Glow System */
+.vengeance-card-3d {
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease;
+}
+.vengeance-card-3d:hover {
+  box-shadow: 0 25px 60px -15px rgba(99, 102, 241, 0.4);
+}
+
+.skiper-card {
+  position: relative;
+}
+.skiper-card::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(135deg, var(--accent-cyan), transparent, var(--accent-indigo));
+  border-radius: var(--radius-lg);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.skiper-card:hover::after { opacity: 0.6; }
 
 /* Visible keyboard focus for accessibility */
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, summary:focus-visible {
@@ -116,7 +164,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   border: 1px solid rgba(56, 189, 248, 0.5);
 }
 
-/* Hide custom cursor on touch devices (any pointer that isn't fine) */
 @media (max-width: 992px), (hover: none) and (pointer: coarse) {
   .cursor-dot, .cursor-outline { display: none; }
 }
@@ -317,7 +364,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   overflow: hidden;
   font-family: var(--font-mono);
   text-align: left;
-  padding: 0 !important; /* Overrides previous padding so header spans full width */
+  padding: 0 !important;
 }
 
 .terminal-header {
@@ -375,7 +422,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 .terminal-output-wrapper {
   margin-top: 15px;
-  display: block; /* Changed from flex so the cursor flows with text */
+  display: block;
 }
 
 #typingOutput {
@@ -384,17 +431,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   white-space: pre-wrap;
   word-break: break-word;
   font-family: var(--font-mono);
-  display: inline; /* Forces the text to sit inline right next to the cursor */
+  display: inline;
 }
 
-/* Terminal Syntax Highlighting Colors */
-.json-key { color: #ff79c6; }     /* Pink */
-.json-string { color: #f1fa8c; }  /* Yellow */
-.json-number { color: #bd93f9; }  /* Purple */
-.json-boolean { color: #8be9fd; } /* Cyan */
-.json-bracket { color: #f8f8f2; } /* White */
-
-/* Blinking Cursor */
 .cursor {
   display: inline-block;
   width: 8px;
@@ -462,7 +501,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   transition: var(--transition-smooth);
 }
 
-/* Camera Selfie Unmirror Correction */
 .unmirror-img { transform: scaleX(-1); }
 
 .image-overlay {
@@ -656,13 +694,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .ms-c { color: #00a4ef; }
 .track-c { color: #38bdf8; }
 
-/* Services Bento Card (NEW) */
+/* Services Bento Card */
 .service-card { text-align: left; }
 .service-card h3 { font-size: 1.1rem; margin-bottom: 0.6rem; }
 .service-card p { color: var(--text-muted); font-size: 0.9rem; }
 
 /* ==========================================================================
-   10. Filterable Project Matrix (UPDATED: Dual-Line Pill Design)
+   10. Filterable Project Matrix (Dual-Line Pill Design + Vengeance UI)
    ========================================================================== */
 .project-filters-container {
     display: flex;
@@ -696,7 +734,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     gap: 0.4rem;
 }
 
-/* Uniform Styling for BOTH Tech & Status Buttons */
 .filter-btn, .filter-btn-status {
     background: transparent;
     border: 1px solid transparent;
@@ -710,13 +747,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     font-family: inherit;
 }
 
-/* Hover Effect */
 .filter-btn:hover, .filter-btn-status:hover {
     color: var(--text-main);
     background: rgba(255, 255, 255, 0.08);
 }
 
-/* Active State Effect (Glowing Button) */
 .filter-btn.active, .filter-btn-status.active {
     background: var(--accent-indigo);
     color: #ffffff;
@@ -725,7 +760,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     font-weight: 600;
 }
 
-/* Mobile Responsiveness for Filters */
 @media (max-width: 768px) {
     .filter-row {
         flex-direction: row;
@@ -745,7 +779,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     }
 }
 
-/* --- Project Cards Styling --- */
 .projects-wrapper { display: flex; flex-direction: column; gap: 1.8rem; }
 
 .project-tag {
@@ -760,9 +793,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   font-weight: 700;
   margin-bottom: 1rem;
 }
-
-/* Note: .alt-tag is no longer used in HTML to maintain uniform tags, but kept here for backward compatibility */
-.alt-tag { background: rgba(255, 255, 255, 0.08); color: var(--text-muted); }
 
 .project-title { font-size: clamp(1.25rem, 3vw, 1.6rem); margin-bottom: 0.8rem; }
 .project-description { color: var(--text-muted); margin-bottom: 1.2rem; font-size: 0.98rem; }
@@ -822,7 +852,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .timeline-bullets li::before { content: "—"; position: absolute; left: 0; color: var(--accent-cyan); }
 
 /* ==========================================================================
-   12. Feedback Wall (NEW)
+   12. Feedback Wall
    ========================================================================== */
 .label-optional { color: var(--text-muted); font-weight: 400; }
 
@@ -860,7 +890,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .feedback-date { font-size: 0.72rem; color: var(--text-muted); opacity: 0.7; margin-top: 0.5rem; display: block; }
 
 /* ==========================================================================
-   13. FAQ (NEW)
+   13. FAQ
    ========================================================================== */
 .faq-list { display: flex; flex-direction: column; gap: 0.9rem; }
 
@@ -942,7 +972,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
 }
 
-/* Toast Notification Box */
 .toast-notification {
   position: fixed;
   bottom: 24px;
@@ -969,7 +998,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   opacity: 1;
 }
 
-/* Back to top button */
 .back-to-top {
   position: fixed;
   bottom: 24px;
