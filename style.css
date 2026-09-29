@@ -120,7 +120,7 @@ html.lenis, html.lenis body { height: auto; }
 .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; }
 .bar { width: 22px; height: 2px; background-color: var(--text-main); transition: var(--transition-fast); border-radius: 2px; }
 
-/* Buttons & Magnetic Wraps (FIXED FOR MOBILE) */
+/* Buttons & Magnetic Wraps */
 .btn { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.85rem 1.8rem; border-radius: 12px; font-weight: 600; font-size: 0.95rem; text-decoration: none; cursor: pointer; transition: var(--transition-fast); border: none; font-family: inherit; }
 .btn-primary { background: linear-gradient(135deg, var(--accent-indigo), var(--accent-violet)); color: #fff; }
 .glowing-btn:hover { box-shadow: 0 0 25px var(--accent-glow); transform: translateY(-2px); }
@@ -130,13 +130,12 @@ html.lenis, html.lenis body { height: auto; }
 .btn-block { width: 100%; justify-content: center; }
 .theme-switcher button { width: 38px; height: 38px; padding: 0; display: flex; justify-content: center; align-items: center; border-radius: 50%; }
 
-/* Skiper UI Magnetic Wrap - Padding zeroed out to prevent mobile layout break */
 .skiper-magnetic-wrap { display: inline-block; padding: 0; margin: 0; cursor: pointer; }
 .skiper-magnetic { display: inline-flex; transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1); }
 .skiper-magnetic-wrap.w-full-mobile { width: 100%; display: flex; }
 
 /* ==========================================================================
-   4. Hero & Advanced Widgets
+   4. Hero & Advanced Widgets (FIXED FLOATING BADGES FOR MOBILE)
    ========================================================================== */
 .hero-section { min-height: 95vh; display: flex; align-items: center; max-width: 1280px; margin: 0 auto; padding: 8.5rem 2rem 4rem; }
 .hero-container { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 4rem; align-items: center; width: 100%; }
@@ -148,7 +147,6 @@ html.lenis, html.lenis body { height: auto; }
 @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 .hero-subtitle { font-size: 1.2rem; color: var(--accent-indigo); font-weight: 600; margin-bottom: 1.5rem; }
 
-/* Hero Spacing Fixes */
 .hero-cta { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
 .hero-quick-info { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1.2rem 0; } 
 .info-chip { font-size: 0.82rem; font-family: var(--font-mono); color: rgba(255, 255, 255, 0.75); background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); padding: 0.35rem 0.75rem; border-radius: 20px; display: inline-flex; align-items: center; gap: 0.4rem; } 
@@ -157,13 +155,16 @@ html.lenis, html.lenis body { height: auto; }
 .hero-socials a { width: 42px; height: 42px; border-radius: 12px; background: var(--panel-bg); border: 1px solid var(--panel-border); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 1.2rem; text-decoration: none; transition: 0.3s; }
 .hero-socials a:hover { color: var(--text-main); border-color: var(--accent-indigo); transform: translateY(-3px); box-shadow: 0 0 15px var(--accent-glow);}
 
-.hero-image-wrapper { display: flex; justify-content: center; }
+.hero-image-wrapper { display: flex; justify-content: center; padding: 2rem 0; }
 .profile-card { position: relative; width: 320px; height: 400px; perspective: 1000px; }
 .image-frame { width: 100%; height: 100%; border-radius: 28px; overflow: hidden; border: 1px solid var(--panel-border); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8); }
 .profile-img { width: 100%; height: 100%; object-fit: cover; transform: scaleX(-1); }
-.floating-badge { position: absolute; background: rgba(13, 17, 28, 0.95); backdrop-filter: blur(12px); border: 1px solid var(--panel-border); padding: 0.75rem 1.1rem; border-radius: 16px; display: flex; align-items: center; gap: 0.8rem; box-shadow: 0 15px 30px rgba(0,0,0,0.5); }
-.badge-top { top: -20px; left: -30px; animation: animFloat 4s ease-in-out infinite; } 
-.badge-bottom { bottom: -20px; right: -30px; animation: animFloat 4s ease-in-out 2s infinite;}
+
+/* Floating Badges Fixed for Mobile Overflow */
+.floating-badge { position: absolute; background: rgba(13, 17, 28, 0.95); backdrop-filter: blur(12px); border: 1px solid var(--panel-border); padding: 0.75rem 1.1rem; border-radius: 16px; display: flex; align-items: center; gap: 0.8rem; box-shadow: 0 15px 30px rgba(0,0,0,0.5); z-index: 5; }
+.badge-top { top: -25px; left: -15px; animation: animFloat 4s ease-in-out infinite; } 
+.badge-bottom { bottom: -25px; right: -15px; animation: animFloat 4s ease-in-out 2s infinite;}
+@keyframes animFloat { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-6px); } }
 
 /* Terminal */
 .hero-terminal { background: rgba(10, 15, 30, 0.7) !important; border: 1px solid rgba(255, 255, 255, 0.1) !important; border-radius: 12px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1); width: 100%; max-width: 550px; margin-bottom: 2rem; overflow: hidden; padding: 0 !important; }
@@ -199,8 +200,8 @@ html.lenis, html.lenis body { height: auto; }
 .skill-tags-list { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; } .skill-tags-list li { display: flex; align-items: center; gap: 0.8rem; font-size: 0.92rem; color: var(--text-muted); }
 
 /* GitHub Stats & Blog Feed */
-.github-stats-container { display: flex; flex-direction: column; gap: 1rem; width: 100%; }
-.gh-stat-img { width: 100%; border-radius: 12px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); transition: filter 0.3s; }
+.github-stats-container { display: flex; flex-direction: column; gap: 1rem; width: 100%; overflow-x: auto; }
+.gh-stat-img { width: 100%; max-width: 100%; border-radius: 12px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); transition: filter 0.3s; }
 [data-theme="monochrome"] .gh-stat-img { filter: grayscale(100%); }
 .blog-list { display: flex; flex-direction: column; gap: 1rem; }
 .blog-card { display: flex; flex-direction: column; gap: 0.5rem; padding: 1rem; background: rgba(255,255,255,0.02); border: 1px solid var(--panel-border); border-radius: 12px; text-decoration: none; color: var(--text-main); transition: 0.3s; }
@@ -275,7 +276,7 @@ html.lenis, html.lenis body { height: auto; }
 .back-to-top { position: fixed; bottom: 24px; left: 24px; width: 46px; height: 46px; border-radius: 50%; background: var(--panel-bg); border: 1px solid var(--panel-border); color: var(--text-main); backdrop-filter: blur(12px); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1rem; z-index: 900; opacity: 0; pointer-events: none; transform: translateY(10px); transition: var(--transition-fast); } .back-to-top.show { opacity: 1; pointer-events: auto; transform: translateY(0); } 
 
 /* ==========================================================================
-   MOBILE RESPONSIVENESS (FULLY FIXED)
+   MOBILE RESPONSIVENESS (FULLY FIXED OVERFLOW & BADGES)
    ========================================================================== */
 @media (max-width: 992px) { 
     .hero-container, .bento-grid { grid-template-columns: 1fr; } 
@@ -304,13 +305,24 @@ html.lenis, html.lenis body { height: auto; }
     .hero-socials { justify-content: center; }
     
     .footer-content { flex-direction: column; text-align: center; }
+
+    /* Mobile Floating Badges Safe Positioning */
+    .hero-image-wrapper { padding: 3rem 1rem; }
+    .profile-card { width: 280px; height: 350px; }
+    .badge-top { top: -20px; left: 10px; font-size: 0.8rem; }
+    .badge-bottom { bottom: -20px; right: 10px; font-size: 0.8rem; }
 }
 
 @media (max-width: 480px) { 
     .glass-panel { padding: 1.5rem; } 
     .navbar { padding: 0.9rem 1.25rem; } 
     .hero-section { padding: 7rem 1.25rem 3rem; } 
-    .profile-card { width: 260px; height: 320px; } 
+    .profile-card { width: 240px; height: 300px; } 
+    .badge-top { top: -15px; left: 5px; padding: 0.5rem; }
+    .badge-bottom { bottom: -15px; right: 5px; padding: 0.5rem; }
+    .floating-badge strong { font-size: 0.75rem; }
+    .floating-badge span { font-size: 0.6rem; }
+    
     .section { padding: 3.5rem 1.25rem; } 
     .bento-grid { gap: 1rem; } 
     .timeline-wrapper { padding-left: 1.5rem; } 
