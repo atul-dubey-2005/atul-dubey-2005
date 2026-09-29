@@ -17,11 +17,12 @@
     <!-- Lenis Smooth Scroll -->
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="vengeance-app" data-theme="default">
 
-<!-- Vengeance UI Preloader -->
+<!-- 1. Vengeance UI Preloader -->
 <div id="vengeance-preloader" class="vengeance-preloader">
     <div class="loader-content">
         <span class="logo-bracket">&lt;</span>Atul<span class="logo-accent">.Dev</span><span class="logo-bracket">/&gt;</span>
@@ -30,12 +31,12 @@
     </div>
 </div>
 
-<!-- Custom Glowing Cursor & Project Hover Preview -->
+<!-- 2. Custom Glowing Cursor & Project Hover Preview -->
 <div class="cursor-dot" data-cursor-dot></div>
 <div class="cursor-outline" data-cursor-outline></div>
 <div id="projectPreviewFloat" class="project-preview-float"><img src="" alt="Project Preview"></div>
 
-<!-- BGMI Easter Egg Overlay -->
+<!-- 3. BGMI Easter Egg Overlay -->
 <div id="easterEggOverlay" class="easter-egg-overlay">
     <div class="easter-egg-content">
         <i class="fa-solid fa-gamepad"></i>
@@ -44,16 +45,16 @@
     </div>
 </div>
 
-<!-- Scroll Progress Indicator -->
+<!-- 4. Scroll Progress Indicator -->
 <div class="scroll-progress" id="scrollProgress"></div>
 
-<!-- Ambient Mesh Lighting Spheres -->
+<!-- 5. Ambient Mesh Lighting Spheres -->
 <div class="bg-grid"></div>
 <div class="glow-sphere sphere-1"></div>
 <div class="glow-sphere sphere-2"></div>
 <div class="glow-sphere sphere-3"></div>
 
-<!-- Smart Navigation Bar -->
+<!-- 6. Smart Navigation Bar -->
 <header class="header vengeance-header" id="smartHeader">
     <nav class="navbar" role="navigation" aria-label="Main Navigation">
         <a href="#hero" class="nav-logo anim-fade-in" aria-label="Atul Dubey Portfolio Home">
@@ -88,7 +89,7 @@
 </header>
 
 <main>
-    <!-- Hero Section -->
+    <!-- 7. Hero Section -->
     <section id="hero" class="hero-section">
         <div class="hero-container">
 
@@ -125,7 +126,7 @@
                     </div>
                 </div>
 
-                <!-- Spotify Widget (New Feature) -->
+                <!-- Spotify Widget -->
                 <div class="spotify-widget glass-panel">
                     <div class="spotify-icon"><i class="fa-brands fa-spotify"></i></div>
                     <div class="spotify-info">
@@ -148,6 +149,12 @@
                     </div>
                 </div>
 
+                <div class="hero-quick-info">
+                    <span class="info-chip"><i class="fa-solid fa-location-dot"></i> Mumbai, India</span>
+                    <span class="info-chip"><i class="fa-solid fa-graduation-cap"></i> B.Sc. IT (2024–27)</span>
+                    <span class="info-chip"><i class="fa-solid fa-bolt"></i> Java • Python • Web</span>
+                </div>
+
                 <div class="hero-socials">
                     <div class="skiper-magnetic-wrap"><a href="https://github.com/atul-dubey-2005" target="_blank" class="skiper-magnetic"><i class="fa-brands fa-github"></i></a></div>
                     <div class="skiper-magnetic-wrap"><a href="https://www.linkedin.com/in/atul-dubey-059197320" target="_blank" class="skiper-magnetic"><i class="fa-brands fa-linkedin"></i></a></div>
@@ -155,6 +162,7 @@
                 </div>
             </div>
 
+            <!-- Profile Image Card -->
             <div class="hero-image-wrapper">
                 <div class="profile-card tilt-card vengeance-card-3d">
                     <div class="image-frame">
@@ -167,7 +175,7 @@
                     </div>
                     <div class="floating-badge badge-bottom glass-panel anim-float-delayed">
                         <i class="fa-solid fa-graduation-cap edu-icon"></i>
-                        <div><span>Education</span><strong>B.Sc. IT (Mumbai)</strong></div>
+                        <div><span>Education</span><strong>B.Sc. IT (Thakur College)</strong></div>
                     </div>
                 </div>
             </div>
@@ -175,7 +183,7 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
+    <!-- 8. Stats Section -->
     <section class="stats-section">
         <div class="stats-grid glass-panel reveal-on-scroll vengeance-panel-glow">
             <div class="stat-item"><h3 class="stat-number" data-target="5">0+</h3><p class="stat-label">Production Projects</p></div>
@@ -186,7 +194,7 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- 9. About Section -->
     <section id="about" class="section">
         <h2 class="section-title reveal-on-scroll"><span class="title-number">01.</span> Professional Overview</h2>
         <div class="bento-grid about-bento">
@@ -204,7 +212,7 @@
         </div>
     </section>
 
-    <!-- Skills Matrix Section -->
+    <!-- 10. Skills Matrix Section -->
     <section id="skills" class="section">
         <h2 class="section-title reveal-on-scroll"><span class="title-number">02.</span> Technical Stack Matrix</h2>
         <div class="bento-grid skills-bento animaster-stagger-parent">
@@ -235,12 +243,63 @@
                     <li><i class="fa-solid fa-lock"></i> Secure Auth & Session Logic</li>
                 </ul>
             </div>
+            <div class="bento-card glass-panel col-span-4 tilt-card animaster-stagger skiper-card">
+                <div class="category-header"><i class="fa-solid fa-laptop-code"></i><h3>IDEs & Workspaces</h3></div>
+                <ul class="skill-tags-list">
+                    <li><i class="fa-solid fa-code"></i> VS Code & IntelliJ IDEA</li>
+                    <li><i class="fa-solid fa-cube"></i> Apache NetBeans</li>
+                    <li><i class="fa-brands fa-android android-c"></i> Android Studio</li>
+                    <li><i class="fa-brands fa-microsoft ms-c"></i> Visual Studio Community</li>
+                </ul>
+            </div>
+            <div class="bento-card glass-panel col-span-4 tilt-card animaster-stagger skiper-card">
+                <div class="category-header"><i class="fa-solid fa-cloud-arrow-up"></i><h3>Cloud & Deployment</h3></div>
+                <ul class="skill-tags-list">
+                    <li><i class="fa-solid fa-train track-c"></i> Railway Cloud Hosting</li>
+                    <li><i class="fa-solid fa-rocket"></i> Vercel & GitHub Pages</li>
+                    <li><i class="fa-brands fa-git-alt git-c"></i> Git & GitHub Control</li>
+                    <li><i class="fa-solid fa-paper-plane"></i> Postman API Testing</li>
+                </ul>
+            </div>
+            <div class="bento-card glass-panel col-span-4 tilt-card animaster-stagger skiper-card">
+                <div class="category-header"><i class="fa-solid fa-toolbox"></i><h3>Management & Analytics</h3></div>
+                <ul class="skill-tags-list">
+                    <li><i class="fa-brands fa-jira jira-c"></i> Jira Software Management</li>
+                    <li><i class="fa-solid fa-chart-line"></i> Pandas / Matplotlib Analytics</li>
+                    <li><i class="fa-solid fa-network-wired"></i> Cisco Packet Tracer</li>
+                    <li><i class="fa-solid fa-palette"></i> Canva & Prototyping</li>
+                </ul>
+            </div>
         </div>
     </section>
 
-    <!-- Filterable Projects Section (With Dynamic Image Hover) -->
+    <!-- 11. Services Section -->
+    <section id="services" class="section">
+        <h2 class="section-title reveal-on-scroll"><span class="title-number">03.</span> What I Can Help With</h2>
+        <p class="section-lead reveal-on-scroll">Freelance work, college projects, or a full-time role — here's where I add the most value.</p>
+        <div class="bento-grid services-bento animaster-stagger-parent">
+            <div class="bento-card glass-panel col-span-3 service-card tilt-card animaster-stagger skiper-card">
+                <div class="card-icon-header"><i class="fa-solid fa-layer-group"></i></div>
+                <h3>Full-Stack Web Apps</h3><p>End-to-end builds from a Java/MySQL backend to a responsive, accessible frontend.</p>
+            </div>
+            <div class="bento-card glass-panel col-span-3 service-card tilt-card animaster-stagger skiper-card">
+                <div class="card-icon-header"><i class="fa-solid fa-chart-simple"></i></div>
+                <h3>Data Dashboards</h3><p>Interactive dashboards in R Shiny or Python that turn raw data into decisions.</p>
+            </div>
+            <div class="bento-card glass-panel col-span-3 service-card tilt-card animaster-stagger skiper-card">
+                <div class="card-icon-header"><i class="fa-solid fa-plug-circle-bolt"></i></div>
+                <h3>APIs & Backend Systems</h3><p>REST APIs, DAO-pattern database layers, and secure authentication flows.</p>
+            </div>
+            <div class="bento-card glass-panel col-span-3 service-card tilt-card animaster-stagger skiper-card">
+                <div class="card-icon-header"><i class="fa-solid fa-swatchbook"></i></div>
+                <h3>UI Prototyping</h3><p>Clean, mobile-first interface prototypes built in Canva and shipped in code.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. Filterable Projects Section -->
     <section id="projects" class="section">
-        <h2 class="section-title reveal-on-scroll"><span class="title-number">03.</span> Featured Engineering</h2>
+        <h2 class="section-title reveal-on-scroll"><span class="title-number">04.</span> Featured Engineering</h2>
 
         <div class="project-filters-container reveal-on-scroll">
             <div class="filter-row glass-panel vengeance-pill-group">
@@ -275,6 +334,20 @@
             <!-- Project 2 -->
             <div class="bento-card glass-panel secondary-project-card tilt-card animaster-stagger hover-reveal" data-category="web" data-status="live" data-image="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&q=80">
                 <div class="project-content">
+                    <div class="project-tag"><i class="fa-solid fa-heart-pulse"></i> Fitness Platform</div>
+                    <h3 class="project-title">AuraFitness Web Application</h3>
+                    <p class="project-description">A full front-end rebuild of the Aura Fitness tracker, converted from an ASP.NET Web Forms + SQL Server design into a fast static site running entirely in the browser using localStorage.</p>
+                    <div class="tech-pills"><span>HTML5 / CSS3</span><span>Vanilla JS</span><span>localStorage</span></div>
+                    <div class="project-actions">
+                        <a href="https://aura-fitness-mauve.vercel.app/" target="_blank" class="btn btn-primary btn-sm glowing-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live App</a>
+                        <a href="https://github.com/atul-dubey-2005/AuraFitness" target="_blank" class="btn btn-secondary btn-sm"><i class="fa-brands fa-github"></i> Source</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="bento-card glass-panel secondary-project-card tilt-card animaster-stagger hover-reveal" data-category="web" data-status="live" data-image="https://images.unsplash.com/photo-1611125832047-4d65c8fae086?auto=format&fit=crop&w=600&q=80">
+                <div class="project-content">
                     <div class="project-tag"><i class="fa-solid fa-calculator"></i> Flagship Web App</div>
                     <h3 class="project-title">Ultimate Pro Scientific Calculator</h3>
                     <p class="project-description">A desktop-grade scientific calculation engine featuring full multi-tenant session isolation, custom regex parsing, and memory registers.</p>
@@ -286,7 +359,7 @@
                 </div>
             </div>
 
-            <!-- Project 3 -->
+            <!-- Project 4 -->
             <div class="bento-card glass-panel secondary-project-card tilt-card animaster-stagger hover-reveal" data-category="web" data-status="live" data-image="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=600&q=80">
                 <div class="project-content">
                     <div class="project-tag"><i class="fa-solid fa-cart-shopping"></i> Full-Stack E-Commerce</div>
@@ -300,7 +373,20 @@
                 </div>
             </div>
             
-            <!-- Project 4 (Source only) -->
+            <!-- Project 5 -->
+            <div class="bento-card glass-panel secondary-project-card tilt-card animaster-stagger hover-reveal" data-category="web" data-status="source" data-image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80">
+                <div class="project-content">
+                    <div class="project-tag"><i class="fa-solid fa-city"></i> Civic Tech Platform</div>
+                    <h3 class="project-title">CivicPulse</h3>
+                    <p class="project-description">An intelligent civic issue resolution and verification platform engineered for complex operational workflows including reporting, routing, and assigning.</p>
+                    <div class="tech-pills"><span>React + Vite</span><span>Spring Boot</span><span>PostgreSQL</span><span>FastAPI</span></div>
+                    <div class="project-actions">
+                        <a href="https://github.com/atul-dubey-2005/CivicPulse" target="_blank" class="btn btn-secondary btn-sm"><i class="fa-brands fa-github"></i> Source</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 6 -->
             <div class="bento-card glass-panel secondary-project-card tilt-card animaster-stagger hover-reveal" data-category="web" data-status="source" data-image="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80">
                 <div class="project-content">
                     <div class="project-tag"><i class="fa-solid fa-shield-halved"></i> Financial Security</div>
@@ -312,12 +398,38 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Project 7 -->
+            <div class="bento-card glass-panel secondary-project-card tilt-card animaster-stagger hover-reveal" data-category="web" data-status="source" data-image="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80">
+                <div class="project-content">
+                    <div class="project-tag"><i class="fa-solid fa-gamepad"></i> Gaming Platform</div>
+                    <h3 class="project-title">E-Sports Tournament Portal</h3>
+                    <p class="project-description">A competitive gaming platform for organizing, managing, and tracking E-Sports tournaments. Features team registration and live dynamic tournament brackets.</p>
+                    <div class="tech-pills"><span>React</span><span>Node.js</span><span>Express</span><span>Database</span></div>
+                    <div class="project-actions">
+                        <a href="https://github.com/atul-dubey-2005/e-sports-tournament-portal" target="_blank" class="btn btn-secondary btn-sm"><i class="fa-brands fa-github"></i> Source</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 8 -->
+            <div class="bento-card glass-panel secondary-project-card tilt-card animaster-stagger hover-reveal" data-category="web" data-status="source" data-image="https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=600&q=80">
+                <div class="project-content">
+                    <div class="project-tag"><i class="fa-solid fa-book-open"></i> EdTech Solution</div>
+                    <h3 class="project-title">SmartBook Campus</h3>
+                    <p class="project-description">A campus-wide digital library and resource-sharing platform built to help students easily access, borrow, and exchange academic books and study materials.</p>
+                    <div class="tech-pills"><span>Frontend UI</span><span>Node.js</span><span>Express</span><span>MongoDB</span></div>
+                    <div class="project-actions">
+                        <a href="https://github.com/atul-dubey-2005/SmartBook_Campus" target="_blank" class="btn btn-secondary btn-sm"><i class="fa-brands fa-github"></i> Source</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- NEW: Live GitHub Activity & Blog API Section -->
+    <!-- 13. Live GitHub Activity & Blog API Section -->
     <section id="github" class="section">
-        <h2 class="section-title reveal-on-scroll"><span class="title-number">04.</span> Live Activity Feed</h2>
+        <h2 class="section-title reveal-on-scroll"><span class="title-number">05.</span> Live Activity Feed</h2>
         <div class="bento-grid">
             <!-- GitHub Stats -->
             <div class="bento-card glass-panel col-span-7 tilt-card reveal-on-scroll skiper-card">
@@ -340,15 +452,31 @@
         </div>
     </section>
 
-    <!-- Timeline & Education -->
+    <!-- 14. Timeline & Education -->
     <section id="timeline" class="section">
-        <h2 class="section-title reveal-on-scroll"><span class="title-number">05.</span> Experience & Education</h2>
+        <h2 class="section-title reveal-on-scroll"><span class="title-number">06.</span> Experience & Education</h2>
         <div class="timeline-wrapper animaster-stagger-parent">
             <div class="timeline-item animaster-stagger">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content glass-panel tilt-card skiper-card">
                     <span class="timeline-date">Sept 2025 - Oct 2025</span>
                     <h3>Exam Proctor Intern</h3><p class="timeline-role">EnFuse Solutions | Mumbai</p>
+                    <ul class="timeline-bullets">
+                        <li>Ensured smooth, secure, and fair conduct of online examinations.</li>
+                        <li>Verified candidate identities, managed examination logistics.</li>
+                        <li>Maintained clear candidate communication for issue escalation.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item animaster-stagger">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content glass-panel tilt-card skiper-card">
+                    <span class="timeline-date">Dec 2025</span>
+                    <h3>Ethical Hacking & ML Workshops</h3><p class="timeline-role">Techfest, IIT Bombay</p>
+                    <ul class="timeline-bullets">
+                        <li>Gained practical exposure to network security and penetration testing.</li>
+                        <li>Built predictive models using supervised/unsupervised learning.</li>
+                    </ul>
                 </div>
             </div>
             <div class="timeline-item animaster-stagger">
@@ -358,17 +486,51 @@
                     <h3>B.Sc. Information Technology</h3><p class="timeline-role">Thakur College of Science and Commerce</p>
                 </div>
             </div>
+            <div class="timeline-item animaster-stagger">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content glass-panel tilt-card skiper-card">
+                    <span class="timeline-date">2024</span>
+                    <h3>Higher Secondary Certificate (HSC) — 85%</h3><p class="timeline-role">Shripati International Public School</p>
+                </div>
+            </div>
+            <div class="timeline-item animaster-stagger">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content glass-panel tilt-card skiper-card">
+                    <span class="timeline-date">2022</span>
+                    <h3>Secondary School Certificate (SSC) — 87.6%</h3><p class="timeline-role">St. Xavier's Inter College</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Testimonials & Feedback Section -->
+    <!-- 15. Achievements -->
+    <section id="achievements" class="section">
+        <h2 class="section-title reveal-on-scroll"><span class="title-number">07.</span> Achievements & Honors</h2>
+        <div class="bento-grid achievements-bento animaster-stagger-parent">
+            <div class="bento-card glass-panel col-span-4 tilt-card animaster-stagger skiper-card">
+                <div class="card-icon-header"><i class="fa-solid fa-trophy text-gold"></i></div>
+                <h3>1st Prize — Chemistry</h3><p>Awarded First Position in Class 12 Science Competition for analytical problem solving.</p>
+            </div>
+            <div class="bento-card glass-panel col-span-4 tilt-card animaster-stagger skiper-card">
+                <div class="card-icon-header"><i class="fa-solid fa-award text-blue"></i></div>
+                <h3>Academic Merit Certificate</h3><p>Secured 2nd Position overall in Class 11 for academic excellence.</p>
+            </div>
+            <div class="bento-card glass-panel col-span-4 tilt-card animaster-stagger skiper-card">
+                <div class="card-icon-header"><i class="fa-solid fa-medal text-green"></i></div>
+                <h3>Inter-School Champion</h3><p>Key team member of the winning school team in the Inter-School Cricket Tournament.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 16. Testimonials & Feedback Section -->
     <section id="feedback" class="section">
-        <h2 class="section-title reveal-on-scroll"><span class="title-number">06.</span> Feedback Wall</h2>
+        <h2 class="section-title reveal-on-scroll"><span class="title-number">08.</span> Feedback Wall</h2>
         <div class="bento-grid feedback-bento">
             <div class="bento-card glass-panel col-span-5 tilt-card reveal-on-scroll skiper-card">
                 <h3>Share Your Feedback</h3>
                 <form id="feedbackForm" class="contact-form">
                     <div class="form-group"><label>Your Name</label><input type="text" id="fbName" required maxlength="60"></div>
+                    <div class="form-group"><label>Role / Relation <span class="label-optional">(optional)</span></label><input type="text" id="fbRole" maxlength="60"></div>
                     <div class="form-group"><label>Rating</label>
                         <div class="star-rating" id="starRating">
                             <button type="button" class="star" data-value="1"><i class="fa-solid fa-star"></i></button>
@@ -392,15 +554,27 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- 17. FAQ Section -->
+    <section id="faq" class="section">
+        <h2 class="section-title reveal-on-scroll"><span class="title-number">09.</span> Frequently Asked</h2>
+        <div class="faq-list reveal-on-scroll">
+            <details class="faq-item"><summary>Are you available for internships or freelance work right now?</summary><p>Yes — I'm currently open to software development internships, part-time freelance projects, and full-stack web work. Reach out through the contact form below.</p></details>
+            <details class="faq-item"><summary>What's your usual response time?</summary><p>I aim to reply to emails and messages within 24-48 hours on weekdays.</p></details>
+            <details class="faq-item"><summary>Which stack do you build with most often?</summary><p>Java with JDBC/MySQL for backend-heavy systems, and HTML/CSS/JavaScript with Node.js or React for the frontend and lighter web apps. Python and R come in for data analysis and dashboards.</p></details>
+            <details class="faq-item"><summary>Can I see the source code for your projects?</summary><p>Most projects link directly to their GitHub repository in the Projects section above — feel free to explore, fork, or raise an issue.</p></details>
+        </div>
+    </section>
+
+    <!-- 18. Contact Section -->
     <section id="contact" class="section">
-        <h2 class="section-title reveal-on-scroll"><span class="title-number">07.</span> Direct Contact</h2>
+        <h2 class="section-title reveal-on-scroll"><span class="title-number">10.</span> Direct Contact</h2>
         <div class="bento-grid contact-bento">
             <div class="bento-card glass-panel col-span-5 tilt-card reveal-on-scroll skiper-card">
                 <h3>Initiate Collaboration</h3>
                 <p class="contact-desc">I am currently open to software developer positions, tech internships, and technical projects.</p>
                 <div class="contact-methods">
                     <div class="contact-item"><div class="c-icon"><i class="fa-solid fa-envelope"></i></div><div><span>Email</span><a href="mailto:atuldubey0214@gmail.com">atuldubey0214@gmail.com</a></div></div>
+                    <div class="contact-item"><div class="c-icon"><i class="fa-solid fa-location-dot"></i></div><div><span>Location</span><span>Kandivali(E), Mumbai, Maharashtra</span></div></div>
                     <div class="contact-item"><div class="c-icon"><i class="fa-brands fa-linkedin"></i></div><div><span>LinkedIn</span><a href="https://www.linkedin.com/in/atul-dubey-059197320" target="_blank">atul-dubey-059197320</a></div></div>
                 </div>
             </div>
