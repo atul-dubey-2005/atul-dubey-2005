@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if(!isTouchDevice) {
         document.querySelectorAll('.skiper-magnetic-wrap').forEach(wrap => {
             const el = wrap.querySelector('.skiper-magnetic');
+            if(!el) return;
             wrap.addEventListener('mousemove', (e) => {
                 const rect = wrap.getBoundingClientRect();
                 el.style.transform = `translate(${(e.clientX - rect.left - rect.width/2) * 0.3}px, ${(e.clientY - rect.top - rect.height/2) * 0.3}px)`;
@@ -255,13 +256,29 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1500 / (target / increment || 1));
     }
 
-    // 14. Hamburger Menu
+    // 14. Hamburger Menu & Click Outside to Close
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
+    
     if (hamburger && navMenu) {
-        hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
-        navLinks.forEach(link => link.addEventListener('click', () => navMenu.classList.remove('active')));
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navMenu.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Tap anywhere outside to close mobile navbar
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
     }
 
     // 15. Form Submissions & Toasts
