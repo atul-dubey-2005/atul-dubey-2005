@@ -662,34 +662,90 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .service-card p { color: var(--text-muted); font-size: 0.9rem; }
 
 /* ==========================================================================
-   10. Filterable Project Matrix
+   10. Filterable Project Matrix (UPDATED: Dual-Line Pill Design)
    ========================================================================== */
-.project-filters {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
+.project-filters-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 2.5rem;
 }
 
-.filter-btn {
-  background: var(--panel-bg);
-  border: 1px solid var(--panel-border);
-  color: var(--text-muted);
-  padding: 0.5rem 1.2rem;
-  border-radius: 30px;
-  cursor: pointer;
-  font-size: 0.88rem;
-  font-weight: 600;
-  transition: var(--transition-fast);
-  font-family: inherit;
+.filter-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0.5rem 0.8rem;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--panel-border);
 }
 
-.filter-btn:hover, .filter-btn.active {
-  color: var(--text-main);
-  border-color: var(--accent-indigo);
-  background: rgba(99, 102, 241, 0.15);
+.filter-label {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-right: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
 }
 
+/* Uniform Styling for BOTH Tech & Status Buttons */
+.filter-btn, .filter-btn-status {
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--text-muted);
+    padding: 0.5rem 1.2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+/* Hover Effect */
+.filter-btn:hover, .filter-btn-status:hover {
+    color: var(--text-main);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Active State Effect (Glowing Button) */
+.filter-btn.active, .filter-btn-status.active {
+    background: var(--accent-indigo);
+    color: #ffffff;
+    border-color: var(--accent-indigo);
+    box-shadow: 0 0 15px var(--accent-glow);
+    font-weight: 600;
+}
+
+/* Mobile Responsiveness for Filters */
+@media (max-width: 768px) {
+    .filter-row {
+        flex-direction: row;
+        border-radius: 15px;
+        padding: 0.8rem;
+    }
+    .filter-label {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 0.3rem;
+    }
+    .filter-btn, .filter-btn-status {
+        flex: 1;
+        text-align: center;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* --- Project Cards Styling --- */
 .projects-wrapper { display: flex; flex-direction: column; gap: 1.8rem; }
 
 .project-tag {
@@ -705,6 +761,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   margin-bottom: 1rem;
 }
 
+/* Note: .alt-tag is no longer used in HTML to maintain uniform tags, but kept here for backward compatibility */
 .alt-tag { background: rgba(255, 255, 255, 0.08); color: var(--text-muted); }
 
 .project-title { font-size: clamp(1.25rem, 3vw, 1.6rem); margin-bottom: 0.8rem; }
