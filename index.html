@@ -343,20 +343,27 @@
     <section id="projects" class="section">
         <h2 class="section-title reveal-on-scroll"><span class="title-number">04.</span> Featured Engineering</h2>
 
-        <!-- Combined Project Filter Controls -->
-        <div class="project-filters reveal-on-scroll">
-            <span style="color: var(--text-muted); font-size: 0.85rem; margin-right: 0.5rem; display: flex; align-items: center;">Tech:</span>
-            <button class="filter-btn active" data-filter="all">All Tech</button>
-            <button class="filter-btn" data-filter="web">Web & Systems</button>
-            <button class="filter-btn" data-filter="analytics">Data & Analytics</button>
+                <!-- Combined Project Filter Controls (Improved) -->
+        <div class="project-filters-container reveal-on-scroll">
             
-            <div style="width: 1px; height: 20px; background: var(--panel-border); margin: 0 0.5rem; display: inline-block;"></div>
+            <!-- Tech Filter Row -->
+            <div class="filter-row glass-panel">
+                <span class="filter-label"><i class="fa-solid fa-code"></i> Tech:</span>
+                <button class="filter-btn active" data-filter="all">All Tech</button>
+                <button class="filter-btn" data-filter="web">Web & Systems</button>
+                <button class="filter-btn" data-filter="analytics">Data & Analytics</button>
+            </div>
             
-            <span style="color: var(--text-muted); font-size: 0.85rem; margin-right: 0.5rem; display: flex; align-items: center;">Status:</span>
-            <button class="filter-btn-status active" data-status="all">All Projects</button>
-            <button class="filter-btn-status" data-status="live">Live Apps Only</button>
-            <button class="filter-btn-status" data-status="source">Source Only</button>
+            <!-- Status Filter Row -->
+            <div class="filter-row glass-panel">
+                <span class="filter-label"><i class="fa-solid fa-server"></i> Status:</span>
+                <button class="filter-btn-status active" data-status="all">All Projects</button>
+                <button class="filter-btn-status" data-status="live">Live Apps Only</button>
+                <button class="filter-btn-status" data-status="source">Source Only</button>
+            </div>
+
         </div>
+
 
         <div class="projects-wrapper">
 
