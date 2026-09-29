@@ -135,7 +135,7 @@ html.lenis, html.lenis body { height: auto; }
 .skiper-magnetic-wrap.w-full-mobile { width: 100%; display: flex; }
 
 /* ==========================================================================
-   4. Hero & Advanced Widgets (FIXED FLOATING BADGES FOR MOBILE)
+   4. Hero & Advanced Widgets (FIXED PROFILE CARD & BADGES)
    ========================================================================== */
 .hero-section { min-height: 95vh; display: flex; align-items: center; max-width: 1280px; margin: 0 auto; padding: 8.5rem 2rem 4rem; }
 .hero-container { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 4rem; align-items: center; width: 100%; }
@@ -155,15 +155,14 @@ html.lenis, html.lenis body { height: auto; }
 .hero-socials a { width: 42px; height: 42px; border-radius: 12px; background: var(--panel-bg); border: 1px solid var(--panel-border); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 1.2rem; text-decoration: none; transition: 0.3s; }
 .hero-socials a:hover { color: var(--text-main); border-color: var(--accent-indigo); transform: translateY(-3px); box-shadow: 0 0 15px var(--accent-glow);}
 
-.hero-image-wrapper { display: flex; justify-content: center; padding: 2rem 0; }
+.hero-image-wrapper { display: flex; justify-content: center; padding: 2.5rem 1rem; }
 .profile-card { position: relative; width: 320px; height: 400px; perspective: 1000px; }
 .image-frame { width: 100%; height: 100%; border-radius: 28px; overflow: hidden; border: 1px solid var(--panel-border); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8); }
 .profile-img { width: 100%; height: 100%; object-fit: cover; transform: scaleX(-1); }
 
-/* Floating Badges Fixed for Mobile Overflow */
 .floating-badge { position: absolute; background: rgba(13, 17, 28, 0.95); backdrop-filter: blur(12px); border: 1px solid var(--panel-border); padding: 0.75rem 1.1rem; border-radius: 16px; display: flex; align-items: center; gap: 0.8rem; box-shadow: 0 15px 30px rgba(0,0,0,0.5); z-index: 5; }
-.badge-top { top: -25px; left: -15px; animation: animFloat 4s ease-in-out infinite; } 
-.badge-bottom { bottom: -25px; right: -15px; animation: animFloat 4s ease-in-out 2s infinite;}
+.badge-top { top: -25px; left: -20px; animation: animFloat 4s ease-in-out infinite; } 
+.badge-bottom { bottom: -25px; right: -20px; animation: animFloat 4s ease-in-out 2s infinite;}
 @keyframes animFloat { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-6px); } }
 
 /* Terminal */
@@ -276,7 +275,7 @@ html.lenis, html.lenis body { height: auto; }
 .back-to-top { position: fixed; bottom: 24px; left: 24px; width: 46px; height: 46px; border-radius: 50%; background: var(--panel-bg); border: 1px solid var(--panel-border); color: var(--text-main); backdrop-filter: blur(12px); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1rem; z-index: 900; opacity: 0; pointer-events: none; transform: translateY(10px); transition: var(--transition-fast); } .back-to-top.show { opacity: 1; pointer-events: auto; transform: translateY(0); } 
 
 /* ==========================================================================
-   MOBILE RESPONSIVENESS (FULLY FIXED OVERFLOW & BADGES)
+   MOBILE RESPONSIVENESS (FULLY FIXED & CENTERED NAV MENU)
    ========================================================================== */
 @media (max-width: 992px) { 
     .hero-container, .bento-grid { grid-template-columns: 1fr; } 
@@ -288,9 +287,16 @@ html.lenis, html.lenis body { height: auto; }
 @media (max-width: 768px) { 
     .hamburger { display: flex; } 
     .nav-cta { display: none; } 
-    .nav-menu { position: fixed; left: -100%; top: 65px; flex-direction: column; background: rgba(3,5,8,0.98); width: 100%; padding: 2rem 0; transition: var(--transition-smooth); border-bottom: 1px solid var(--panel-border); gap: 1.4rem; max-height: calc(100vh - 65px); overflow-y: auto;} 
-    .nav-menu.active { left: 0; } 
     
+    /* Navbar Mobile Menu Centered with Outside Tap Close */
+    .nav-menu { position: fixed; left: -100%; top: 65px; flex-direction: column; background: rgba(3,5,8,0.98); width: 100%; padding: 2rem 0; transition: var(--transition-smooth); border-bottom: 1px solid var(--panel-border); gap: 1.4rem; max-height: calc(100vh - 65px); overflow-y: auto; text-align: center; align-items: center; justify-content: center;} 
+    .nav-menu.active { left: 0; } 
+    .nav-link { font-size: 1.1rem; width: 100%; display: block; padding: 0.5rem 0;}
+
+    /* Resume button text hidden on mobile view */
+    .mobile-icon-btn .btn-text { display: none; }
+    .mobile-icon-btn { padding: 0.55rem 0.75rem; }
+
     .filter-row { flex-direction: column; width: 100%; border-radius: 15px; padding: 0.8rem; } 
     .filter-label { width: 100%; justify-content: center; margin-bottom: 0.5rem; } 
     .filter-btn, .filter-btn-status { width: 100%; text-align: center; margin-bottom: 0.3rem;}
