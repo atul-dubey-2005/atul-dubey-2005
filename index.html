@@ -19,25 +19,24 @@
 
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body class="vengeance-app" data-theme="default">
 
-<!-- 1. Vengeance UI Preloader -->
+<!-- Vengeance UI Preloader -->
 <div id="vengeance-preloader" class="vengeance-preloader">
     <div class="loader-content">
         <span class="logo-bracket">&lt;</span>Atul<span class="logo-accent">.Dev</span><span class="logo-bracket">/&gt;</span>
         <div class="loader-bar-container"><div class="loader-bar"></div></div>
-        <div class="loader-text" id="loaderText">INITIALIZING SYSTEM...</div>
+        <div class="loader-text">INITIALIZING SYSTEM...</div>
     </div>
 </div>
 
-<!-- 2. Custom Glowing Cursor & Project Hover Preview -->
+<!-- Custom Glowing Cursor & Project Hover Preview -->
 <div class="cursor-dot" data-cursor-dot></div>
 <div class="cursor-outline" data-cursor-outline></div>
 <div id="projectPreviewFloat" class="project-preview-float"><img src="" alt="Project Preview"></div>
 
-<!-- 3. BGMI Easter Egg Overlay -->
+<!-- BGMI Easter Egg Overlay -->
 <div id="easterEggOverlay" class="easter-egg-overlay">
     <div class="easter-egg-content">
         <i class="fa-solid fa-gamepad"></i>
@@ -55,7 +54,7 @@
 <div class="glow-sphere sphere-2"></div>
 <div class="glow-sphere sphere-3"></div>
 
-<!-- Smart Navigation Bar -->
+<!-- Navigation Bar -->
 <header class="header vengeance-header" id="smartHeader">
     <nav class="navbar" role="navigation" aria-label="Main Navigation">
         <a href="#hero" class="nav-logo anim-fade-in" aria-label="Atul Dubey Portfolio Home">
@@ -72,7 +71,6 @@
             <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
         <div class="nav-actions">
-            <!-- Theme Switcher -->
             <div class="theme-switcher">
                 <button id="themeToggleBtn" class="btn btn-secondary btn-sm" title="Change Theme">
                     <i class="fa-solid fa-palette"></i>
@@ -85,9 +83,7 @@
                 <i class="fa-solid fa-paper-plane"></i> Let's Talk
             </a>
             <button class="hamburger" aria-label="Toggle Navigation Menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
             </button>
         </div>
     </nav>
@@ -118,9 +114,7 @@
                 <div class="hero-terminal glass-panel vengeance-glow-box">
                     <div class="terminal-header">
                         <div class="terminal-buttons">
-                            <span class="dot close-btn"></span>
-                            <span class="dot min-btn"></span>
-                            <span class="dot max-btn"></span>
+                            <span class="dot close-btn"></span><span class="dot min-btn"></span><span class="dot max-btn"></span>
                         </div>
                         <span class="terminal-title">bash — atuldubey@mumbai:~</span>
                     </div>
@@ -135,16 +129,7 @@
                     </div>
                 </div>
 
-                <!-- Spotify Widget -->
-                <div class="spotify-widget glass-panel">
-                    <div class="spotify-icon"><i class="fa-brands fa-spotify"></i></div>
-                    <div class="spotify-info">
-                        <p class="spotify-status">Currently Playing</p>
-                        <p class="spotify-song">Lo-Fi Coding Beats <span class="equalizer"><span></span><span></span><span></span></span></p>
-                    </div>
-                </div>
-
-                <!-- Call to Action Buttons (Magnetic Fix) -->
+                <!-- Call to Action Buttons -->
                 <div class="hero-cta">
                     <div class="skiper-magnetic-wrap">
                         <a href="#projects" class="btn btn-primary glowing-btn skiper-magnetic">
@@ -165,17 +150,11 @@
                     <span class="info-chip"><i class="fa-solid fa-bolt"></i> Java • Python • Web</span>
                 </div>
 
-                <!-- Social Media Links (Magnetic Fix) -->
+                <!-- Social Media Links -->
                 <div class="hero-socials">
-                    <div class="skiper-magnetic-wrap">
-                        <a href="https://github.com/atul-dubey-2005" target="_blank" rel="noopener" aria-label="GitHub Profile" title="GitHub" class="skiper-magnetic"><i class="fa-brands fa-github"></i></a>
-                    </div>
-                    <div class="skiper-magnetic-wrap">
-                        <a href="https://www.linkedin.com/in/atul-dubey-059197320" target="_blank" rel="noopener" aria-label="LinkedIn Profile" title="LinkedIn" class="skiper-magnetic"><i class="fa-brands fa-linkedin"></i></a>
-                    </div>
-                    <div class="skiper-magnetic-wrap">
-                        <a href="mailto:atuldubey0214@gmail.com" aria-label="Send Email" title="Email" class="skiper-magnetic"><i class="fa-solid fa-envelope"></i></a>
-                    </div>
+                    <div class="skiper-magnetic-wrap"><a href="https://github.com/atul-dubey-2005" target="_blank" rel="noopener" aria-label="GitHub Profile" title="GitHub" class="skiper-magnetic"><i class="fa-brands fa-github"></i></a></div>
+                    <div class="skiper-magnetic-wrap"><a href="https://www.linkedin.com/in/atul-dubey-059197320" target="_blank" rel="noopener" aria-label="LinkedIn Profile" title="LinkedIn" class="skiper-magnetic"><i class="fa-brands fa-linkedin"></i></a></div>
+                    <div class="skiper-magnetic-wrap"><a href="mailto:atuldubey0214@gmail.com" aria-label="Send Email" title="Email" class="skiper-magnetic"><i class="fa-solid fa-envelope"></i></a></div>
                 </div>
             </div>
 
@@ -356,7 +335,7 @@
         </div>
     </section>
 
-    <!-- Services Section (NEW) -->
+    <!-- Services Section -->
     <section id="services" class="section">
         <h2 class="section-title reveal-on-scroll"><span class="title-number">03.</span> What I Can Help With</h2>
         <p class="section-lead reveal-on-scroll">Freelance work, college projects, or a full-time role — here's where I add the most value.</p>
@@ -389,16 +368,14 @@
     <section id="projects" class="section">
         <h2 class="section-title reveal-on-scroll"><span class="title-number">04.</span> Featured Engineering</h2>
 
-        <!-- Combined Project Filter Controls -->
+        <!-- Dual Filter Controls -->
         <div class="project-filters-container reveal-on-scroll">
-            <!-- Tech Filter Row -->
             <div class="filter-row glass-panel">
                 <span class="filter-label"><i class="fa-solid fa-code"></i> Tech:</span>
                 <button class="filter-btn active" data-filter="all">All Tech</button>
                 <button class="filter-btn" data-filter="web">Web & Systems</button>
                 <button class="filter-btn" data-filter="analytics">Data & Analytics</button>
             </div>
-            <!-- Status Filter Row -->
             <div class="filter-row glass-panel">
                 <span class="filter-label"><i class="fa-solid fa-server"></i> Status:</span>
                 <button class="filter-btn-status active" data-status="all">All Projects</button>
@@ -599,7 +576,7 @@
         </div>
     </section>
 
-    <!-- NEW: Live GitHub Activity & Blog API Section -->
+    <!-- Live GitHub Activity & Blog API Section -->
     <section id="github" class="section">
         <h2 class="section-title reveal-on-scroll"><span class="title-number">05.</span> Live Activity Feed</h2>
         <div class="bento-grid">
@@ -871,7 +848,7 @@
     <i class="fa-solid fa-arrow-up"></i>
 </button>
 
-<!-- Footer -->
+<!-- Footer (Original Clean Layout Restored) -->
 <footer class="footer glass-panel">
     <div class="footer-content">
         <a href="#hero" class="nav-logo" aria-label="Atul Dubey Portfolio Home">
