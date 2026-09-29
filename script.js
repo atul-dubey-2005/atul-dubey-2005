@@ -11,7 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const preloader = document.getElementById('vengeance-preloader');
     if (preloader) {
         window.addEventListener('load', () => setTimeout(() => { preloader.classList.add('fade-out'); startDecodeEffect(); }, 2000));
-    } else startDecodeEffect();
+    } else {
+        startDecodeEffect();
+    }
 
     function startDecodeEffect() {
         const decodeElem = document.querySelector('.decode-text');
@@ -31,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const themes = ['default', 'cyberpunk', 'monochrome'];
     let currentThemeIdx = 0;
     
-    // Load saved theme
     const savedTheme = localStorage.getItem('atul_theme');
     if(savedTheme && themes.includes(savedTheme)) {
         currentThemeIdx = themes.indexOf(savedTheme);
@@ -52,7 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const cursorOutline = document.querySelector('[data-cursor-outline]');
     if (cursorDot && cursorOutline && !isTouchDevice) {
         window.addEventListener('mousemove', (e) => {
-            cursorDot.style.left = `${e.clientX}px`; cursorDot.style.top = `${e.clientY}px`;
+            cursorDot.style.left = `${e.clientX}px`; 
+            cursorDot.style.top = `${e.clientY}px`;
             cursorOutline.animate({ left: `${e.clientX}px`, top: `${e.clientY}px` }, { duration: 500, fill: "forwards" });
         });
     }
@@ -86,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 7. Smart Header & Progress
+    // 7. Smart Header & Scroll Progress
     const smartHeader = document.getElementById('smartHeader');
     const scrollProgress = document.getElementById('scrollProgress');
     let lastScrollY = window.scrollY;
@@ -94,8 +96,12 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
         if(window.scrollY > 50) smartHeader.classList.add('header-scrolled');
         else smartHeader.classList.remove('header-scrolled');
-        if (window.scrollY > lastScrollY && window.scrollY > 150) smartHeader.classList.add('header-hidden');
-        else smartHeader.classList.remove('header-hidden');
+        
+        if (window.scrollY > lastScrollY && window.scrollY > 150) {
+            smartHeader.classList.add('header-hidden');
+        } else {
+            smartHeader.classList.remove('header-hidden');
+        }
         lastScrollY = window.scrollY;
 
         const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -121,19 +127,30 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-    techBtns.forEach(btn => btn.addEventListener('click', () => {
-        techBtns.forEach(b => b.classList.remove('active')); btn.classList.add('active'); currentTech = btn.dataset.filter; applyFilters();
-    }));
-    statusBtns.forEach(btn => btn.addEventListener('click', () => {
-        statusBtns.forEach(b => b.classList.remove('active')); btn.classList.add('active'); currentStatus = btn.dataset.status; applyFilters();
-    }));
+    
+    techBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            techBtns.forEach(b => b.classList.remove('active')); 
+            btn.classList.add('active'); 
+            currentTech = btn.dataset.filter; 
+            applyFilters();
+        });
+    });
+    
+    statusBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            statusBtns.forEach(b => b.classList.remove('active')); 
+            btn.classList.add('active'); 
+            currentStatus = btn.dataset.status; 
+            applyFilters();
+        });
+    });
 
     // 9. Fetch Dev.to Blog API
     async function fetchBlogs() {
         const blogList = document.getElementById('blogList');
         if(!blogList) return;
         try {
-            // Fetching generic trending JS/Java articles as placeholder (You can replace with username API if you have a dev.to account)
             const res = await fetch('https://dev.to/api/articles?tag=javascript&top=1&per_page=2');
             const articles = await res.json();
             if(articles.length > 0) {
@@ -145,12 +162,16 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                     </a>
                 `).join('');
-            } else blogList.innerHTML = '<p class="text-muted">No recent articles.</p>';
-        } catch(err) { blogList.innerHTML = '<p class="text-muted">Unable to load feed.</p>'; }
+            } else {
+                blogList.innerHTML = '<p class="text-muted">No recent articles.</p>';
+            }
+        } catch(err) { 
+            blogList.innerHTML = '<p class="text-muted">Unable to load feed.</p>'; 
+        }
     }
     fetchBlogs();
 
-    // 10. Hidden Easter Egg (Konami Style: Type "BGMI")
+    // 10. Hidden BGMI Easter Egg
     let keyBuffer = '';
     const secretCode = 'bgmi';
     const overlay = document.getElementById('easterEggOverlay');
@@ -164,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 11. Staggered Reveals
+    // 11. Staggered Reveals & 3D Tilt
     const staggerParents = document.querySelectorAll('.animaster-stagger-parent');
     if (!prefersReducedMotion) {
         const staggerObserver = new IntersectionObserver((entries, observer) => {
@@ -178,9 +199,59 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }, { threshold: 0.1 });
         staggerParents.forEach(el => staggerObserver.observe(el));
-    } else document.querySelectorAll('.animaster-stagger').forEach(el => el.classList.add('is-visible'));
+    } else {
+        document.querySelectorAll('.animaster-stagger').forEach(el => el.classList.add('is-visible'));
+    }
 
-    // 12. Hamburger Menu
+    if (!isTouchDevice) {
+        document.querySelectorAll('.tilt-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const r = card.getBoundingClientRect();
+                const rotX = ((e.clientY - r.top - r.height/2) / (r.height/2)) * -5;
+                const rotY = ((e.clientX - r.left - r.width/2) / (r.width/2)) * 5;
+                card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-4px)`;
+            });
+            card.addEventListener('mouseleave', () => card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)');
+        });
+    }
+
+    // 12. Terminal Typist Animation
+    const typingOutput = document.getElementById('typingOutput');
+    const jsonText = '{\n  "developer": "Atul Dubey",\n  "skills": ["JavaScript ES6+", "HTML5", "CSS Grid", "REST APIs"],\n  "status": "Ready for Hire"\n}';
+    let charIndex = 0;
+    function typeTerminal() {
+        if (typingOutput && charIndex < jsonText.length) {
+            typingOutput.textContent += jsonText.charAt(charIndex);
+            charIndex++;
+            setTimeout(typeTerminal, 35);
+        }
+    }
+    setTimeout(typeTerminal, 2500); 
+
+    // 13. Regular Scroll Reveals
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                const numbers = entry.target.querySelectorAll('.stat-number');
+                numbers.forEach(num => animateCounter(num));
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal-on-scroll:not(.animaster-stagger-parent):not(.animaster-stagger)').forEach(el => revealObserver.observe(el));
+
+    function animateCounter(el) {
+        const target = parseInt(el.getAttribute('data-target'));
+        let count = 0, increment = Math.ceil(target / 40) || 1;
+        const timer = setInterval(() => {
+            count += increment;
+            if (count >= target) { count = target; clearInterval(timer); }
+            el.textContent = el.textContent.includes('%') ? `${count}%` : `${count}+`;
+        }, 1500 / (target / increment || 1));
+    }
+
+    // 14. Hamburger Menu
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     if (hamburger && navMenu) {
@@ -188,7 +259,94 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.nav-link').forEach(link => link.addEventListener('click', () => navMenu.classList.remove('active')));
     }
 
-    // 13. Supabase & Nodemailer Logic (kept from previous code)
-    // Please inject your exact API keys in the Supabase logic as previously provided.
-    // ...
+    // 15. Form Submissions & Toasts
+    const toast = document.getElementById('toastNotification');
+    function showToast(msg) {
+        if(toast) { toast.textContent = msg; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 4500); }
+    }
+
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const btn = contactForm.querySelector('button[type="submit"]');
+            
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...'; btn.disabled = true;
+            try {
+                const res = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name, email, message }) });
+                if (res.ok) { showToast(`Thanks ${name}, message sent!`); contactForm.reset(); } 
+                else showToast('Failed to send message. Try again.');
+            } catch (err) { showToast('Network error.'); } 
+            finally { btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message'; btn.disabled = false; }
+        });
+    }
+
+    // 16. Supabase Feedback Logic
+    const SUPABASE_URL = 'AAPKA_SUPABASE_PROJECT_URL_YAHAN_DALEIN'; 
+    const SUPABASE_KEY = 'AAPKI_SUPABASE_ANON_PUBLIC_KEY_YAHAN_DALEIN';
+    const feedbackForm = document.getElementById('feedbackForm');
+    const feedbackList = document.getElementById('feedbackList');
+    const ratingInput = document.getElementById('fbRatingValue');
+
+    function escapeHTML(str) { const div = document.createElement('div'); div.textContent = str; return div.innerHTML; }
+
+    async function loadFeedbacks() {
+        if (!feedbackList) return;
+        try {
+            const res = await fetch(`${SUPABASE_URL}/rest/v1/feedbacks?select=*`, { headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` } });
+            if (!res.ok) throw new Error('Fetch failed');
+            const entries = await res.json();
+            if (entries.length === 0) return feedbackList.innerHTML = `<p class="feedback-empty">No feedback yet!</p>`;
+            feedbackList.innerHTML = entries.sort(()=>0.5-Math.random()).slice(0,3).map(e => `
+                <div class="feedback-card">
+                    <div class="feedback-card-header">
+                        <div><span class="feedback-name">${escapeHTML(e.name)}</span> ${e.role ? `<span class="feedback-role">${escapeHTML(e.role)}</span>`:''}</div>
+                        <span class="feedback-stars">${'★'.repeat(e.rating)}${'☆'.repeat(5-e.rating)}</span>
+                    </div>
+                    <p class="feedback-message">${escapeHTML(e.message)}</p><span class="feedback-date">${e.date}</span>
+                </div>`).join('');
+        } catch (err) { feedbackList.innerHTML = `<p class="feedback-empty">Could not load feedback.</p>`; }
+    }
+
+    if (document.getElementById('starRating')) {
+        const stars = document.querySelectorAll('#starRating .star');
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                ratingInput.value = star.dataset.value;
+                stars.forEach(s => s.classList.toggle('active', s.dataset.value <= star.dataset.value));
+            });
+        });
+    }
+
+    if (feedbackForm) {
+        feedbackForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = feedbackForm.querySelector('button[type="submit"]');
+            const newEntry = {
+                name: document.getElementById('fbName').value.trim(), 
+                role: document.getElementById('fbRole').value.trim(), 
+                message: document.getElementById('fbMessage').value.trim(), 
+                rating: parseInt(ratingInput.value)||5,
+                date: new Date().toLocaleDateString()
+            };
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Posting...'; btn.disabled = true;
+            try {
+                await fetch(`${SUPABASE_URL}/rest/v1/feedbacks`, { method: 'POST', headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}`, 'Prefer': 'return=minimal' }, body: JSON.stringify(newEntry) });
+                feedbackForm.reset(); document.querySelectorAll('#starRating .star').forEach(s=>s.classList.add('active')); ratingInput.value = 5;
+                loadFeedbacks(); showToast(`Thanks for the feedback, ${newEntry.name}!`);
+            } catch (err) { showToast('Failed to save feedback.'); } 
+            finally { btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Post Feedback'; btn.disabled = false; }
+        });
+    }
+    loadFeedbacks();
+
+    // 17. Back to Top
+    const backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+        window.addEventListener('scroll', () => backToTop.classList.toggle('show', window.pageYOffset > 600));
+        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
 });
