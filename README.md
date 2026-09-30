@@ -3,16 +3,12 @@
 <h3 align="center">Final-Year B.Sc. Information Technology Student | Software Developer | Full-Stack & AI Enthusiast</h3>
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=120&section=header&text=Building%20Scalable%20Software%20&%20Web%20Apps&fontSize=22&fontColor=38bdf8&animation=fadeIn" width="100%"/>
-</p>
-
-<p align="center">
 I build intelligent applications, scalable web solutions, and data-driven software — solving real-world problems through Artificial Intelligence, Full-Stack Development, and Machine Learning.
 </p>
 
 ---
 
-## 🌐 Interactive Connect Hub
+## 🌐 Connect with Me
 
 <p align="center">
   <a href="https://www.linkedin.com/in/atul-dubey-059197320" target="_blank">
@@ -105,7 +101,7 @@ I build intelligent applications, scalable web solutions, and data-driven softwa
       </p>
     </td>
     <td width="50%" valign="top">
-      <h3>2. 🏋️ AuraFitness Web App</h3>
+      <h3>2. 🏋️️ AuraFitness Web App</h3>
       <p><b>HTML5 • Vanilla JS • localStorage</b></p>
       <p>A high-performance static fitness tracker converted from legacy ASP.NET Web Forms into a lightning-fast browser application.</p>
       <p>
@@ -177,12 +173,11 @@ I build intelligent applications, scalable web solutions, and data-driven softwa
 ## 📊 GitHub Stats & Metrics
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=atul-dubey-2005&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117" width="48%" />
-  <img src="https://streak-stats.demolab.com/?user=atul-dubey-2005&theme=tokyonight&hide_border=true&background=0D1117" width="48%" />
+  <img src="https://github-readme-stats.vercel.app/api?username=atul-dubey-2005&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117" width="100%" />
 </p>
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=atul-dubey-2005&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117" width="55%" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=atul-dubey-2005&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117" width="100%" />
 </p>
 
 ---
