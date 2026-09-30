@@ -175,7 +175,7 @@ html.lenis, html.lenis body { height: auto; }
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
 /* ==========================================================================
-   5. Content Sections (Bento Grids, Stats, GitHub Side-by-Side)
+   5. Content Sections & Absolute Side-by-Side Flex Fix for GitHub
    ========================================================================== */
 .section { max-width: 1280px; margin: 0 auto; padding: 5rem 2rem; }
 .section-title { font-size: clamp(1.6rem, 3.5vw, 2.1rem); font-weight: 800; margin-bottom: 2.5rem; display: flex; align-items: center; gap: 0.6rem; }
@@ -184,13 +184,17 @@ html.lenis, html.lenis body { height: auto; }
 .col-span-7 { grid-column: span 7; } .col-span-5 { grid-column: span 5; } .col-span-4 { grid-column: span 4; } .col-span-3 { grid-column: span 3; } .col-span-6 { grid-column: span 6; }
 .card-icon-header { width: 48px; height: 48px; border-radius: 12px; background: rgba(99, 102, 241, 0.15); color: var(--accent-indigo); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 1.2rem; box-shadow: inset 0 0 12px rgba(99, 102, 241, 0.2); }
 
-/* FORCED SIDE-BY-SIDE GRID FOR GITHUB STATS & TECH ARTICLES */
-.github-side-grid {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
+/* Ultimate Side-by-Side Flex Layout */
+.github-desktop-flex {
+    display: flex !important;
+    flex-direction: row !important;
     gap: 1.5rem !important;
-    align-items: stretch !important;
     width: 100% !important;
+}
+
+.github-desktop-flex .github-card-item {
+    flex: 1 !important;
+    width: 50% !important;
 }
 
 /* RESTORED ORIGINAL STATS SECTION ALIGNMENT */
@@ -310,10 +314,17 @@ html.lenis, html.lenis body { height: auto; }
    MOBILE RESPONSIVENESS (FULLY OPTIMIZED)
    ========================================================================== */
 @media (max-width: 992px) { 
-    .hero-container, .bento-grid, .github-side-grid { grid-template-columns: 1fr !important; } 
+    .hero-container, .bento-grid { grid-template-columns: 1fr; } 
     .col-span-7, .col-span-5, .col-span-4, .col-span-3, .col-span-6 { grid-column: span 12; } 
     .stats-grid { flex-direction: column; gap: 1.5rem; } 
     .stat-divider { display: none; }
+    
+    .github-desktop-flex {
+        flex-direction: column !important;
+    }
+    .github-desktop-flex .github-card-item {
+        width: 100% !important;
+    }
 }
 
 @media (max-width: 768px) { 
