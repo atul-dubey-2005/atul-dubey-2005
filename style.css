@@ -302,6 +302,78 @@ html.lenis, html.lenis body { height: auto; }
 .footer-copy { margin: 0; } .footer-heart { color: #ef4444; }
 .footer-socials { display: flex; flex-direction: row; align-items: center; gap: 1rem; } .footer-socials a { color: var(--text-muted); text-decoration: none; font-size: 1.1rem; transition: 0.2s; } .footer-socials a:hover { color: var(--accent-cyan); }
 .back-to-top { position: fixed; bottom: 24px; left: 24px; width: 46px; height: 46px; border-radius: 50%; background: var(--panel-bg); border: 1px solid var(--panel-border); color: var(--text-main); backdrop-filter: blur(12px); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1rem; z-index: 900; opacity: 0; pointer-events: none; transform: translateY(10px); transition: var(--transition-fast); } .back-to-top.show { opacity: 1; pointer-events: auto; transform: translateY(0); } 
+/* ==========================================================================
+   Interactive Resume Download Modal Styling
+   ========================================================================== */
+.resume-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(3, 5, 8, 0.85);
+    backdrop-filter: blur(16px);
+    z-index: 999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+.resume-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+.resume-modal-box {
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-border-hover);
+    border-radius: var(--radius-lg);
+    padding: 2.2rem;
+    width: 90%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+    transform: scale(0.9);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.resume-modal-overlay.active .resume-modal-box {
+    transform: scale(1);
+}
+.resume-modal-box h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-main);
+}
+.resume-modal-box p {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    margin-bottom: 1.8rem;
+}
+.resume-modal-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+.resume-modal-actions .btn {
+    width: 100%;
+    justify-content: center;
+    border-radius: 12px;
+}
+.btn-light-theme {
+    background: linear-gradient(135deg, #38bdf8, #6366f1);
+    color: #fff;
+}
+.btn-dark-theme {
+    background: linear-gradient(135deg, var(--accent-indigo), var(--accent-violet));
+    color: #fff;
+}
+.btn-cancel-theme {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--panel-border);
+    color: var(--text-muted);
+}
+.btn-cancel-theme:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-main);
+}
 
 /* ==========================================================================
    MOBILE RESPONSIVENESS (FULLY OPTIMIZED)
