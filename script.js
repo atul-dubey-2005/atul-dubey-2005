@@ -361,8 +361,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const res = await fetch('/api/feedback');
             if (!res.ok) throw new Error('Fetch failed');
             const entries = await res.json();
-            if (!Array.isArray(entries) || entries.length === 0) return feedbackList.innerHTML = `<p class="feedback-empty">No feedback yet!</p>`;
-            
+            if (!Array.isArray(entries) || entries.length === 0) return feedbackList.html = `<p class="feedback-empty">No feedback yet!</p>`;
+
             feedbackList.innerHTML = entries.sort(()=>0.5-Math.random()).slice(0,3).map(e => `
                 <div class="feedback-card">
                     <div class="feedback-card-header">
@@ -395,15 +395,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 rating: parseInt(ratingInput.value)||5,
                 date: new Date().toLocaleDateString()
             };
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Posting...'; btn.disabled = true;
+            btn.innerHTML = '<p><i class="fa-solid fa-spinner fa-spin"></i> Posting...</p>'; btn.disabled = true;
             try {
                 const res = await fetch('/api/feedback', { 
                     method: 'POST', 
-      -              headers: { 'Content-Type': 'application/json' }, 
+                    headers: { 'Content-Type': 'application/json' }, 
                     body: JSON.stringify(newEntry) 
                 });
                 if (!res.ok) throw new Error('Post failed');
-                
+
                 feedbackForm.reset(); 
                 document.querySelectorAll('#starRating .star').forEach(s=>s.classList.add('active')); 
                 ratingInput.value = 5;
