@@ -186,11 +186,11 @@ html.lenis, html.lenis body { height: auto; }
 
 /* FORCED SIDE-BY-SIDE GRID FOR GITHUB STATS & TECH ARTICLES */
 .github-side-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    align-items: stretch;
-    width: 100%;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1.5rem !important;
+    align-items: stretch !important;
+    width: 100% !important;
 }
 
 /* RESTORED ORIGINAL STATS SECTION ALIGNMENT */
