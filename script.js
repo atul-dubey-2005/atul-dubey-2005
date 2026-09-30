@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 9. Fetch Dev.to Blog API (Updated to 5 articles with Fallback & CORS Protection)
+    // 9. Fetch Dev.to Blog API (Updated to fetch full 5 articles without restriction)
     async function fetchBlogs() {
         const blogList = document.getElementById('blogList');
         if(!blogList) return;
@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ];
 
         try {
-            const res = await fetch('https://dev.to/api/articles?tag=javascript&top=1&per_page=5');
+            const res = await fetch('https://dev.to/api/articles?tag=javascript&per_page=5');
             if (!res.ok) throw new Error('Network response was not ok');
             const articles = await res.json();
             
