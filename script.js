@@ -361,7 +361,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const res = await fetch('/api/feedback');
             if (!res.ok) throw new Error('Fetch failed');
             const entries = await res.json();
-            if (!Array.isArray(entries) || entries.length === 0) return feedbackList.html = `<p class="feedback-empty">No feedback yet!</p>`;
+            if (!Array.isArray(entries) || entries.length === 0) return feedbackList.innerHTML = `<p class="feedback-empty">No feedback yet!</p>`;
 
             feedbackList.innerHTML = entries.sort(()=>0.5-Math.random()).slice(0,3).map(e => `
                 <div class="feedback-card">
@@ -395,7 +395,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 rating: parseInt(ratingInput.value)||5,
                 date: new Date().toLocaleDateString()
             };
-            btn.innerHTML = '<p><i class="fa-solid fa-spinner fa-spin"></i> Posting...</p>'; btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Posting...'; btn.disabled = true;
             try {
                 const res = await fetch('/api/feedback', { 
                     method: 'POST', 
@@ -415,7 +415,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     loadFeedbacks();
 
-    // 17. Back to Top Button
+    // 17. Resume Theme Selection & Download Handler (Supports Multiple Resume Buttons)
+    const resumeBtns = document.querySelectorAll('.resumeDownloadBtn');
+    resumeBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Prompt user for theme selection
+            const chooseLight = confirm("Select Resume Theme:\n\nClick 'OK' for Light Theme Resume\nClick 'Cancel' for Dark Theme Resume");
+            
+            const fileName = chooseLight ? 'atuldubeylightthemeresume.pdf' : 'atuldubeydarkthemeresume.pdf';
+            const themeName = chooseLight ? 'Light Theme' : 'Dark Theme';
+            
+            // Trigger download
+            const link = document.createElement('a');
+            link.href = fileName;
+            link.download = fileName;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            showToast(`Downloading ${themeName} Resume...`);
+        });
+    });
+
+    // 18. Back to Top Button
     const backToTop = document.getElementById('backToTop');
     if (backToTop) {
         window.addEventListener('scroll', () => backToTop.classList.toggle('show', window.pageYOffset > 600));
