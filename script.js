@@ -59,24 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. Project Hover Image Reveal
-    const floatPreview = document.getElementById('projectPreviewFloat');
-    const floatImg = floatPreview?.querySelector('img');
-    if (!isTouchDevice && floatPreview) {
-        document.querySelectorAll('.hover-reveal').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                const imgUrl = card.getAttribute('data-image');
-                if(imgUrl) { floatImg.src = imgUrl; floatPreview.classList.add('show'); }
-            });
-            card.addEventListener('mousemove', (e) => {
-                floatPreview.style.left = `${e.clientX + 20}px`;
-                floatPreview.style.top = `${e.clientY + 20}px`;
-            });
-            card.addEventListener('mouseleave', () => floatPreview.classList.remove('show'));
-        });
-    }
-
-    // 6. Magnetic Buttons
+    // 5. Magnetic Buttons
     if(!isTouchDevice) {
         document.querySelectorAll('.skiper-magnetic-wrap').forEach(wrap => {
             const el = wrap.querySelector('.skiper-magnetic');
@@ -89,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 7. Smart Header & Scroll Progress
+    // 6. Smart Header & Scroll Progress
     const smartHeader = document.getElementById('smartHeader');
     const scrollProgress = document.getElementById('scrollProgress');
     let lastScrollY = window.scrollY;
@@ -109,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (scrollProgress) scrollProgress.style.width = `${(window.pageYOffset / totalHeight) * 100}%`;
     }, { passive: true });
 
-    // 8. Dual Project Filter
+    // 7. Dual Project Filter
     const techBtns = document.querySelectorAll('.filter-btn');
     const statusBtns = document.querySelectorAll('.filter-btn-status');
     const projectCards = document.querySelectorAll('.projects-wrapper > div');
@@ -151,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 9. Fetch Dev.to Blog API (Updated to fetch full 5 articles without restriction)
+    // 8. Fetch Dev.to Blog API (Updated to fetch full 5 articles without restriction)
     async function fetchBlogs() {
         const blogList = document.getElementById('blogList');
         if(!blogList) return;
@@ -219,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     fetchBlogs();
 
-    // 10. Hidden BGMI Easter Egg
+    // 9. Hidden BGMI Easter Egg
     let keyBuffer = '';
     const secretCode = 'bgmi';
     const overlay = document.getElementById('easterEggOverlay');
@@ -233,7 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 11. Staggered Reveals & 3D Tilt
+    // 10. Staggered Reveals & 3D Tilt
     const staggerParents = document.querySelectorAll('.animaster-stagger-parent');
     if (!prefersReducedMotion) {
         const staggerObserver = new IntersectionObserver((entries, observer) => {
@@ -263,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 12. Terminal Typist Animation
+    // 11. Terminal Typist Animation
     const typingOutput = document.getElementById('typingOutput');
     const jsonText = '{\n  "developer": "Atul Dubey",\n  "skills": ["JavaScript ES6+", "HTML5", "CSS Grid", "REST APIs"],\n  "status": "Ready for Hire"\n}';
     let charIndex = 0;
@@ -276,7 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     setTimeout(typeTerminal, 2500); 
 
-    // 13. Regular Scroll Reveals
+    // 12. Regular Scroll Reveals
     const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -299,7 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1500 / (target / increment || 1));
     }
 
-    // 14. Hamburger Menu & Click Outside to Close
+    // 13. Hamburger Menu & Click Outside to Close
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -323,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 15. Form Submissions & Toasts
+    // 14. Form Submissions & Toasts
     const toast = document.getElementById('toastNotification');
     function showToast(msg) {
         if(toast) { toast.textContent = msg; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 4500); }
@@ -348,7 +331,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 16. Secure Feedback Logic via Vercel Backend API (`/api/feedback`)
+    // 15. Secure Feedback Logic via Vercel Backend API (`/api/feedback`)
     const feedbackForm = document.getElementById('feedbackForm');
     const feedbackList = document.getElementById('feedbackList');
     const ratingInput = document.getElementById('fbRatingValue');
@@ -415,7 +398,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     loadFeedbacks();
 
-    // 17. Interactive Resume Theme Selection Modal Handler
+    // 16. Interactive Resume Theme Selection Modal Handler
     const resumeModalOverlay = document.getElementById('resumeModalOverlay');
     const resumeBtns = document.querySelectorAll('.resumeDownloadBtn');
     const downloadLightBtn = document.getElementById('downloadLightBtn');
@@ -461,7 +444,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 18. Back to Top Button
+    // 17. Back to Top Button
     const backToTop = document.getElementById('backToTop');
     if (backToTop) {
         window.addEventListener('scroll', () => backToTop.classList.toggle('show', window.pageYOffset > 600));
