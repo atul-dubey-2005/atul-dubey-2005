@@ -182,6 +182,10 @@ I build intelligent applications, scalable web solutions, and data-driven softwa
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=atul-dubey-2005&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117" width="55%" />
 </p>
 
+<p align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=atul-dubey-2005&theme=tokyonight" width="100%" />
+</p>
+
 
 ---
 
