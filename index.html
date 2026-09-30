@@ -597,67 +597,39 @@
         </div>
     </section>
 
-   <!-- Live GitHub Activity & Blog Feed Section -->
-<section id="github" class="section">
-    <h2 class="section-title reveal-on-scroll">
-        <span class="title-number">05.</span> Live Activity Feed
-    </h2>
+       <!-- Live GitHub Activity & Blog Feed Section (Inline Guaranteed Side-by-Side) -->
+    <section id="github" class="section">
+        <h2 class="section-title reveal-on-scroll"><span class="title-number">05.</span> Live Activity Feed</h2>
+        
+        <div style="display: flex; gap: 1.5rem; width: 100%; align-items: stretch; flex-wrap: wrap;" class="github-fix-container">
 
-    <div class="github-desktop-flex">
+            <!-- GitHub Stats Card -->
+            <div class="bento-card glass-panel tilt-card reveal-on-scroll skiper-card" style="flex: 1; min-width: 300px;">
+                <div class="card-icon-header"><i class="fa-brands fa-github"></i></div>
+                <h3>GitHub Statistics & Metrics</h3>
+                <div class="github-stats-container" style="display: flex; flex-direction: column; gap: 1rem; align-items: center; width: 100%;">
+                    <img src="https://github-readme-streak-stats.herokuapp.com/?user=atul-dubey-2005&theme=tokyonight&hide_border=true" alt="GitHub Streak" class="gh-stat-img" style="width: 100%; max-width: 100%; height: auto;">
+                    <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=atul-dubey-2005&theme=tokyonight" alt="GitHub Profile Summary" class="gh-stat-img mt-3" style="width: 100%; max-width: 100%; height: auto;">
 
-        <!-- GitHub Stats Card -->
-        <div class="bento-card glass-panel tilt-card reveal-on-scroll skiper-card github-card-item">
-
-            <div class="card-icon-header">
-                <i class="fa-brands fa-github"></i>
-            </div>
-
-            <h3>GitHub Statistics & Metrics</h3>
-
-            <div class="github-stats-container">
-                <img 
-                    src="https://github-readme-streak-stats.herokuapp.com/?user=atul-dubey-2005&theme=tokyonight&hide_border=true"
-                    alt="GitHub Streak"
-                    class="gh-stat-img"
-                >
-
-                <img 
-                    src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=atul-dubey-2005&theme=tokyonight"
-                    alt="GitHub Profile Summary"
-                    class="gh-stat-img"
-                >
-
-                <!-- Profile Views Badge -->
-                <div class="profile-views">
-                    <img 
-                        src="https://komarev.com/ghpvc/?username=atul-dubey-2005&style=for-the-badge&color=blueviolet"
-                        alt="Profile Views"
-                    >
+                    <!-- Profile Views Badge -->
+                    <div style="margin-top: 1rem; text-align: center; width: 100%;">
+                        <img src="https://komarev.com/ghpvc/?username=atul-dubey-2005&style=for-the-badge&color=blueviolet" alt="Profile Views" style="width: 100%; max-width: 100%; height: auto;">
+                    </div>
                 </div>
             </div>
-        </div>
 
-
-        <!-- Dev.to Blog API Feed Card -->
-        <div class="bento-card glass-panel tilt-card reveal-on-scroll skiper-card blog-feed-container github-card-item">
-
-            <div class="card-icon-header">
-                <i class="fa-solid fa-newspaper"></i>
-            </div>
-
-            <h3>Latest Tech Articles</h3>
-
-            <div id="blogList" class="blog-list">
-                <p class="text-muted">
-                    <i class="fa-solid fa-spinner fa-spin"></i>
-                    Fetching articles...
-                </p>
+            <!-- Dev.to Blog API Feed Card -->
+            <div class="bento-card glass-panel tilt-card reveal-on-scroll skiper-card blog-feed-container" style="flex: 1; min-width: 300px;">
+                <div class="card-icon-header"><i class="fa-solid fa-newspaper"></i></div>
+                <h3>Latest Tech Articles</h3>
+                <div id="blogList" class="blog-list" style="margin-top: 1rem;">
+                    <p class="text-muted"><i class="fa-solid fa-spinner fa-spin"></i> Fetching articles...</p>
+                </div>
             </div>
 
         </div>
+    </section>
 
-    </div>
-</section>
 
     <!-- Timeline / Experience & Education Section -->
     <section id="timeline" class="section">
