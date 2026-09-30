@@ -190,12 +190,12 @@ I build intelligent applications, scalable web solutions, and data-driven softwa
 ---
 ## 💡 Developer Philosophy
 
-<p align="center">
+<h2 align="center">
+  <br>
   <a href="https://github.com/atul-dubey-2005" target="_blank">
-    <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=120&section=header&text=“First,%20solve%20the%20problem.%20Then,%20write%20the%20code.”&fontSize=20&fontColor=38bdf8&animation=fadeIn" width="100%" alt="Developer Philosophy Quote" />
+    <img src="https://img.shields.io/badge/“First%2C%20solve%20the%20problem.%20Then%2C%20write%20the%20code.”-030508?style=for-the-badge&logoColor=38bdf8&color=030508" alt="Quote" height="40">
   </a>
-</p>
-
-<p align="center">
-  <b>🌟 — John Johnson 🌟</b>
-</p>
+  <br>
+  <sub><b>🌟 — John Johnson 🌟</b></sub>
+  <br><br>
+</h2>
