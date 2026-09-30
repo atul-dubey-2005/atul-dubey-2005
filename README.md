@@ -97,8 +97,7 @@ I build intelligent applications, scalable web solutions, and data-driven softwa
       <p>An intelligent system designed to detect and flag potentially fraudulent or malicious applications using anomaly detection.</p>
       <p>
         <a href="https://ai-fraud-app-detection-production.up.railway.app" target="_blank"><img src="https://img.shields.io/badge/Live_App-38bdf8?style=flat-square&logo=vercel&logoColor=white"/></a>
-        <a href="https://github.com/atul-dubey-2005/Ai-fraud-app-detection" target="_blank"><img src="https://img.shields.io/badge/Source_Code-6366f1?style=flat-square&logo=github&logoColor=white"/></a>
-      </p>
+        
     </td>
     <td width="50%" valign="top">
       <h3>2. 🏋️️ AuraFitness Web App</h3>
@@ -125,7 +124,7 @@ I build intelligent applications, scalable web solutions, and data-driven softwa
       <p><b>React 18 • Node.js • Supabase • JWT</b></p>
       <p>A complete Amazon-like platform featuring secure JWT authentication, product catalog filters, and order management.</p>
       <p>
-        <a href="https://amazon-clone-frontend-ty-100e.vercel.app/" target="_blank"><img src="https://img.shields.io/badge/Live_App-38bdf8?style=flat-square&logo=vercel&logoColor=white"/></a>
+    
         <a href="https://github.com/atul-dubey-2005/amazon_clone" target="_blank"><img src="https://img.shields.io/badge/Source_Code-6366f1?style=flat-square&logo=github&logoColor=white"/></a>
       </p>
     </td>
