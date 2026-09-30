@@ -188,9 +188,11 @@ html.lenis, html.lenis body { height: auto; }
 .col-span-7 { grid-column: span 7; } .col-span-5 { grid-column: span 5; } .col-span-4 { grid-column: span 4; } .col-span-3 { grid-column: span 3; }
 .card-icon-header { width: 48px; height: 48px; border-radius: 12px; background: rgba(99, 102, 241, 0.15); color: var(--accent-indigo); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 1.2rem; box-shadow: inset 0 0 12px rgba(99, 102, 241, 0.2); }
 
-.stats-grid { display: flex; justify-content: space-around; align-items: center; padding: 1.8rem 2rem; text-align: center; }
+/* RESTORED ORIGINAL STATS SECTION ALIGNMENT */
+.stats-section { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+.stats-grid { display: flex; justify-content: space-around; align-items: center; padding: 2rem; text-align: center; border-radius: var(--radius-lg); }
 .stat-number { font-size: 2.2rem; font-weight: 800; color: var(--accent-cyan); font-family: var(--font-mono); text-shadow: 0 0 15px rgba(56, 189, 248, 0.3); }
-.stat-label { font-size: 0.88rem; color: var(--text-muted); }
+.stat-label { font-size: 0.88rem; color: var(--text-muted); margin-top: 0.4rem; }
 .stat-divider { width: 1px; height: 40px; background: var(--panel-border); }
 
 /* About & Skills */
@@ -314,7 +316,7 @@ html.lenis, html.lenis body { height: auto; }
 @media (max-width: 768px) { 
     .hamburger { display: flex; } 
     .nav-cta { display: none; } 
-    
+
     .nav-menu { position: fixed; left: -100%; top: 65px; flex-direction: column; background: rgba(3,5,8,0.98); width: 100%; padding: 2rem 0; transition: var(--transition-smooth); border-bottom: 1px solid var(--panel-border); gap: 1.4rem; max-height: calc(100vh - 65px); overflow-y: auto; text-align: center; align-items: center; justify-content: center; } 
     .nav-menu.active { left: 0; } 
     .nav-link { font-size: 1.1rem; width: 100%; display: block; padding: 0.5rem 0; }
@@ -334,7 +336,7 @@ html.lenis, html.lenis body { height: auto; }
     .hero-cta .btn { width: 100%; justify-content: center; }
     .hero-quick-info { justify-content: center; }
     .hero-socials { justify-content: center; }
-    
+
     .footer-content { flex-direction: column; text-align: center; }
 
     .hero-image-wrapper { padding: 3rem 1rem; }
@@ -352,12 +354,12 @@ html.lenis, html.lenis body { height: auto; }
     .badge-bottom { bottom: -15px; right: 5px; padding: 0.5rem; }
     .floating-badge strong { font-size: 0.75rem; }
     .floating-badge span { font-size: 0.6rem; }
-    
+
     .section { padding: 3.5rem 1.25rem; } 
     .bento-grid { gap: 1rem; } 
     .timeline-wrapper { padding-left: 1.5rem; } 
     .timeline-dot { left: -2.05rem; width: 13px; height: 13px; } 
-    
+
     .w-full-mobile { width: 100%; display: flex; }
     .w-full-mobile .btn { width: 100%; justify-content: center; }
 }
