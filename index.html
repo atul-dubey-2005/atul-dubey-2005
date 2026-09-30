@@ -19,6 +19,38 @@
 
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Responsive Grid Adjustments for Live Activity & Stats */
+        @media (max-width: 968px) {
+            #github .bento-grid {
+                display: flex !important;
+                flex-direction: column !important;
+            }
+            #github .bento-card {
+                width: 100% !important;
+                grid-column: span 12 !important;
+            }
+        }
+        .stats-grid-custom {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto 1fr;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+            padding: 2rem;
+            border-radius: 16px;
+        }
+        @media (max-width: 768px) {
+            .stats-grid-custom {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem;
+            }
+            .stats-grid-custom .stat-divider {
+                display: none !important;
+            }
+        }
+    </style>
 </head>
 <body class="vengeance-app" data-theme="default">
 
@@ -191,19 +223,19 @@
         </div>
     </section>
 
-    <!-- Stats Counter Section (Cleanly Aligned Before Overview) -->
+    <!-- Stats Counter Section (Properly Aligned for PC and Mobile) -->
     <section class="stats-section" style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;">
-        <div class="stats-grid glass-panel reveal-on-scroll vengeance-panel-glow" style="display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: center; justify-content: space-between; text-align: center; padding: 2rem; border-radius: 16px;">
+        <div class="stats-grid glass-panel reveal-on-scroll vengeance-panel-glow stats-grid-custom">
             <div class="stat-item">
                 <h3 class="stat-number" data-target="5">0+</h3>
                 <p class="stat-label">Production Projects</p>
             </div>
-            <div class="stat-divider"></div>
+            <div class="stat-divider" style="width: 1px; height: 40px; background: rgba(255, 255, 255, 0.1);"></div>
             <div class="stat-item">
                 <h3 class="stat-number" data-target="2">0</h3>
                 <p class="stat-label">IIT Bombay Workshops</p>
             </div>
-            <div class="stat-divider"></div>
+            <div class="stat-divider" style="width: 1px; height: 40px; background: rgba(255, 255, 255, 0.1);"></div>
             <div class="stat-item">
                 <h3 class="stat-number" data-target="87">0%</h3>
                 <p class="stat-label">Academic Distinction</p>
@@ -586,9 +618,9 @@
                     <img src="https://github-readme-streak-stats.herokuapp.com/?user=atul-dubey-2005&theme=tokyonight&hide_border=true" alt="GitHub Streak" class="gh-stat-img" style="width: 100%; max-width: 100%; height: auto;">
                     <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=atul-dubey-2005&theme=tokyonight" alt="GitHub Profile Summary" class="gh-stat-img mt-3" style="width: 100%; max-width: 100%; height: auto;">
 
-                    <!-- Profile Views Badge Only (No Text) -->
+                    <!-- Profile Views Badge Matched to Stats Width -->
                     <div style="margin-top: 1rem; text-align: center; width: 100%;">
-                        <img src="https://komarev.com/ghpvc/?username=atul-dubey-2005&style=for-the-badge&color=blueviolet" alt="Profile Views" style="max-width: 100%; height: auto;">
+                        <img src="https://komarev.com/ghpvc/?username=atul-dubey-2005&style=for-the-badge&color=blueviolet" alt="Profile Views" style="width: 100%; max-width: 100%; height: auto;">
                     </div>
                 </div>
             </div>
