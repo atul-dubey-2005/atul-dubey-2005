@@ -174,11 +174,12 @@ I build intelligent applications, scalable web solutions, and data-driven softwa
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=atul-dubey-2005&theme=tokyonight&hide_border=true" width="100%" alt="GitHub Streak" />
 </p>
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=atul-dubey-2005&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117" width="100%" />
+  <img src="https://github-readme-stats.vercel.app/api?username=atul-dubey-2005&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117" width="48%" />
+  <img src="https://streak-stats.demolab.com/?user=atul-dubey-2005&theme=tokyonight&hide_border=true&background=0D1117" width="48%" />
 </p>
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=atul-dubey-2005&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117" width="100%" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=atul-dubey-2005&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117" width="55%" />
 </p>
 
 
