@@ -188,12 +188,11 @@ I build intelligent applications, scalable web solutions, and data-driven softwa
 </p>
 
 ---
-
 ## 💡 Developer Philosophy
 
 <p align="center">
   <a href="https://github.com/atul-dubey-2005" target="_blank">
-    <img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=90&section=footer&text=“First,%20solve%20the%20problem.%20Then,%20write%20the%20code.”&fontSize=18&fontColor=38bdf8&fontAlignY=50&animation=fadeIn" width="100%" alt="Interactive Quote" />
+    <img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=80&section=footer&text=%E2%80%9CFirst,%20solve%20the%20problem.%20Then,%20write%20the%20code.%E2%80%9D&fontSize=15&fontColor=38bdf8&fontAlignY=50&animation=fadeIn" width="100%" alt="Interactive Quote" />
   </a>
 </p>
 
