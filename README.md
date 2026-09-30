@@ -189,6 +189,14 @@ I build intelligent applications, scalable web solutions, and data-driven softwa
 
 ---
 
-### 💡 Quote
+## 💡 Developer Philosophy
 
-> *"First, solve the problem. Then, write the code."* – John Johnson
+<p align="center">
+  <a href="https://github.com/atul-dubey-2005" target="_blank">
+    <img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=90&section=footer&text=“First,%20solve%20the%20problem.%20Then,%20write%20the%20code.”&fontSize=18&fontColor=38bdf8&fontAlignY=50&animation=fadeIn" width="100%" alt="Interactive Quote" />
+  </a>
+</p>
+
+<p align="center">
+  <i>— John Johnson</i>
+</p>
