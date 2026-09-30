@@ -112,7 +112,8 @@ I build intelligent applications, scalable web solutions, and data-driven softwa
 ## 📊 GitHub Stats & Metrics
 
 <p align="center">
-  ![](https://github-readme-stats.vercel.app/api?username=atul-dubey-2005&show_icons=true&theme=tokyonight)
+
+![](https://github-readme-stats.vercel.app/api?username=atul-dubey-2005&show_icons=true&theme=tokyonight)
 
 ![](https://streak-stats.demolab.com/?user=atul-dubey-2005&theme=tokyonight)
 
