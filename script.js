@@ -415,29 +415,51 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     loadFeedbacks();
 
-    // 17. Resume Theme Selection & Download Handler (Supports Multiple Resume Buttons)
+    // 17. Interactive Resume Theme Selection Modal Handler
+    const resumeModalOverlay = document.getElementById('resumeModalOverlay');
     const resumeBtns = document.querySelectorAll('.resumeDownloadBtn');
+    const downloadLightBtn = document.getElementById('downloadLightBtn');
+    const downloadDarkBtn = document.getElementById('downloadDarkBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+
     resumeBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
-            
-            // Prompt user for theme selection
-            const chooseLight = confirm("Select Resume Theme:\n\nClick 'OK' for Light Theme Resume\nClick 'Cancel' for Dark Theme Resume");
-            
-            const fileName = chooseLight ? 'atuldubeylightthemeresume.pdf' : 'atuldubeydarkthemeresume.pdf';
-            const themeName = chooseLight ? 'Light Theme' : 'Dark Theme';
-            
-            // Trigger download
-            const link = document.createElement('a');
-            link.href = fileName;
-            link.download = fileName;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
-            showToast(`Downloading ${themeName} Resume...`);
+            if (resumeModalOverlay) resumeModalOverlay.classList.add('active');
         });
     });
+
+    if (closeModalBtn && resumeModalOverlay) {
+        closeModalBtn.addEventListener('click', () => {
+            resumeModalOverlay.classList.remove('active');
+        });
+        resumeModalOverlay.addEventListener('click', (e) => {
+            if (e.target === resumeModalOverlay) resumeModalOverlay.classList.remove('active');
+        });
+    }
+
+    function triggerResumeDownload(fileName, themeName) {
+        const link = document.createElement('a');
+        link.href = fileName;
+        link.download = fileName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        if (resumeModalOverlay) resumeModalOverlay.classList.remove('active');
+        showToast(`Downloading ${themeName} Resume...`);
+    }
+
+    if (downloadLightBtn) {
+        downloadLightBtn.addEventListener('click', () => {
+            triggerResumeDownload('atuldubeylightthemeresume.pdf', 'Light Theme');
+        });
+    }
+
+    if (downloadDarkBtn) {
+        downloadDarkBtn.addEventListener('click', () => {
+            triggerResumeDownload('atuldubeydarkthemeresume.pdf', 'Dark Theme');
+        });
+    }
 
     // 18. Back to Top Button
     const backToTop = document.getElementById('backToTop');
