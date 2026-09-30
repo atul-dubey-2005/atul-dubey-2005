@@ -68,7 +68,7 @@ html.lenis, html.lenis body { height: auto; }
 .scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(to right, var(--accent-cyan), var(--accent-indigo), var(--accent-violet)); z-index: 10000; width: 0%; transition: width 0.1s ease; }
 
 /* ==========================================================================
-   2. Preloader, Cursors, Hover Reveals & Easter Egg
+   2. Preloader & Cursors
    ========================================================================== */
 .vengeance-preloader { position: fixed; inset: 0; background-color: var(--bg-dark); z-index: 999999; display: flex; justify-content: center; align-items: center; transition: opacity 0.6s ease-out, visibility 0.6s; }
 .vengeance-preloader.fade-out { opacity: 0; visibility: hidden; }
@@ -84,10 +84,6 @@ html.lenis, html.lenis body { height: auto; }
 .cursor-dot { width: 8px; height: 8px; background-color: var(--accent-cyan); box-shadow: 0 0 10px var(--accent-cyan); }
 .cursor-outline { width: 36px; height: 36px; border: 1px solid rgba(56, 189, 248, 0.6); }
 @media (max-width: 992px) { .cursor-dot, .cursor-outline { display: none; } }
-
-.project-preview-float { position: fixed; top: 0; left: 0; width: 260px; height: 170px; border-radius: 14px; overflow: hidden; pointer-events: none; z-index: 9998; opacity: 0; transform: scale(0.8) translate(-50%, -50%); transition: opacity 0.3s ease, transform 0.3s ease; box-shadow: 0 20px 40px rgba(0,0,0,0.6); border: 2px solid var(--accent-cyan); }
-.project-preview-float.show { opacity: 1; transform: scale(1) translate(-50%, -50%); }
-.project-preview-float img { width: 100%; height: 100%; object-fit: cover; }
 
 .easter-egg-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.96); z-index: 100000; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: 0.3s ease; text-align: center; }
 .easter-egg-overlay.active { opacity: 1; visibility: visible; }
@@ -135,7 +131,7 @@ html.lenis, html.lenis body { height: auto; }
 .skiper-magnetic-wrap.w-full-mobile { width: 100%; display: flex; }
 
 /* ==========================================================================
-   4. Hero & Advanced Widgets (Top-tier Vengeance UI Profiles)
+   4. Hero & Advanced Widgets
    ========================================================================== */
 .hero-section { min-height: 95vh; display: flex; align-items: center; max-width: 1280px; margin: 0 auto; padding: 8.5rem 2rem 4rem; }
 .hero-container { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 4rem; align-items: center; width: 100%; }
@@ -179,7 +175,7 @@ html.lenis, html.lenis body { height: auto; }
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
 /* ==========================================================================
-   5. Content Sections (Bento Grids, Stats, GitHub & Blog Feed)
+   5. Content Sections (Bento Grids, Stats, GitHub Side-by-Side)
    ========================================================================== */
 .section { max-width: 1280px; margin: 0 auto; padding: 5rem 2rem; }
 .section-title { font-size: clamp(1.6rem, 3.5vw, 2.1rem); font-weight: 800; margin-bottom: 2.5rem; display: flex; align-items: center; gap: 0.6rem; }
@@ -187,6 +183,15 @@ html.lenis, html.lenis body { height: auto; }
 .bento-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.5rem; }
 .col-span-7 { grid-column: span 7; } .col-span-5 { grid-column: span 5; } .col-span-4 { grid-column: span 4; } .col-span-3 { grid-column: span 3; } .col-span-6 { grid-column: span 6; }
 .card-icon-header { width: 48px; height: 48px; border-radius: 12px; background: rgba(99, 102, 241, 0.15); color: var(--accent-indigo); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 1.2rem; box-shadow: inset 0 0 12px rgba(99, 102, 241, 0.2); }
+
+/* FORCED SIDE-BY-SIDE GRID FOR GITHUB STATS & TECH ARTICLES */
+.github-side-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    align-items: stretch;
+    width: 100%;
+}
 
 /* RESTORED ORIGINAL STATS SECTION ALIGNMENT */
 .stats-section { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
@@ -201,8 +206,7 @@ html.lenis, html.lenis body { height: auto; }
 .skill-tags-list { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; } .skill-tags-list li { display: flex; align-items: center; gap: 0.8rem; font-size: 0.92rem; color: var(--text-muted); transition: 0.2s; }
 .skill-tags-list li:hover { color: var(--text-main); transform: translateX(4px); }
 
-/* GitHub Stats & Blog Feed Side-by-Side */
-.github-blog-bento { display: grid; grid-template-columns: repeat(12, 1fr) !important; gap: 1.5rem; align-items: stretch; }
+/* GitHub Stats & Blog Feed */
 .github-stats-container { display: flex; flex-direction: column; gap: 1rem; width: 100%; overflow-x: auto; }
 .gh-stat-img { width: 100%; max-width: 100%; border-radius: 12px; filter: drop-shadow(0 6px 12px rgba(0,0,0,0.4)); transition: filter 0.3s; }
 [data-theme="monochrome"] .gh-stat-img { filter: grayscale(100%); }
@@ -210,7 +214,6 @@ html.lenis, html.lenis body { height: auto; }
 .blog-card { display: flex; flex-direction: column; gap: 0.5rem; padding: 1.1rem; background: rgba(255,255,255,0.025); border: 1px solid var(--panel-border); border-radius: 12px; text-decoration: none; color: var(--text-main); transition: var(--transition-fast); }
 .blog-card:hover { border-color: var(--accent-cyan); background: rgba(255,255,255,0.06); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(56, 189, 248, 0.1); }
 
-/* Blog title multi-line wrap protection */
 .blog-card h4 { 
   font-size: 0.98rem; 
   font-weight: 600; 
@@ -307,7 +310,7 @@ html.lenis, html.lenis body { height: auto; }
    MOBILE RESPONSIVENESS (FULLY OPTIMIZED)
    ========================================================================== */
 @media (max-width: 992px) { 
-    .hero-container, .bento-grid { grid-template-columns: 1fr; } 
+    .hero-container, .bento-grid, .github-side-grid { grid-template-columns: 1fr !important; } 
     .col-span-7, .col-span-5, .col-span-4, .col-span-3, .col-span-6 { grid-column: span 12; } 
     .stats-grid { flex-direction: column; gap: 1.5rem; } 
     .stat-divider { display: none; }
