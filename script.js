@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function fetchBlogs() {
         const blogList = document.getElementById('blogList');
         if(!blogList) return;
-        
+
         const fallbackArticles = [
             {
                 title: "Left-pad incident explained: how 11 lines of JavaScript broke npm",
@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const res = await fetch('https://dev.to/api/articles?tag=javascript&per_page=5');
             if (!res.ok) throw new Error('Network response was not ok');
             const articles = await res.json();
-            
+
             if(articles && articles.length > 0) {
                 blogList.innerHTML = articles.map(a => `
                     <a href="${a.url}" target="_blank" class="blog-card skiper-magnetic-wrap">
@@ -348,9 +348,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 16. Supabase Feedback Logic
-    const SUPABASE_URL = 'AAPKA_SUPABASE_PROJECT_URL_YAHAN_DALEIN'; 
-    const SUPABASE_KEY = 'AAPKI_SUPABASE_ANON_PUBLIC_KEY_YAHAN_DALEIN';
+    // 16. Secure Feedback Logic via Vercel Backend API (`/api/feedback`)
     const feedbackForm = document.getElementById('feedbackForm');
     const feedbackList = document.getElementById('feedbackList');
     const ratingInput = document.getElementById('fbRatingValue');
@@ -360,10 +358,11 @@ document.addEventListener('DOMContentLoaded', () => {
     async function loadFeedbacks() {
         if (!feedbackList) return;
         try {
-            const res = await fetch(`${SUPABASE_URL}/rest/v1/feedbacks?select=*`, { headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` } });
+            const res = await fetch('/api/feedback');
             if (!res.ok) throw new Error('Fetch failed');
             const entries = await res.json();
-            if (entries.length === 0) return feedbackList.innerHTML = `<p class="feedback-empty">No feedback yet!</p>`;
+            if (!Array.isArray(entries) || entries.length === 0) return feedbackList.innerHTML = `<p class="feedback-empty">No feedback yet!</p>`;
+            
             feedbackList.innerHTML = entries.sort(()=>0.5-Math.random()).slice(0,3).map(e => `
                 <div class="feedback-card">
                     <div class="feedback-card-header">
@@ -398,9 +397,18 @@ document.addEventListener('DOMContentLoaded', () => {
             };
             btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Posting...'; btn.disabled = true;
             try {
-                await fetch(`${SUPABASE_URL}/rest/v1/feedbacks`, { method: 'POST', headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}`, 'Prefer': 'return=minimal' }, body: JSON.stringify(newEntry) });
-                feedbackForm.reset(); document.querySelectorAll('#starRating .star').forEach(s=>s.classList.add('active')); ratingInput.value = 5;
-                loadFeedbacks(); showToast(`Thanks for the feedback, ${newEntry.name}!`);
+                const res = await fetch('/api/feedback', { 
+                    method: 'POST', 
+      -              headers: { 'Content-Type': 'application/json' }, 
+                    body: JSON.stringify(newEntry) 
+                });
+                if (!res.ok) throw new Error('Post failed');
+                
+                feedbackForm.reset(); 
+                document.querySelectorAll('#starRating .star').forEach(s=>s.classList.add('active')); 
+                ratingInput.value = 5;
+                loadFeedbacks(); 
+                showToast(`Thanks for the feedback, ${newEntry.name}!`);
             } catch (err) { showToast('Failed to save feedback.'); } 
             finally { btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Post Feedback'; btn.disabled = false; }
         });
