@@ -19,31 +19,8 @@
 
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="advanced.css">
 
-    <style>
-        /* Perfectly Aligned Stats Counter Section for PC & Mobile */
-        .stats-grid-custom {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr auto 1fr;
-            align-items: center;
-            justify-content: space-between;
-            text-align: center;
-            padding: 2.5rem 2rem;
-            border-radius: 16px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        @media (max-width: 768px) {
-            .stats-grid-custom {
-                grid-template-columns: 1fr !important;
-                gap: 1.5rem;
-                padding: 1.5rem;
-            }
-            .stats-grid-custom .stat-divider {
-                display: none !important;
-            }
-        }
-    </style>
 </head>
 <body class="vengeance-app" data-theme="default">
 
@@ -216,18 +193,18 @@
     </section>
 
     <!-- Stats Counter Section -->
-    <section class="stats-section" style="padding: 0 1.5rem;">
+    <section class="stats-section">
         <div class="stats-grid glass-panel reveal-on-scroll vengeance-panel-glow stats-grid-custom">
             <div class="stat-item">
                 <h3 class="stat-number" data-target="5">0+</h3>
                 <p class="stat-label">Production Projects</p>
             </div>
-            <div class="stat-divider" style="width: 1px; height: 40px; background: rgba(255, 255, 255, 0.1);"></div>
+            <div class="stat-divider"></div>
             <div class="stat-item">
                 <h3 class="stat-number" data-target="2">0</h3>
                 <p class="stat-label">IIT Bombay Workshops</p>
             </div>
-            <div class="stat-divider" style="width: 1px; height: 40px; background: rgba(255, 255, 255, 0.1);"></div>
+            <div class="stat-divider"></div>
             <div class="stat-item">
                 <h3 class="stat-number" data-target="87">0%</h3>
                 <p class="stat-label">Academic Distinction</p>
@@ -911,6 +888,7 @@
 
 <!-- External Scripts -->
 <script src="script.js"></script>
+<script src="advanced.js" defer></script>
 
 </body>
 </html>
