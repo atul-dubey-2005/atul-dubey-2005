@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ];
 
         try {
-            const res = await fetch('https://dev.to/api/articles?tag=javascript&per_page=5');
+            const res = await fetch('https://dev.to/api/articles?tag=javascript&per_page=3');
             if (!res.ok) throw new Error('Network response was not ok');
             const articles = await res.json();
 
