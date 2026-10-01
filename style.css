@@ -343,14 +343,17 @@ html.lenis, html.lenis body { height: auto; }
 .btn-cancel-theme:hover { background: rgba(255, 255, 255, 0.1); color: var(--text-main); }
 
 /* ==========================================================================
-   MOBILE RESPONSIVENESS
+   MOBILE RESPONSIVENESS (GitHub Feed hamesha Desktop par side-by-side rahega)
    ========================================================================== */
 @media (max-width: 992px) { 
     .hero-container, .bento-grid { grid-template-columns: 1fr; } 
     .col-span-7, .col-span-5, .col-span-4, .col-span-3, .col-span-6 { grid-column: span 12; } 
     .stats-grid { flex-direction: column; gap: 1.5rem; } 
     .stat-divider { display: none; }
+}
 
+/* GitHub Stats & Blog Feed sirf bohot chote phones (< 576px) par stack honge */
+@media (max-width: 576px) {
     .github-desktop-flex {
         flex-direction: column !important;
     }
