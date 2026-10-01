@@ -1,0 +1,20 @@
+/* Analytics section (Chart.js). Load after advanced.css */
+.an-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin: -1rem 0 1.5rem; }
+.an-note { margin: 0; color: var(--text-muted); font-size: .95rem; }
+.an-controls { display: flex; gap: .3rem; padding: .3rem; border: 1px solid var(--panel-border); border-radius: 999px; background: rgba(255, 255, 255, .03); }
+.an-controls button { padding: .4rem .9rem; border: 0; border-radius: 999px; background: transparent; color: var(--text-muted); font: 600 .8rem var(--font-primary, inherit); text-transform: capitalize; cursor: pointer; transition: color .25s, background .25s, box-shadow .25s; }
+.an-controls button:hover { color: var(--text-main); }
+.an-controls button.active { background: var(--accent-indigo); color: #fff; box-shadow: 0 0 16px var(--accent-glow); }
+.an-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.5rem; }
+.an-grid:empty { min-height: 36rem; }
+.an-card { animation: anIn .8s var(--ease-out) both; }
+@keyframes anIn { from { opacity: 0; transform: translateY(24px); } }
+.an-kpi { grid-column: span 3; display: flex; flex-direction: column; gap: .35rem; }
+.an-kpi b { font: 800 2.4rem/1 var(--font-mono); background: linear-gradient(90deg, var(--accent-cyan), var(--accent-violet)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.an-kpi span { color: var(--text-muted); font-size: .85rem; }
+.an-w6 { grid-column: span 6; }
+.an-card h3 { margin-bottom: 1rem; font-size: 1.05rem; }
+.an-canvas, .an-empty { position: relative; height: 270px; }
+.an-empty { display: grid; place-items: center; color: var(--text-muted); font-size: .9rem; text-align: center; }
+@media (max-width: 992px) { .an-kpi { grid-column: span 6; } .an-w6 { grid-column: span 12; } }
+@media (max-width: 480px) { .an-canvas, .an-empty { height: 230px; } }
