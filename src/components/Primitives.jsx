@@ -4,13 +4,13 @@ import {
   Activity, ArrowRight, ArrowUp, ArrowUpRight, Award, BookOpen,
   BrainCircuit, Building2, Calculator, ChartNoAxesCombined, ChartSpline, Check,
   CircleDot, Cloud, Code2, Database, Download, Figma,
-  Gamepad2, Github, GraduationCap, Headphones, Heart, Layers3,
+  Gamepad2, Github, GraduationCap, Headphones, Heart, House, Layers3,
   LockKeyhole, Mail, MapPin, Menu, MessageSquare, MousePointer2,
   Palette, PanelsTopLeft, PenTool, Plus, Quote, RefreshCw,
   Rocket, Satellite, Search, Send, ShieldCheck, ShoppingBag,
   Sparkles, Star, Terminal, Workflow, X
 } from 'lucide-react';
-const ICONS = {Activity, ArrowRight, ArrowUp, ArrowUpRight, Award, BookOpen, BrainCircuit, Building2, Calculator, ChartNoAxesCombined, ChartSpline, Check, CircleDot, Cloud, Code2, Database, Download, Figma, Gamepad2, Github, GraduationCap, Headphones, Heart, Layers3, LockKeyhole, Mail, MapPin, Menu, MessageSquare, MousePointer2, Palette, PanelsTopLeft, PenTool, Plus, Quote, RefreshCw, Rocket, Satellite, Search, Send, ShieldCheck, ShoppingBag, Sparkles, Star, Terminal, Workflow, X};
+const ICONS = {Activity, ArrowRight, ArrowUp, ArrowUpRight, Award, BookOpen, BrainCircuit, Building2, Calculator, ChartNoAxesCombined, ChartSpline, Check, CircleDot, Cloud, Code2, Database, Download, Figma, Gamepad2, Github, GraduationCap, Headphones, Heart, House, Layers3, LockKeyhole, Mail, MapPin, Menu, MessageSquare, MousePointer2, Palette, PanelsTopLeft, PenTool, Plus, Quote, RefreshCw, Rocket, Satellite, Search, Send, ShieldCheck, ShoppingBag, Sparkles, Star, Terminal, Workflow, X};
 export function Icon({name,size=19,...props}) {const Component=ICONS[name]||Sparkles;return <Component size={size} strokeWidth={1.8} {...props}/>}
 export function Reveal({children,className='',delay=0,amount=0.12,...props}) {
   const reduce=useReducedMotion();
