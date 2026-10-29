@@ -175,3 +175,22 @@ a:hover .text-roll-letter>span,a:focus-visible .text-roll-letter>span{transform:
 @media(prefers-reduced-motion:reduce){.hero-shader{opacity:.2}.action-btn::after{display:none}.hero-display-gradient,.gradient-word{animation:none!important}}
 @media(prefers-contrast:more){:root{--muted:#cacbdb;--border:rgba(255,255,255,.4)}.action-btn,.theme-option{border-width:2px}}
 @supports(padding:env(safe-area-inset-bottom)){.mobile-menu{padding-bottom:max(18px,env(safe-area-inset-bottom))}.quick-dock{bottom:max(19px,env(safe-area-inset-bottom))}}
+
+
+/* Navbar branding + feedback input alignment (editable customisations) */
+.wordmark-code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(16px, 1.65vw, 23px);
+  font-weight: 750;
+  letter-spacing: -0.065em;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.form-duo label { min-width: 0; }
+.form-duo .field-title {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  min-height: 18px;
+  white-space: nowrap;
+}
