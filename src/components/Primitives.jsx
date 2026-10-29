@@ -14,7 +14,7 @@ const ICONS = {Activity, ArrowRight, ArrowUp, ArrowUpRight, Award, BookOpen, Bra
 export function Icon({name,size=19,...props}) {const Component=ICONS[name]||Sparkles;return <Component size={size} strokeWidth={1.8} {...props}/>}
 export function Reveal({children,className='',delay=0,amount=0.12,...props}) {
   const reduce=useReducedMotion();
-  return <motion.div className={className} initial={reduce?false:{opacity:0,y:34,filter:'blur(7px)'}} whileInView={{opacity:1,y:0,filter:'blur(0px)'}} viewport={{once:true,amount}} transition={{duration:0.7,delay,ease:[0.22,1,0.36,1]}} {...props}>{children}</motion.div>;
+  return <motion.div className={className} initial={reduce?false:{opacity:0,y:28,scale:.987}} whileInView={{opacity:1,y:0,scale:1}} viewport={{once:true,amount}} transition={{duration:0.68,delay,ease:[0.22,1,0.36,1]}} {...props}>{children}</motion.div>;
 }
 export function SectionIntro({number,eyebrow,title,accent,description,side}) {
  return <Reveal className="section-intro"><div className="section-label"><span className="serial">{number}</span><span className="little-line"/>{eyebrow}</div><div className="section-title-row"><h2 className="section-heading">{title} {accent&&<span className="gradient-word">{accent}</span>}</h2>{side&&<div className="intro-side">{side}</div>}</div>{description&&<p className="section-description">{description}</p>}</Reveal>

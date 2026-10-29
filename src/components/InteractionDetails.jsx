@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { motion, useReducedMotion, useScroll, useSpring, useTransform } from 'motion/react';
+import React, { useEffect, useState } from 'react';
+import { motion, useReducedMotion, useSpring } from 'motion/react';
 import { Icon } from './Primitives';
 
 /** Original, self-contained text roll interaction informed by Skiper UI's free text-roll demonstrations. */
@@ -38,8 +38,8 @@ export function MagneticLink({ href, children, className = '', ...props }) {
 }
 
 /** Floating, accessible bottom dock, shown on larger screens only. */
-export function MotionDock() {
-  const links = [['#top', 'House', 'Home'], ['#projects', 'PanelsTopLeft', 'Work'], ['#creative-lab', 'Sparkles', 'Motion Lab'], ['#contact', 'Mail', 'Contact']];
+export function QuickDock() {
+  const links = [['#top', 'House', 'Home'], ['#projects', 'PanelsTopLeft', 'Work'], ['#skills', 'Code2', 'Expertise'], ['#contact', 'Mail', 'Contact']];
   const [scroll, setScroll] = useState(0);
   useEffect(() => {
     let raf = 0;
@@ -47,20 +47,7 @@ export function MotionDock() {
     window.addEventListener('scroll', read, { passive: true });
     return () => { cancelAnimationFrame(raf); window.removeEventListener('scroll', read); };
   }, []);
-  return <nav className={`motion-dock ${scroll > 240 ? 'dock-visible' : ''}`} aria-label="Quick navigation">
+  return <nav className={`quick-dock ${scroll > 240 ? 'dock-visible' : ''}`} aria-label="Quick navigation">
     {links.map(([href, icon, label]) => <a key={href} href={href} aria-label={label} data-tooltip={label}><Icon name={icon} size={18}/><span className="sr-only">{label}</span></a>)}
   </nav>;
-}
-
-/** Scroll-linked editorial strip, disabled by OS reduced-motion setting. */
-export function KineticManifesto() {
-  const target = useRef(null);
-  const reduced = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target, offset: ['start end', 'end start'] });
-  const shift = useTransform(scrollYProgress, [0, 1], ['8%', '-8%']);
-  return <section className="kinetic-manifesto" ref={target} aria-label="Design philosophy">
-    <motion.div className="kinetic-line" style={reduced ? undefined : { x: shift }}>
-      <span>DESIGN</span><span className="kinetic-asterisk">✳</span><span>BUILD</span><span className="kinetic-asterisk">✳</span><span>ANIMATE</span><span className="kinetic-asterisk">✳</span><span>EVOLVE</span>
-    </motion.div>
-  </section>;
 }

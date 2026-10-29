@@ -1,6 +1,6 @@
 {
   "name": "atul-portfolio-reimagined",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -20,10 +20,7 @@
     "react-dom": "^18.3.1",
     "recharts": "^2.15.0",
     "sonner": "^1.7.4",
-    "lottie-react": "^3.1.2",
-    "@splinetool/react-spline": "^4.1.0",
-    "@splinetool/runtime": "^1.12.98",
-    "@rive-app/react-canvas": "^4.38.0"
+    "lottie-react": "^3.1.2"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",
