@@ -1,35 +1,37 @@
-// api/contact.js
-const nodemailer = require('nodemailer');
+import nodemailer from 'nodemailer';
 
-export default async function handler(req, res) {
-    if (req.method !== 'POST') {
-        return res.status(405).json({ message: 'Method not allowed' });
-    }
+const MAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const clean = (value, max) => typeof value === 'string' ? value.trim().slice(0,max) : '';
 
-    const { name, email, message } = req.body;
-
-    // SMTP Configuration (Gmail ke liye)
+// Vercel serverless function. Never expose SMTP credentials to the browser.
+export default async function handler(req,res) {
+  res.setHeader('Cache-Control','no-store');
+  if (req.method !== 'POST') {
+    res.setHeader('Allow','POST');
+    return res.status(405).json({error:'Method not allowed'});
+  }
+  const name = clean(req.body?.name,80);
+  const email = clean(req.body?.email,200);
+  const message = clean(req.body?.message,3000);
+  if (!name || !MAIL_RE.test(email) || !message) return res.status(400).json({error:'A valid name, email and message are required.'});
+  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+    return res.status(503).json({error:'Email delivery has not been configured.'});
+  }
+  try {
     const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: process.env.EMAIL_USER, // Aapka Gmail address
-            pass: process.env.EMAIL_PASS  // Aapka Gmail App Password
-        }
+      service:'gmail',
+      auth:{user:process.env.EMAIL_USER,pass:process.env.EMAIL_PASS}
     });
-
-    const mailOptions = {
-        from: process.env.EMAIL_USER, // Email aapke hi account se send hoga
-        to: process.env.EMAIL_USER,   // Email aapko hi receive hoga
-        replyTo: email,               // Jab aap 'Reply' dabayenge, toh user ki email id par jayega
-        subject: `Portfolio Contact: Message from ${name}`,
-        text: `You have a new message from your portfolio website!\n\nName: ${name}\nSender Email: ${email}\n\nMessage:\n${message}`
-    };
-
-    try {
-        await transporter.sendMail(mailOptions);
-        res.status(200).json({ success: true, message: 'Email sent successfully!' });
-    } catch (error) {
-        console.error("Error sending email:", error);
-        res.status(500).json({ success: false, error: 'Internal Server Error' });
-    }
+    await transporter.sendMail({
+      from:process.env.EMAIL_USER,
+      to:process.env.EMAIL_USER,
+      replyTo:email,
+      subject:`Portfolio enquiry from ${name.replace(/[\r\n]/g,' ')}`,
+      text:`New message from the Atul Dubey portfolio:\n\nName: ${name}\nEmail: ${email}\n\n${message}`
+    });
+    return res.status(200).json({success:true});
+  } catch (error) {
+    console.error('Contact email delivery failed:',error?.message);
+    return res.status(502).json({error:'Could not send the email. Try the direct email link.'});
+  }
 }

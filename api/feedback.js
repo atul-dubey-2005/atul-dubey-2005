@@ -1,57 +1,44 @@
-export default async function handler(req, res) {
-    // Enable CORS for your frontend
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
-    if (req.method === 'OPTIONS') {
-        return res.status(200).end();
-    }
-
-    const SUPABASE_URL = process.env.SUPABASE_URL;
-    const SUPABASE_KEY = process.env.SUPABASE_KEY;
-
-    if (!SUPABASE_URL || !SUPABASE_KEY) {
-        return res.status(500).json({ error: 'Server configuration missing' });
-    }
-
-    // Handle GET (Fetch Feedbacks)
+// Supabase REST integration. Secrets are used only by the serverless function.
+const clean = (value, max) => typeof value === 'string' ? value.trim().slice(0,max) : '';
+const responseHeaders = {
+  'Content-Type':'application/json',
+  'Prefer':'return=minimal'
+};
+export default async function handler(req,res) {
+  res.setHeader('Cache-Control','no-store');
+  if (req.method !== 'GET' && req.method !== 'POST') {
+    res.setHeader('Allow','GET, POST');
+    return res.status(405).json({error:'Method not allowed'});
+  }
+  const base = process.env.SUPABASE_URL?.replace(/\/$/,'');
+  const key = process.env.SUPABASE_KEY;
+  if (!base || !/^https:\/\//.test(base) || !key) {
+    return res.status(503).json({error:'Feedback service has not been configured.'});
+  }
+  const headers = {...responseHeaders,apikey:key,Authorization:`Bearer ${key}`};
+  try {
     if (req.method === 'GET') {
-        try {
-            const response = await fetch(`${SUPABASE_URL}/rest/v1/feedbacks?select=*`, {
-                headers: {
-                    'apikey': SUPABASE_KEY,
-                    'Authorization': `Bearer ${SUPABASE_KEY}`
-                }
-            });
-            const data = await response.json();
-            return res.status(200).json(data);
-        } catch (err) {
-            return res.status(500).json({ error: 'Failed to fetch feedback' });
-        }
+      const response = await fetch(`${base}/rest/v1/feedbacks?select=id,name,role,rating,message,date&order=id.desc&limit=24`,{headers});
+      if (!response.ok) throw new Error(`Supabase read: ${response.status}`);
+      const data = await response.json();
+      return res.status(200).json(data);
     }
-
-    // Handle POST (Submit Feedback)
-    if (req.method === 'POST') {
-        try {
-            const newEntry = req.body;
-            const response = await fetch(`${SUPABASE_URL}/rest/v1/feedbacks`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'apikey': SUPABASE_KEY,
-                    'Authorization': `Bearer ${SUPABASE_KEY}`,
-                    'Prefer': 'return=minimal'
-                },
-                body: JSON.stringify(newEntry)
-            });
-
-            if (!response.ok) throw new Error('Failed to insert');
-            return res.status(200).json({ success: true });
-        } catch (err) {
-            return res.status(500).json({ error: 'Failed to post feedback' });
-        }
+    const input = req.body || {};
+    const newEntry = {
+      name:clean(input.name,60),role:clean(input.role,60),
+      rating:Number(input.rating),message:clean(input.message,400),
+      date:new Date().toLocaleDateString('en-IN',{timeZone:'Asia/Kolkata'})
+    };
+    if (!newEntry.name || !newEntry.message || !Number.isInteger(newEntry.rating) || newEntry.rating<1 || newEntry.rating>5) {
+      return res.status(400).json({error:'Please provide a name, message and a rating from 1 to 5.'});
     }
-
-    return res.status(405).json({ error: 'Method not allowed' });
+    const response = await fetch(`${base}/rest/v1/feedbacks`,{
+      method:'POST',headers,body:JSON.stringify(newEntry)
+    });
+    if (!response.ok) throw new Error(`Supabase write: ${response.status}`);
+    return res.status(201).json({success:true});
+  } catch(error) {
+    console.error('Feedback API failed:',error?.message);
+    return res.status(502).json({error:'Feedback service unavailable.'});
+  }
 }
