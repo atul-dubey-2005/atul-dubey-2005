@@ -96,7 +96,7 @@ I build intelligent applications, scalable web solutions, and data-driven softwa
       <p><b>Python • Machine Learning • Railway</b></p>
       <p>An intelligent system designed to detect and flag potentially fraudulent or malicious applications using anomaly detection.</p>
       <p>
-        <a href="https://ai-fraud-app-detection-production.up.railway.app" target="_blank"><img src="https://img.shields.io/badge/Live_App-38bdf8?style=flat-square&logo=vercel&logoColor=white"/></a>
+        <a href="https://ai-fraud-app-detection.onrender.com" target="_blank"><img src="https://img.shields.io/badge/Live_App-38bdf8?style=flat-square&logo=vercel&logoColor=white"/></a>
       </p>
     </td>
     <td width="50%" valign="top">
